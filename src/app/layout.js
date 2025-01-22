@@ -2,7 +2,7 @@
 
 import "./globals.css";
 import Navbar from "./_Components/Layouts/Navbar/Navbar";
-import Footer from "./_Components/Layouts/Footer/Footer";
+import Footer from './_Components/ComponentUser/Footer/Footer'
 import { ContextProvider } from "../context/Context";
 import { QueryClient, QueryClientProvider } from "react-query";
 // src/icons.js
