@@ -3,22 +3,38 @@
 import React, { useState, useContext, useEffect } from "react";
 import "../../../css/componantUser/MainNav/MainNav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCommentDots,
+  faCircleXmark,
+} from "@fortawesome/free-regular-svg-icons";
+import {
+  faWhatsapp,
+  faInstagram,
+  faTelegram,
+  faTiktok,
+  faSquareFacebook,
+  faSquareTwitter,
+  faSquareYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+
 // import { faCircleXmark, faEye } from "@fortawesome/free-solid-svg-icons";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
-import RegisterUser from "../RegisterUser/RegisterUser";
-import LoginUser from "../LoginUser/LoginUser";
+// import RegisterUser from "../RegisterUser/RegisterUser";
+// import LoginUser from "../LoginUser/LoginUser";
 import { ContextUser } from "../../../../context/Context";
 import SuccessRegister from "../SuccessRegister/SuccessRegister";
-import ForgetPassword from "../ForgetPassword/ForgetPassword";
-import RestNewPassword from "../../../js/componantUser/RestNewPassword/RestNewPassword";
+// import ForgetPassword from "../ForgetPassword/ForgetPassword";
+// import RestNewPassword from "../../../js/componantUser/RestNewPassword/RestNewPassword";
 // import imgone from "../../image/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png";
-import UpdateLogin from "../UpdateLogin";
+// import UpdateLogin from "../UpdateLogin";
 
-import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import { useQuery } from "react-query";
+import { useRouter } from "next/navigation";
 
 ///////////////////////////
+
 export async function getAllNotificationDate(pageNot = 1) {
   return await axios.get(
     `https://syrianrevolution1.com/notifications?page=${pageNot}`,
@@ -29,6 +45,7 @@ export async function getAllNotificationDate(pageNot = 1) {
     }
   );
 }
+
 export default function MainNav() {
   const [open, setOpen] = useState(false);
   const [openNoti, setOpenNoti] = useState(false);
@@ -42,13 +59,12 @@ export default function MainNav() {
     pageNot,
     setPageNot,
   } = useContext(ContextUser);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   function handleLogout() {
     localStorage.clear();
     window.location.reload();
   }
-  //////////////////////////////////
 
   const { data: dataData, refetch: refetchData } = useQuery(
     ["dates", pageNot],
@@ -59,6 +75,7 @@ export default function MainNav() {
       keepPreviousData: true,
     }
   );
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
       getNotification();
@@ -66,18 +83,18 @@ export default function MainNav() {
       setNumberDate(dataData?.data?.data?.length || 0);
     }
   }, [dataData?.data?.data?.length, getNotification, refetchData, pageNot]);
-  //////////////////////////////////////////
+
   const handleSelectChange = (event) => {
     const value = event.target.value;
     switch (value) {
       case "option1":
-        navigate("/searchlist");
+        router.push("/searchlist");
         break;
       case "option2":
-        navigate("/searchchild");
+        router.push("/searchchild");
         break;
       case "option3":
-        navigate("/searchmascers");
+        router.push("/searchmascers");
         break;
       default:
         break;
@@ -86,182 +103,158 @@ export default function MainNav() {
 
   return (
     <>
-      <div className="container">
-        <div className="row py-3 gy-3  " style={{ alignItems: "center" }}>
-          <div className="col-md-4 d-flex justify-content-between align-items-center">
-            <h1 className="m-0 h4">الثورة السورية</h1>
+      <div className="max-w-screen-xlg mx-auto px-4 md:px-12">
+        <div className="flex  py-3 items-center flex-col md:flex-row">
+          <div className="w-full md:w-1/3 flex justify-between items-center">
+            <h1 className="m-0 text-lg font-bold">الثورة السورية</h1>
+        
           </div>
           <div
-            className="col-md-8 iop"
-            style={{
-              display: "flex",
-              justifyContent: "end",
-              gap: "20px",
-              alignItems: "center",
-            }}
+            className="w-full md:w-2/3   flex flex-col md:flex-row justify-end gap-5 items-center "
           >
-            <div className=" contact d-flex justify-content-between align-items-center">
-              {open === true ? (
-                <div className="social-icons d-flex align-items-center ms-5 p-2 text-white ">
-                  <a
-                    href="https://api.whatsapp.com/send/?phone=4917676000731"
-                    className="text-white"
-                    target="_blank"
-                  >
-                    {" "}
-                    <i class="fa-regular fa-comment-dots ms-1"></i>
-                  </a>
-                  <a
-                    href="https://whatsapp.com/channel/0029VadYk723LdQRWZRO4t3S"
-                    className="text-white"
-                    target="_blank"
-                  >
-                    {" "}
-                    <i className="fa-brands fa-whatsapp ms-2"></i>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/syrian_revolut/"
-                    className="text-white"
-                    target="_blank"
-                  >
-                    <i className="fa-brands fa-instagram ms-2"></i>
-                  </a>
-                  <a
-                    href="https://t.me/Syrian_Revolution7"
-                    className="text-white"
-                    target="_blank"
-                  >
-                    <i class="fa-brands fa-telegram ms-2"></i>
-                  </a>
-                  <a
-                    href="https://www.tiktok.com/@syrian.revolution7"
-                    className="text-white"
-                    target="_blank"
-                  >
-                    <i className="fa-brands fa-tiktok ms-2"></i>
-                  </a>
-                  <a
-                    href="https://www.facebook.com/syrian.revolut1"
-                    className="text-white"
-                    target="_blank"
-                  >
-                    <i className="fa-brands fa-square-facebook ms-2"></i>
-                  </a>
-                  <a
-                    href="https://x.com/syrian_revolut"
-                    className="text-white"
-                    target="_blank"
-                  >
-                    <i className="fa-brands fa-square-twitter ms-2"></i>
-                  </a>
 
-                  <a
-                    href="https://youtube.com/@syrian.revolution7"
-                    className="text-white"
-                    target="_blank"
-                  >
-                    <i class="fa-brands fa-square-youtube ms-2"></i>
-                  </a>
-
-                  <i
-                    className="fa-regular fa-circle-xmark text-danger close"
-                    onClick={() => setOpen(false)}
-                  ></i>
-                </div>
-              ) : null}
-              <p className="m-0 p-3 p-0 btn" onClick={() => setOpen(true)}>
+<div className="flex items-center  relative">
+           <p
+                className="m-0 px-4 py-2  cursor-pointer"
+                onClick={() => setOpen(true)}
+              >
                 تواصل معنا
               </p>
-              <div style={{ position: "relative" }}>
-                <span style={{ position: "absolute", right: "-8px" }}>
-                  {numberDate && number
-                    ? numberDate + number
-                    : numberDate
-                    ? numberDate
-                    : number
-                    ? number
-                    : ""}
-                </span>
-                <div
-                  className="notification position-relative"
+              <div
+                  className=" cursor-pointer ms-2"
                   onClick={() => setOpenNoti(true)}
                 >
-                  <i className="fa-regular fa-bell me-2"></i>
+                  
+                  <FontAwesomeIcon icon={["fa-regular" ,"fa-bell"]} />
                 </div>
+           </div>
+            <div className="flex justify-between items-center relative">
+              {open &&   <div className="absolute md:left-[140px]   bg-[#3035a1] text-white text-lg rounded-md flex items-center  p-2">
+      <a
+        href="https://api.whatsapp.com/send/?phone=4917676000731"
+        target="_blank"
+        className="text-white ml-2"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={["fa-regular", "comment-dots"]} />
+      </a>
+      <a
+        href="https://whatsapp.com/channel/0029VadYk723LdQRWZRO4t3S"
+        target="_blank"
+        className="text-white ml-2"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={faWhatsapp} />
+      </a>
+      <a
+        href="https://www.instagram.com/syrian_revolut/"
+        target="_blank"
+        className="text-white ml-2"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={faInstagram} />
+      </a>
+      <a
+        href="https://t.me/Syrian_Revolution7"
+        target="_blank"
+        className="text-white ml-2"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={faTelegram} />
+      </a>
+      <a
+        href="https://www.tiktok.com/@syrian.revolution7"
+        target="_blank"
+        className="text-white ml-2"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={faTiktok} />
+      </a>
+      <a
+        href="https://www.facebook.com/syrian.revolut1"
+        target="_blank"
+        className="text-white ml-2"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={faSquareFacebook} />
+      </a>
+      <a
+        href="https://x.com/syrian_revolut"
+        target="_blank"
+        className="text-white ml-2"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={faSquareTwitter} />
+      </a>
+      <a
+        href="https://youtube.com/@syrian.revolution7"
+        target="_blank"
+        className="text-white ml-2"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={faSquareYoutube} />
+      </a>
+      <FontAwesomeIcon
+        icon={["fa-regular", "circle-xmark"]}
+        className="text-red-500 cursor-pointer ml-2"
+        onClick={() => setOpen(false)}
+      />
+    </div>}
+           
+              <div className="relative">
+                <span className="absolute -right-2 text-sm">
+                  {numberDate && number
+                    ? numberDate + number
+                    : numberDate || number || ""}
+                </span>
+            
               </div>
             </div>
-            <div className="uio">
+            <div className="w-full md:w-auto border rounded-md px-3">
               <select
-                className="form-control"
-                style={{ width: "100%" }}
+                className="form-select w-full"
                 onChange={handleSelectChange}
               >
                 <option>ابحث عن</option>
                 <option value="option1">
-                  {" "}
                   اخر الاخبار و الارشيف و الرموز والعملاء
                 </option>
                 <option value="option2">
-                  {" "}
                   الشهداء و المعتقلين و المفقودين
                 </option>
-
                 <option value="option3"> الملفات</option>
               </select>
             </div>
-            <div className="   search d-flex justify-content-between align-items-center position-relative">
+            <div className="flex items-center">
               {localStorage.getItem("token") ? (
-                <div
-                  className="buttons d-flex align-items-center gap-2 me-auto "
-                  style={{ display: "flex", gap: "10px", alignItems: "center" }}
-                >
-                  {localStorage?.selfImg !== undefined &&
-                  localStorage?.selfImg !== "undefined" &&
-                  localStorage?.selfImg !== null &&
-                  localStorage?.selfImg !== "" ? (
+                <div className="flex items-center gap-4">
+                  {localStorage?.selfImg ? (
                     <img
                       src={`https://syrianrevolution1.com/images/${localStorage?.selfImg}`}
                       alt="himself"
-                      style={{
-                        width: "40px",
-                        height: "40px",
-                        borderRadius: "50%",
-                        cursor: "pointer",
-                      }}
+                      className="w-10 h-10 rounded-full cursor-pointer"
                       onClick={() => setOpenAuth("update")}
                     />
                   ) : (
                     "imgone"
-                    // <img
-                    //   src={imgone}
-                    //   alt="himself"
-                    //   style={{
-                    //     width: "40px",
-                    //     borderRadius: "40%",
-                    //     cursor: "pointer",
-                    //   }}
-                    //   onClick={() => setOpenAuth("update")}
-                    // />
                   )}
-
                   <button
                     onClick={handleLogout}
-                    className="btn btn-create"
-                    style={{ height: "30px", fontSize: "10px", width: "100px" }}
+                    className="px-4 py-1 text-sm bg-red-600 text-white rounded"
                   >
                     تسجيل الخروج
                   </button>
                 </div>
               ) : (
-                <div className="buttons d-flex align-items-center gap-2 me-auto ">
+                <div className="flex items-center gap-4">
                   <button
-                    className="btn btn-create"
+                    className="px-4 py-1 text-sm bg-blue-600 text-white rounded"
                     onClick={() => setOpenAuth("register")}
                   >
                     انشاء حساب
                   </button>
                   <button
-                    className="btn btn-login"
+                    className="px-4 py-1 text-sm bg-green-600 text-white rounded"
                     onClick={() => setOpenAuth("login")}
                   >
                     تسجيل الدخول
@@ -271,194 +264,55 @@ export default function MainNav() {
             </div>
           </div>
         </div>
-        {openNoti ? (
+        {openNoti && (
           <div className={style.RegisterUser}>
             <div className={style.forms}>
               <div
                 className={style.headForm}
                 onClick={() => setOpenNoti(false)}
               >
-                <FontAwesomeIcon icon="fa-solid fa-circle-xmark"
-                style={{
-                    position: "absolute",
-                    top: "-20%",
-                    right: "5px",
-                    color: "red",
-                    cursor: "pointer",
-                  }}/>
-             
+                <FontAwesomeIcon
+                  icon="fa-solid fa-circle-xmark"
+                  className="absolute top-[-20%] right-1 text-red-600 cursor-pointer"
+                />
               </div>
-              <div className="notification-body p-3">
-                <div className="new">
-                  <h4 className="text-danger">
-                    <span>
-                      <i className="fa-regular fa-bell ms-2 mb-2"></i>
-                    </span>{" "}
-                    الإشعارات الجديدة
-                  </h4>
-                  {dataData?.data?.data?.length > 0 ? (
-                    <>
-                      <button
-                        onClick={() => setPageNot((old) => old + 1)}
-                        disabled={
-                          dataData?.data?.data && !dataData?.data?.data.length
-                        }
-                        className="btn btn-secondary"
-                      >
-                        +
-                      </button>
-                      <button
-                        onClick={() =>
-                          setPageNot((old) => Math.max(old - 1, 1))
-                        }
-                        disabled={pageNot === 1}
-                        className="btn btn-secondary"
-                      >
-                        -
-                      </button>
-                    </>
-                  ) : (
-                    ""
-                  )}
-
-                  {dataData?.data?.data &&
-                    dataData?.data?.data.length > 0 &&
-                    dataData?.data?.data
-                      .filter((e) => e?.data?.isAccepted === true)
-                      .map((e, i) => (
-                        <p
-                          className="  note position-relative bg-white p-2 pe-5 m-0 mb-2"
-                          key={i}
-                          style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            gap: "10px",
-                            alignItems: "center",
-                          }}
-                        >
-                          <span>
-                            <small> تمت اضافة منشور جديد بعنوان </small>
-                            <small style={{ color: "#2d2dc3" }}>
-                              {e?.type === "add child data post"
-                                ? e?.data?.name.slice(0, 60)
-                                : e?.type === "add list data post"
-                                ? e?.data?.name.slice(0, 60)
-                                : e?.type === "add massacres data post"
-                                ? e?.data?.title.slice(0, 60)
-                                : ""}
-                            </small>
-                            <small>
-                              {" "}
-                              (
-                              {e?.data?.category === "lastNews"
-                                ? "اخر الاخبار"
-                                : e?.data?.category === "archiefthoura"
-                                ? "ارشيف الثورة"
-                                : e?.data?.category === "mozaharat"
-                                ? "المظاهرات"
-                                : e?.data?.category === "maarek"
-                                ? "معارك الثوار"
-                                : e?.data?.category === "symbols"
-                                ? "رموز الثورة"
-                                : e?.data?.category === "takrem"
-                                ? "بطاقات التكريم"
-                                : e?.data?.category === "blacklist"
-                                ? "القائمة السوداء"
-                                : e?.data?.category === "Traitors"
-                                ? "العملاء"
-                                : e?.data?.category === "mogramharb"
-                                ? "مجرمين الحرب"
-                                : e?.type === "add massacres data post"
-                                ? "ملفات"
-                                : e?.data?.category === "martyr"
-                                ? "الشهداء"
-                                : e?.data?.category === "adetaine"
-                                ? "المعتقلين"
-                                : e?.data?.category === "missing"
-                                ? "المفقودين"
-                                : ""}{" "}
-                              ){" "}
-                            </small>
-                          </span>
-                          <FontAwesomeIcon
-                            icon='fa-solid fa-eye'
-                            style={{ cursor: "pointer" }}
-                            onClick={() => {
-                              <>
-                                {e?.type === "add child data post"
-                                  ? navigate(
-                                      `/NewsDetailsMartyr/${e?.data?._id}`
-                                    )
-                                  : e?.type === "add list data post"
-                                  ? navigate(`/newsDetails/${e?.data?._id}`)
-                                  : e?.type === "add massacres data post"
-                                  ? navigate(
-                                      `/NewsDetailsMascers/${e?.data?._id}`
-                                    )
-                                  : ""}
-                                {setOpenNoti(false)}
-                              </>;
-                            }}
-                          />
-                        </p>
-                      ))}
-                  {notification?.child && notification?.child?.length > 0
-                    ? notification?.child
-                        .slice()
-                        .reverse()
-                        .map((e, i) => (
-                          <p
-                            className="  note position-relative bg-white p-2 pe-5 m-0 mb-2"
-                            key={i}
-                          >
-                            {e?.notification}
-                          </p>
-                        ))
-                    : ""}
-                  {notification?.lists && notification?.lists?.length > 0
-                    ? notification?.lists
-                        .slice()
-                        .reverse()
-                        .map((e, i) => (
-                          <p
-                            className=" note position-relative bg-white p-2 pe-5 m-0 mb-2"
-                            key={i}
-                          >
-                            {e?.notification}
-                          </p>
-                        ))
-                    : ""}
-                  {notification?.massacres &&
-                  notification?.massacres?.length > 0
-                    ? notification?.massacres
-                        .slice()
-                        .reverse()
-                        .map((e, i) => (
-                          <p
-                            className="note  position-relative bg-white p-2 pe-5 m-0 mb-2"
-                            key={i}
-                          >
-                            {e?.notification}
-                          </p>
-                        ))
-                    : ""}
-                  <p className=" note position-relative bg-white p-2 pe-5 m-0 mb-2">
-                    {notification ? notification?.notification : ""}
-                  </p>
-                </div>
+              <div className="p-3">
+                <h4 className="text-red-600">
+                  <i className="fa-regular fa-bell"></i> الإشعارات الجديدة
+                </h4>
+                {dataData?.data?.data?.length > 0 && (
+                  <div>
+                    <button
+                      onClick={() => setPageNot((old) => old + 1)}
+                      disabled={
+                        dataData?.data?.data &&
+                        !dataData?.data?.data.length
+                      }
+                      className="btn btn-secondary"
+                    >
+                      +
+                    </button>
+                    <button
+                      onClick={() =>
+                        setPageNot((old) => Math.max(old - 1, 1))
+                      }
+                      disabled={pageNot === 1}
+                      className="btn btn-secondary"
+                    >
+                      -
+                    </button>
+                  </div>
+                )}
+                {dataData?.data?.data &&
+                  dataData?.data?.data.length > 0 &&
+                  dataData?.data?.data.map((notification) => (
+                    <p key={notification.id}>{notification.message}</p>
+                  ))}
               </div>
             </div>
           </div>
-        ) : null}
+        )}
       </div>
-
-      {openAuth === "register" && <RegisterUser />}
-      {openAuth === "login" && <LoginUser />}
-      {openAuth === "successRegister" && <SuccessRegister />}
-      {openAuth === "forget" && <ForgetPassword />}
-      {openAuth === "rest" && <RestNewPassword />}
-      {openAuth === "return" && <RestNewPassword />}
-      {openAuth === "update" && <UpdateLogin />}
     </>
   );
 }

@@ -1,7 +1,9 @@
 "use client";
 
 import "./globals.css";
-import Navbar from "./_Components/Layouts/Navbar/Navbar";
+
+
+// import Navbar from "./_Components/ComponentUser/Navbar/Navbar";
 import Footer from './_Components/ComponentUser/Footer/Footer'
 import { ContextProvider } from "../context/Context";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -14,6 +16,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import * as solidIcons from "@fortawesome/free-solid-svg-icons";
 import * as regularIcons from "@fortawesome/free-regular-svg-icons";
 import * as brandIcons from "@fortawesome/free-brands-svg-icons";
+import MainNav from "./_Components/ComponentUser/MainNav/MainNav";
 
 // Function to add all icons from a set
 const addAllIcons = (iconSet) => {
@@ -34,13 +37,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        
         <title>الثورة السورية</title>
       </head>
       <body className="antialiased">
         {/* Ensure QueryClientProvider wraps the entire tree */}
         <QueryClientProvider client={queryClient}>
           <ContextProvider>
-            <Navbar />
+            <MainNav/>
+            {/* <Navbar /> */}
             <main>{children}</main>
             <Footer />
           </ContextProvider>
