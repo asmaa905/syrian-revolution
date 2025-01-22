@@ -6,7 +6,7 @@ import { ContextUser } from "../../../../context/Context";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Joi from "joi";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 export default function ForgetPassword() {
   const { setOpenAuth } = useContext(ContextUser);
@@ -67,8 +67,7 @@ export default function ForgetPassword() {
   return (
     <div className={style.RegisterUser}>
       <form className={style.formsForget}>
-        {/* <FontAwesomeIcon
-          icon={faCircleXmark}
+      <FontAwesomeIcon icon="fa-solid fa-circle-xmark"
           style={{
             marginRight: "15px",
             marginTop: "10px",
@@ -76,7 +75,7 @@ export default function ForgetPassword() {
             cursor: "pointer",
           }}
           onClick={() => setOpenAuth("")}
-        /> */}
+        /> 
         <div
           className={style.headForm}
           style={{ width: "80%", marginTop: "-20px" }}

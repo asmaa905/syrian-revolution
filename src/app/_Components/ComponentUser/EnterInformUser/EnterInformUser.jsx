@@ -9,8 +9,7 @@ import AddMafquodUser from "../AddMafquodUser/AddMafquodUser";
 import AddMogramUser from "../AddMogramUser/AddMogramUser";
 import AddKaaenUser from "../AddKaaenUser/AddKaaenUser";
 import AddCreditTakremUser from "../AddCreditTakremUser/AddCreditTakremUser";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ContextUser } from "../../../../context/Context";
 import AddLastNeswUser from "../AddLastNeswUser";
 import AddDamWathaaqUser from "../AddDamWathaaqUser";
@@ -21,8 +20,8 @@ export default function EnterInformUser() {
   return (
     <div className={styles.RegisterUser}>
       <div className={styles.forms}>
-        {/* <FontAwesomeIcon
-          icon={faCircleXmark}
+        <FontAwesomeIcon
+          icon="circle-xmark"
           style={{
             marginRight: "15px",
             marginTop: "10px",
@@ -30,7 +29,8 @@ export default function EnterInformUser() {
             cursor: "pointer",
           }}
           onClick={() => setOpenAuth("")}
-        /> */}
+        />
+
         <div className={styles.headhere}>
           <h6>ادخال بيانات</h6>
           <hr />

@@ -2,8 +2,7 @@
 
 import React, { useContext, useState } from "react";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ContextUser } from "../../../../context/Context";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
@@ -90,8 +89,7 @@ export default function LoginUser() {
   return (
     <div className={style.RegisterUser}>
       <form className={style.formsLogin} onSubmit={handlesubmit}>
-        {/* <FontAwesomeIcon
-          icon={faCircleXmark}
+      <FontAwesomeIcon icon="fa-solid fa-circle-xmark"
           style={{
             marginRight: "15px",
             marginTop: "10px",
@@ -99,7 +97,7 @@ export default function LoginUser() {
             cursor: "pointer",
           }}
           onClick={() => setOpenAuth("")}
-        /> */}
+        />
         <div
           className={style.headForm}
           style={{ width: "60%", marginTop: "-20px" }}

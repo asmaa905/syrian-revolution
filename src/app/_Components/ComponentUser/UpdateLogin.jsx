@@ -1,8 +1,7 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import style from "../../css/componantUser/RegisterUser/RegisterUser.module.css";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ContextUser } from "../context/Context";
 import Joi from "joi";
 import axios from "axios";
@@ -183,10 +182,7 @@ export default function RegisterUser() {
         >
           <div className={style.headForm}>
             <p> تحديث بيانات</p>
-
-            {/* <FontAwesomeIcon
-              icon={faCircleXmark}
-              style={{
+            <FontAwesomeIcon icon="fa-solid fa-circle-xmark" style={{
                 position: "absolute",
                 top: "-20%",
                 right: 0,
@@ -194,7 +190,10 @@ export default function RegisterUser() {
                 cursor: "pointer",
               }}
               onClick={() => setOpenAuth("")}
-            /> */}
+            />
+
+          
+              
             <hr />
           </div>
           {errorListUpdate &&

@@ -2,8 +2,8 @@
 
 import { React, useContext } from "react";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCircleXmark } from"@fortawesome/free-solid-svg-icons";
 import { ContextUser } from "../../../../context/Context";
 export default function LoginUser() {
   const { setOpenAuth } = useContext(ContextUser);
@@ -11,16 +11,14 @@ export default function LoginUser() {
   return (
     <div className={style.RegisterUser}>
       <form className={style.formsLogin}>
-        {/* <FontAwesomeIcon
-          icon={faCircleXmark}
-          style={{
+      <FontAwesomeIcon icon="fa-solid fa-xmark"  style={{
             marginRight: "15px",
             marginTop: "10px",
             color: "red",
             cursor: "pointer",
           }}
-          onClick={()=>setOpenAuth('')}
-        /> */}
+          onClick={()=>setOpenAuth('')}/>
+      
         <div
           className={style.headForm}
           style={{ width: "60%", marginTop: "-20px" }}

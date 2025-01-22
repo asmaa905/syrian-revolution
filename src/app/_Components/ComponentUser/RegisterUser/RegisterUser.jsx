@@ -2,8 +2,7 @@
 
 import React, { useContext, useState } from "react";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ContextUser } from "../../../../context/Context";
 import Joi from "joi";
 
@@ -125,17 +124,15 @@ export default function RegisterUser() {
         <form className={style.forms} onSubmit={handleSubmit}>
           <div className={style.headForm}>
             <p>انشاء حساب</p>
-            {/* <FontAwesomeIcon
-              icon={faCircleXmark}
-              style={{
+            <FontAwesomeIcon icon="fa-solid fa-circle-xmark"  style={{
                 position: "absolute",
                 top: "-20%",
                 right: "5px",
                 color: "red",
                 cursor: "pointer",
               }}
-              onClick={() => setOpenAuth("")}
-            /> */}
+              onClick={() => setOpenAuth("")}/>
+          
             <hr />
           </div>
           <div className={style.inform}>

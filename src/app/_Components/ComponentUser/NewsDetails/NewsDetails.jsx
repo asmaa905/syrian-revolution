@@ -7,8 +7,7 @@ import Footer from "../Footer/Footer";
 // import one from '../../image/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png'
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-// import { faSubscript } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ContextUser } from "../../../../context/Context";
 import Subscribes from "../subscribe/Subscribes";
 
@@ -151,8 +150,7 @@ export default function NewsDetails() {
                   onClick={() => setOpenSubscrips(true)}
                 >
                   <p style={{ fontSize: "14px", marginTop: "12px" }}>مشاركة</p>
-                  {/* <FontAwesomeIcon icon={faSubscript} /> */}
-                </div>
+                  <FontAwesomeIcon icon="fa-solid fa-subscript" />                </div>
               </div>
             </div>
             {/* /////////////////////// */}

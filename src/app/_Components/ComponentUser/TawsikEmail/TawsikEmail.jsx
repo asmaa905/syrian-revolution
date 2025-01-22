@@ -2,9 +2,8 @@
 
 import React, { useContext, useState } from "react";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ContextUser } from "../../../../context/Context";
-// import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 export default function TawsikEmail() {
@@ -55,11 +54,9 @@ export default function TawsikEmail() {
   return (
     <div className={style.RegisterUser}>
       <form className={style.formsSuccessRegister}>
-        {/* <FontAwesomeIcon
-          icon={faXmark}
-          style={{ margin: "20px 20px 0 0", color: "red", fontSize: "20px" }}
-          onClick={() => setOpenAuth("")}
-        /> */}
+      <FontAwesomeIcon icon="fa-solid fa-xmark" style={{ margin: "20px 20px 0 0", color: "red", fontSize: "20px" }}
+          onClick={() => setOpenAuth("")}/>
+      
         <div className={style.informSuccess}>
           {nofile && (
             <p

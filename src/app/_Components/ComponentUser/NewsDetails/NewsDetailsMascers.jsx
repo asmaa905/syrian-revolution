@@ -10,8 +10,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ContextUser } from "../../../../context/Context";
 import AlertImageDash from "../../componantDashboard/AlertImageDash/AlertImageDash";
 // import one from "../../image/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faSubscript } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Subscribes from "../subscribe/Subscribes";
 export default function NewsDetailsMascers() {
   const [single, setSingle] = useState([]);
@@ -115,8 +114,8 @@ export default function NewsDetailsMascers() {
                   onClick={() => setOpenSubscrips(true)}
                 >
                   <p style={{ fontSize: "14px", marginTop: "12px" }}>مشاركة</p>
-                  {/* <FontAwesomeIcon icon={faSubscript} /> */}
-                </div>
+                  <FontAwesomeIcon icon="fa-solid fa-subscript" /> 
+                   </div>
               </div>
             </div>
             {/* /////////////////////// */}

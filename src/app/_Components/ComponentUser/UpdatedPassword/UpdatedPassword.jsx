@@ -2,8 +2,7 @@
 
 import { React, useState } from "react";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 export default function UpdatedPassword() {
@@ -36,10 +35,8 @@ export default function UpdatedPassword() {
         onSubmit={(e) => updatePass(e)}
       >
         <div className={style.informSuccess}>
-          {/* <FontAwesomeIcon
-            icon={faCircleCheck}
-            style={{ color: "green", fontSize: "40px", marginBottom: "20px" }}
-          /> */}
+        <FontAwesomeIcon icon="fa-solid fa-circle-check" style={{ color: "green", fontSize: "40px", marginBottom: "20px" }}/>
+
           <label
             htmlFor=""
             style={{ textAlign: "start", marginBottom: "10px" }}

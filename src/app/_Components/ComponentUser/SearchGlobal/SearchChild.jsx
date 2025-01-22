@@ -5,8 +5,7 @@ import MainNav from "../MainNav/MainNav";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import style from "../../../css/componantUser/SearchGlobal/SearchThree.module.css";
-// import { FontAwesomeIcon } from "../../../../node_modules/@fortawesome/react-fontawesome";
-// import { faMagnifyingGlass } from "../../../../node_modules/@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
@@ -48,10 +47,8 @@ export default function SearchChild() {
               display: "inline-block",
             }}
           >
-            {/* <FontAwesomeIcon
-              style={{ margin: "0 10px" }}
-              icon={faMagnifyingGlass}
-            />{" "} */}
+            <FontAwesomeIcon icon="fa-solid fa-magnifying-glass"   style={{ margin: "0 10px" }}/>{" "}
+
             ادخل البيانات هنا
           </span>
           <div className={style.inputSearch}>
@@ -91,10 +88,8 @@ export default function SearchChild() {
               marginBottom: "30px",
             }}
           >
-            {/* <FontAwesomeIcon
-              style={{ margin: "0 10px" }}
-              icon={faMagnifyingGlass}
-            />{" "} */}
+            <FontAwesomeIcon icon="fa-solid fa-magnifying-glass"   style={{ margin: "0 10px" }}/>{" "}
+
             نتائج البحث
           </span>
           <div className="container py-2">

@@ -2,7 +2,7 @@
 
 import React, { useState, useContext, useEffect } from "react";
 import "../../../css/componantUser/MainNav/MainNav.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faCircleXmark, faEye } from "@fortawesome/free-solid-svg-icons";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
 import RegisterUser from "../RegisterUser/RegisterUser";
@@ -278,16 +278,15 @@ export default function MainNav() {
                 className={style.headForm}
                 onClick={() => setOpenNoti(false)}
               >
-                {/* <FontAwesomeIcon
-                  icon={faCircleXmark}
-                  style={{
+                <FontAwesomeIcon icon="fa-solid fa-circle-xmark"
+                style={{
                     position: "absolute",
                     top: "-20%",
                     right: "5px",
                     color: "red",
                     cursor: "pointer",
-                  }}
-                /> */}
+                  }}/>
+             
               </div>
               <div className="notification-body p-3">
                 <div className="new">
@@ -382,7 +381,7 @@ export default function MainNav() {
                             </small>
                           </span>
                           <FontAwesomeIcon
-                            icon={faEye}
+                            icon='fa-solid fa-eye'
                             style={{ cursor: "pointer" }}
                             onClick={() => {
                               <>
