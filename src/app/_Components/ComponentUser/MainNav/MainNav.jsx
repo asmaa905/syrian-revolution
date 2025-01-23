@@ -113,8 +113,8 @@ export default function MainNav() {
             className="w-full md:w-2/3   flex flex-col md:flex-row justify-end gap-5 items-center "
           >
 
-<div className="flex items-center  relative w-full">
-<div className="flex justify-between md:justify-end items-center w-full relative">
+<div className="flex items-center  relative w-full md:w-fit">
+<div className="flex justify-between md:justify-end items-center w-full md:w-fit relative">
 <h1 className="m-0 text-lg font-bold md:hidden block">الثورة السورية</h1>
            <p
                 className="m-0 px-4 py-2  cursor-pointer"
