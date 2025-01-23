@@ -45,7 +45,10 @@ export default function RootLayout({ children }) {
         <QueryClientProvider client={queryClient}>
           <ContextProvider>
             <MainNav/>
+     
             <Navbar />
+
+  
             <main>{children}</main>
             <Footer />
           </ContextProvider>

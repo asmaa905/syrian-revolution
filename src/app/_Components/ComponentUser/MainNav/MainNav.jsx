@@ -215,7 +215,7 @@ export default function MainNav() {
             </div>
             <div className="w-full md:w-auto border rounded-md px-3">
               <select
-                className="form-select w-full"
+                className="form-select w-full outline-none"
                 onChange={handleSelectChange}
               >
                 <option>ابحث عن</option>
@@ -249,7 +249,7 @@ export default function MainNav() {
                   </button>
                 </div>
               ) : (
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 me-auto">
                   <button
                     className="px-4 py-1 text-sm bg-blue-600 text-white rounded"
                     onClick={() => setOpenAuth("register")}

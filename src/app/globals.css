@@ -21,3 +21,13 @@ body {
   font-family: "Cairo", serif;
   direction: rtl;
 }
+.lastSlider1::-webkit-scrollbar {
+  width: 10px;
+}
+
+.lastSlider1::-webkit-scrollbar-thumb {
+  background: #bc5a5a;
+}
+.lastSlider1::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
