@@ -161,7 +161,7 @@ export default function SearchList() {
 
   return (
     <>
-
+<h1 className="hidden"></h1>
       <div >
         <div style={{ width: "100%", marginTop: "10px" }}>
           <span

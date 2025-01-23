@@ -58,11 +58,11 @@ export default function NewsDetails({params}) {
                       key={index}
                       loading="lazy"
                       src={`https://syrianrevolution1.com/postImages/${image.imgPath}`}
-                      alt={image.description || "image"}
+                      alt={image?.description || "image"}
                       className="w-75 rounded-3 fimg h-75"
                       fetchpriority="high"
                     />
-                    <p>{image.description}</p>
+                    <p >{image.description}</p>
                   </div>
                 ))}
 
@@ -79,9 +79,9 @@ export default function NewsDetails({params}) {
                 ></iframe>
               )}
               <h6> التفاصيل : </h6>
-              <p> {single?.content !== "undefined" ? single?.content : ""}</p>
-              <h6>مكان الخبر : </h6>
-              <p>
+              <p className="text-[25px] font-normal leading-9 mb-4"> {single?.content !== "undefined" ? single?.content : ""}</p>
+              <h6 className="mb-2">مكان الخبر : </h6>
+              <p className="text-[25px] font-normal leading-9 mb-4" >
                 {single?.governorate !== "undefined" ? single?.governorate : ""}
               </p>
               <h6>رابط خارجي : </h6>

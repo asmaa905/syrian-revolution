@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 
-export default function SearchList() {
+export default function SearchMascers() {
   const [name, setName] = useState("");
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   function searchList() {
     return axios.get(
-      `https://syrianrevolution1.com/lists/searchName?name=${name}`
+      `https://syrianrevolution1.com/massacres/searchTitle?title=${name}`
     );
   }
   const { data, refetch } = useQuery("searchLists", searchList, {
@@ -100,19 +100,19 @@ export default function SearchList() {
                 {data?.data.map((e, i) => (
                   <div className="px-8 md:px-0" key={i}>
                     <div className="image mb-2">
-                      {e?.selfImg&&   <img
-                        src={`https://syrianrevolution1.com/postImages/${e.selfImg}`}
-                        alt="martyr"
+                      {e?.profileImage&&   <img
+                        src={`https://syrianrevolution1.com/postImages/${e?.profileImage}`}
+                        alt={e?.title}
                         className=" w-full rounded-md h-[195px] "
                       />}
                    
                     </div>
                     <p>
-                      {e?.name ? e?.name : ""}
+                      {e?.title ? e?.title : ""}
                       <br />
                       <button
                         className="bg-[#ffbaba] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
-                        onClick={() => router.push(`/newsDetails/${e._id}`)}
+                        onClick={() => router.push(`/NewsDetailsMascers/${e._id}`)}
                       >
                         المزيد
                       </button>

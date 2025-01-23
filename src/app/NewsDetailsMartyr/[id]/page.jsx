@@ -8,6 +8,8 @@ import axios from "axios";
 
 import { ContextUser } from "@/context/Context";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+
 // import one from "../.. ";
 // import AlertImageDash from "../../componantDashboard/AlertImageDash/AlertImageDash";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,7 +26,7 @@ export default function NewsDetailsMartyr({params}) {
       await axios
         .get(`https://syrianrevolution1.com/childData/${id}`)
         .then((result) => {
-          setSingle(result.data.childData);
+          setSingle(result?.data?.childData);
         })
         .catch((error) => console.log(error));
     }
@@ -47,43 +49,45 @@ export default function NewsDetailsMartyr({params}) {
       {openAlert && <AlertImageDash src={openAlertStore} />}
  
       <div className="demonstrations py-3" style={{ marginBottom: "30px" }}>
-        <div className="max-w-screen-xl mx-auto" style={{ marginTop: "30px" }}>
+        <div className="max-w-screen-xl mx-auto px-8 md:px-0" style={{ marginTop: "30px" }}>
           <div
-            className="flex md:flex-row flex-col gap-4"
+            className="flex md:flex-row flex-col gap-12"
            
           >
             <div className="md:w-2/3 ">
               <h4 className="text-[24px] mb-[30px] font-medium"> الاسم : {single?.name}</h4>
               <img
                 src={`https://syrianrevolution1.com/imgData/${single?.profileImage}`}
-                alt="from single new"
-                style={{ width: "100%", marginBottom: "30px" }}
-                className="gimg"
+                alt={single?.name}
+                style={{  marginBottom: "30px",height:'450px' }}
+                className="w-full"
+             
+             
               />
-              <h6> اسم الاب : </h6>
-              <p>
+              <h6 className="mb-2"> اسم الاب : </h6>
+              <p className="text-[25px] font-normal leading-9 mb-4">
                 {" "}
                 {single?.fatherName !== "undefined" ? single?.fatherName : ""}
               </p>
-              <h6> اسم الام : </h6>
-              <p>
+              <h6 className="mb-2"> اسم الام : </h6>
+              <p className="mb-4">
                 {" "}
                 {single?.motherName !== "undefined" ? single?.motherName : ""}
               </p>
-              <h6> الكنية : </h6>
+              <h6 className="mb-2"> الكنية : </h6>
               <p> {single?.nikeName !== "undefined" ? single?.nikeName : ""}</p>
-              <h6> التفاصيل : </h6>
-              <p> {single?.details !== "undefined" ? single?.details : ""}</p>
-              <h6>المحافظة : </h6>
-              <p>
+              <h6 className="mb-2"> التفاصيل : </h6>
+              <p className="text-[25px] font-normal leading-9 mb-4"> {single?.details !== "undefined" ? single?.details : ""}</p>
+              <h6 className="mb-2">المحافظة : </h6>
+              <p className="text-[25px] font-normal leading-9 mb-4">
                 {single?.governorate !== "undefined" ? single?.governorate : ""}
               </p>
-              <h6>تاريخ الميلاد : </h6>
-              <p>
+              <h6 className="mb-2">تاريخ الميلاد : </h6>
+              <p className="mb-4">
                 {single?.dateOfBirth ? single?.dateOfBirth.slice(0, 10) : ""}
               </p>
-              <h6>تاريخ النشر</h6>
-              <p className="datedetails">
+              <h6 className="mb-2">تاريخ النشر</h6>
+              <p className="datedetails mb-4">
                 {single?.createdAt && single?.createdAt.slice(0, 10)}
               </p>
 
@@ -160,7 +164,7 @@ export default function NewsDetailsMartyr({params}) {
                     <div className="w-1/3">
                       <img
                         src={`https://syrianrevolution1.com/imgData/${e?.profileImage}`}
-                        alt="lastNews"
+                        alt={archief?.name}
                         className="w-full"
                       />
                     </div>
@@ -169,7 +173,7 @@ export default function NewsDetailsMartyr({params}) {
                         {e?.name}
                         <br />
                         <button
-                                                  className="bg-[#ffbaba] text-[15px] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
+                            className="bg-[#ffbaba] text-[15px] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
 
                           onClick={() =>
                             router.push(`/NewsDetailsMartyr/${e._id}`)
