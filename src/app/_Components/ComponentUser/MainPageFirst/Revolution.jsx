@@ -1,29 +1,27 @@
-import axios from 'axios';
-import React  from 'react'
-import { useQuery } from 'react-query';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import React from "react";
+import { useQuery } from "react-query";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function FourMainPageFirst() {
-    const navigate = useNavigate()
-   
+  const router = useRouter();
 
- function getAllLastNews() {
-       return axios
-            .get(
-              "https://syrianrevolution1.com/lists/search?category=mozaharat&limit=4"
-            )
-     
+  function getAllLastNews() {
+    return axios.get(
+      "https://syrianrevolution1.com/lists/search?category=mozaharat&limit=4"
+    );
   }
-  const { data } = useQuery( 'mozaharat', getAllLastNews, {
-    cacheTime:9000
-  })
 
+  const { data } = useQuery("mozaharat", getAllLastNews, {
+    cacheTime: 9000,
+  });
 
   return (
     <div>
       <div className="container">
         <div className="header position-relative py-5">
-          <h3 className=" text-danger">المظاهرات</h3>
+          <h3 className="header-text">المظاهرات</h3>
         </div>
       </div>
       <div>
@@ -40,7 +38,12 @@ export default function FourMainPageFirst() {
                             <img
                               src={`https://syrianrevolution1.com/postImages/${e?.selfImg}`}
                               alt="mozaharat"
-                              className=" w-100 rounded-3 fimg"
+                              className="w-100 rounded-3 fimg"
+                              priority={true}
+                              layout="responsive" // Automatically adjust width/height
+                              // width={500}
+                              // height={300}
+                              fetchPriority="high"
                             />
                           </div>
                           <div className="text">
@@ -50,7 +53,7 @@ export default function FourMainPageFirst() {
                               <button
                                 className="btu d-inline-block mx-1 px-3 rounded-3"
                                 onClick={() =>
-                                  navigate(`/newsDetails/${e?._id}`)
+                                  router.push(`/newsDetails/${e?._id}`)
                                 }
                               >
                                 المزيد

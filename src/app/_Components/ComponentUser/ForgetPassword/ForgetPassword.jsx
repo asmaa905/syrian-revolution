@@ -4,7 +4,7 @@ import { React, useContext, useState } from "react";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
 import { ContextUser } from "../../../../context/Context";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import Joi from "joi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
@@ -14,7 +14,7 @@ export default function ForgetPassword() {
   const [forget, setForget] = useState({});
   const [loading, setLoading] = useState(false);
   const [errorBack, setErrorBack] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   function handlechange(e) {
     setForget((prevState) => ({
@@ -49,7 +49,7 @@ export default function ForgetPassword() {
         .post("https://syrianrevolution1.com/users/forgetPassword", forget)
         .then((data) => {
           if (data.data.success) {
-            navigate(`/success/${data.data.userId}`);
+            router.push(`/?id=${data.data.userId}`);
             setOpenAuth("");
             setLoading(false);
           } else if (
@@ -67,7 +67,8 @@ export default function ForgetPassword() {
   return (
     <div className={style.RegisterUser}>
       <form className={style.formsForget}>
-      <FontAwesomeIcon icon="fa-solid fa-circle-xmark"
+        <FontAwesomeIcon
+          icon="fa-solid fa-circle-xmark"
           style={{
             marginRight: "15px",
             marginTop: "10px",
@@ -75,7 +76,7 @@ export default function ForgetPassword() {
             cursor: "pointer",
           }}
           onClick={() => setOpenAuth("")}
-        /> 
+        />
         <div
           className={style.headForm}
           style={{ width: "80%", marginTop: "-20px" }}

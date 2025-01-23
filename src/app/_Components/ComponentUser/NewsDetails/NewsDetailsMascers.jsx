@@ -5,11 +5,12 @@ import MainNav from "../MainNav/MainNav";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import axios from "axios";
+import Image from "next/image";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { ContextUser } from "../../../../context/Context";
 import AlertImageDash from "../../componantDashboard/AlertImageDash/AlertImageDash";
-// import one from "../../image/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png";
+import profile_img from "../../../../assets/images/profile_img.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Subscribes from "../subscribe/Subscribes";
 export default function NewsDetailsMascers() {
@@ -86,16 +87,16 @@ export default function NewsDetailsMascers() {
                       }}
                     />
                   ) : (
-                    "imgone"
-                    // <img
-                    //   src={one}
-                    //   alt="profile"
-                    //   style={{
-                    //     width: "50px",
-                    //     height: "50px",
-                    //     borderRadius: "50%",
-                    //   }}
-                    // />
+                    <Image
+                      src={profile_img}
+                      alt="himself"
+                      width={40}
+                      style={{
+                        borderRadius: "40%",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => setOpenAuth("update")}
+                    />
                   )}
                   <p>{single?.user?.username}</p>
                 </div>
@@ -114,8 +115,8 @@ export default function NewsDetailsMascers() {
                   onClick={() => setOpenSubscrips(true)}
                 >
                   <p style={{ fontSize: "14px", marginTop: "12px" }}>مشاركة</p>
-                  <FontAwesomeIcon icon="fa-solid fa-subscript" /> 
-                   </div>
+                  <FontAwesomeIcon icon="fa-solid fa-subscript" />
+                </div>
               </div>
             </div>
             {/* /////////////////////// */}

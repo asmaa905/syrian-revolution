@@ -1,25 +1,27 @@
 import axios from "axios";
 import React from "react";
 import { useQuery } from "react-query";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
+import Image from "next/image"; // Import the Image component
 
 export default function TwoMainPageFirst() {
-  const navigate = useNavigate();
+  const router = useRouter();
+
   function getAllLastNews() {
     return axios.get(
       "https://syrianrevolution1.com/childData/search?category=martyr&responsibleAuthority=system&limit=4"
     );
   }
-  const { data } = useQuery( "martyr", getAllLastNews, {
-    cacheTime:900000
+
+  const { data } = useQuery("martyr", getAllLastNews, {
+    cacheTime: 900000,
   });
 
   return (
     <section className="martyrs">
-    
       <div className="container py-2">
         <div className="header position-relative py-5">
-          <h3 className=" text-danger">الشهداء</h3>
+          <h3 className="header-text">الشهداء</h3>
         </div>
         <div className="row gy-3 mb-4">
           {data?.data.map((e, i) => (
@@ -28,8 +30,10 @@ export default function TwoMainPageFirst() {
                 <img
                   src={`https://syrianrevolution1.com/imgData/${e.profileImage}`}
                   alt="martyr"
-                  className=" w-100 rounded-3 fimg"
-                  fetchpriority="high"
+                  className="w-100 rounded-3 fimg"
+                  // width={500}
+                  // height={300}
+                  fetchPriority="high"
                 />
               </div>
               <p>
@@ -37,7 +41,7 @@ export default function TwoMainPageFirst() {
                 <br />
                 <button
                   className="btu d-inline-block mx-1 px-3 rounded-3"
-                  onClick={() => navigate(`/NewsDetailsMartyr/${e._id}`)}
+                  onClick={() => router.push(`/NewsDetailsMartyr/${e._id}`)}
                 >
                   المزيد
                 </button>

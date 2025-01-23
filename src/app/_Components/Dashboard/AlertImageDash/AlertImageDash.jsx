@@ -16,7 +16,7 @@ export default function AlertImageDash({ src }) {
     <div className={style.RegisterUser}>
       <form className={style.formsSuccessRegister}>
         <div className={style.informSuccess}>
-          <img src={src} alt="martyr or adetainee" />
+          <Image src={src} alt="martyr or adetainee" />
           <div className={style.btnInpu}>
             <button onClick={() => setOpenAlert(false)}> اغلاق</button>
           </div>

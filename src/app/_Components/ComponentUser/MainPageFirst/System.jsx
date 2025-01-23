@@ -1,31 +1,26 @@
-import axios from 'axios';
-import React from 'react'
-import { useQuery } from 'react-query';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import React from "react";
+import { useQuery } from "react-query";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 export default function ThreeMainPageFirst() {
+  const router = useRouter();
 
-     const navigate = useNavigate();
-
-      function getMascers() {
-       return axios
-            .get(
-              "https://syrianrevolution1.com/massacres/search?responsibleAuthority=system&limit=4"
-            )
-        
+  function getMascers() {
+    return axios.get(
+      "https://syrianrevolution1.com/massacres/search?responsibleAuthority=system&limit=4"
+    );
   }
-  const { data } = useQuery( 'mascers', getMascers, {
-    cacheTime: 900000
-    
-  })
-        console.log(data?.data);
-      
+  const { data } = useQuery("mascers", getMascers, {
+    cacheTime: 900000,
+  });
+  console.log(data?.data);
 
-   
   return (
     <div>
       <div className="container">
         <div className="header position-relative py-5">
-          <h3 className=" text-danger"> الملفات </h3>
+          <h3 className=" header-text"> الملفات </h3>
         </div>
       </div>
       <section className="regime" style={{ marginBottom: "100px" }}>
@@ -37,9 +32,12 @@ export default function ThreeMainPageFirst() {
                   <img
                     src={`https://syrianrevolution1.com/postImages/${e.profileImage}`}
                     alt="home"
-                    className=" w-100 rounded-3 fimg
-                    "
-                    fetchpriority='high'
+                    className=" w-100 rounded-3 fimg "
+                    // width={500}
+                    // height={300}
+                    // priority={true}
+                    fetchPriority="high"
+
                   />
                 </div>
                 <p>
@@ -47,7 +45,7 @@ export default function ThreeMainPageFirst() {
                   <br />
                   <button
                     className="btu d-inline-block mx-1 px-3 rounded-3"
-                    onClick={() => navigate(`/NewsDetailsMascers/${e._id}`)}
+                    onClick={() => router.push(`/NewsDetailsMascers/${e._id}`)}
                   >
                     المزيد
                   </button>

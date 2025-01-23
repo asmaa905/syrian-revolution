@@ -11,6 +11,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      translate: {
+        "30px": "30px",
+      },
     },
   },
   plugins: [],

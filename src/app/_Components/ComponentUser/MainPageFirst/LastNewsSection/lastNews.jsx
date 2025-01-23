@@ -1,13 +1,15 @@
-"use client";
+"use client"; // Ensures this is a client-side component
+
 import React, { useState } from "react";
-import "../../../css/componantUser/MainPage/RegimeMassacres/RegimeMassacresUser.css";
-import { useNavigate } from "react-router-dom";
+import "../../../../css/componantUser/MainPage/RegimeMassacres/RegimeMassacresUser.css";
+import { useRouter } from "next/navigation";
+import styles from "./lastNews.module.css";
 import axios from "axios";
 import { useQuery } from "react-query";
 
 export default function OneMainPageFirst() {
   const [selectedOptions, setSelectedOptions] = useState({});
-  const navigate = useNavigate();
+  const router = useRouter(); // Correct use of useRouter for client-side navigation
   const currentUserId = localStorage.getItem("idUserLogin");
 
   const queryClient = useQuery();
@@ -56,10 +58,13 @@ export default function OneMainPageFirst() {
     }
   };
 
-  console.log(data?.data);
-
   return (
     <>
+      <div className="container">
+        <div className={`${styles.header} position-relative py-5`}>
+          <h3 className="header-text relative"> آخر الأخبار </h3>
+        </div>
+      </div>
       <section className="regime" style={{ marginBottom: "50px" }}>
         <div className="container py-2">
           <div className="row gy-3 mb-4">
@@ -67,7 +72,6 @@ export default function OneMainPageFirst() {
               .filter(
                 (e) => e.category === "lastNews" && e.visibility === "العامة"
               )
-
               .map((last, i) => (
                 <div className="col-md-3" key={i}>
                   <div>
@@ -83,10 +87,8 @@ export default function OneMainPageFirst() {
                           {last.visibility}
                         </option>
 
-                        <>
-                          <option value="العامة">العامة</option>
-                          <option value="خاص بي">خاص بي</option>
-                        </>
+                        <option value="العامة">العامة</option>
+                        <option value="خاص بي">خاص بي</option>
                       </select>
                     ) : (
                       <p className="m-0 p-0 fs-6">{last.visibility}</p>
@@ -96,7 +98,11 @@ export default function OneMainPageFirst() {
                     <img
                       src={`https://syrianrevolution1.com/postImages/${last.images[0]?.imgPath}`}
                       alt={last.images[0]?.description || "image"}
-                      className="w-100 rounded-3 fimg"
+                      className=" w-100 rounded-3 fimg "
+                      // width={500}
+                      // height={300}
+                      // priority={true}
+                      fetchPriority="high"
                     />
                   )}
                   {last.video && (
@@ -124,7 +130,7 @@ export default function OneMainPageFirst() {
                     <br />
                     <button
                       className="btu d-inline-block mx-1 px-3 rounded-3"
-                      onClick={() => navigate(`/newsDetails/${last._id}`)}
+                      onClick={() => router.push(`/newsDetails/${last._id}`)}
                     >
                       المزيد
                     </button>

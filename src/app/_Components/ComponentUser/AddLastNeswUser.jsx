@@ -320,7 +320,7 @@ export default function AddLastNeswUser() {
                 <div key={index}>
                   {image.file instanceof File && (
                     <div className="m-2">
-                      <img
+                      <Image
                         src={URL.createObjectURL(image.file)}
                         alt={`Image ${index}`}
                         className="w-100 rounded-3 fimg"

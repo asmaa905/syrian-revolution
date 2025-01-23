@@ -1,27 +1,26 @@
-import axios from 'axios';
-import React from 'react'
-import { useQuery } from 'react-query';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import React from "react";
+import { useQuery } from "react-query";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+
 export default function SixMainPageFirst() {
-   
-    const navigate = useNavigate()
-   
-       function getAllLastNews() {
-        return axios
-              .get(
-                "https://syrianrevolution1.com/lists/search?category=symbols&limit=4"
-              )
-          
-          }
-          getAllLastNews();
-  const { data } = useQuery( 'symbol', getAllLastNews, {
-  cacheTime:1800000
-})
+  const router = useRouter();
+
+  function getAllLastNews() {
+    return axios.get(
+      "https://syrianrevolution1.com/lists/search?category=symbols&limit=4"
+    );
+  }
+  getAllLastNews();
+  const { data } = useQuery("symbol", getAllLastNews, {
+    cacheTime: 1800000,
+  });
   return (
     <div>
       <div className="container">
         <div className="header position-relative py-5">
-          <h3 className=" text-danger"> رموز الثورة</h3>
+          <h3 className="header-text"> رموز الثورة</h3>
         </div>
       </div>
       <div>
@@ -40,8 +39,12 @@ export default function SixMainPageFirst() {
                             <div className="image">
                               <img
                                 src={`https://syrianrevolution1.com/postImages/${e?.selfImg}`}
-                                alt="mozaharat"
+                                alt="revolution"
                                 className=" w-100 rounded-3 fimg"
+                                // width={500}
+                                // height={300}
+                                fetchPriority="high"
+
                               />
                             </div>
                             <div className="text">
@@ -51,7 +54,7 @@ export default function SixMainPageFirst() {
                                 <button
                                   className="btu d-inline-block mx-1 px-3 rounded-3"
                                   onClick={() =>
-                                    navigate(`/newsDetails/${e?._id}`)
+                                    router.push(`/newsDetails/${e?._id}`)
                                   }
                                 >
                                   المزيد

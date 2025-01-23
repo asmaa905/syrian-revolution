@@ -89,7 +89,8 @@ export default function LoginUser() {
   return (
     <div className={style.RegisterUser}>
       <form className={style.formsLogin} onSubmit={handlesubmit}>
-      <FontAwesomeIcon icon="fa-solid fa-circle-xmark"
+        <FontAwesomeIcon
+          icon="fa-solid fa-circle-xmark"
           style={{
             marginRight: "15px",
             marginTop: "10px",
@@ -102,9 +103,9 @@ export default function LoginUser() {
           className={style.headForm}
           style={{ width: "60%", marginTop: "-20px" }}
         >
-          <h6> تسجيل الدخول</h6>
+          <h6 className="mb-[0.5rem]"> تسجيل الدخول</h6>
 
-          <hr />
+          <hr className="m-[1rem_0]" />
         </div>
         {errorListUser &&
           errorListUser.map((error, index) => (
@@ -129,7 +130,7 @@ export default function LoginUser() {
             <label htmlFor=""> البريد الالكتروني </label>
             <input
               type="email"
-              className="form-control"
+              className=" form-control"
               name="email"
               onChange={handlechange}
               placeholder="البريد الالكتروني"

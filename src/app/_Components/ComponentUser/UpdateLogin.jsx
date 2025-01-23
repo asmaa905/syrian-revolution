@@ -1,11 +1,12 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import style from "../../css/componantUser/RegisterUser/RegisterUser.module.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ContextUser } from "../context/Context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ContextUser } from "../../../context/Context";
 import Joi from "joi";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 export default function RegisterUser() {
   const { setOpenAuth } = useContext(ContextUser);
 
@@ -181,8 +182,11 @@ export default function RegisterUser() {
           style={{ height: "60%", transform: "translateY(50px)" }}
         >
           <div className={style.headForm}>
-            <p> تحديث بيانات</p>
-            <FontAwesomeIcon icon="fa-solid fa-circle-xmark" style={{
+            <h3 className="mb-[0.5rem]"> تحديث بيانات</h3>
+
+            <FontAwesomeIcon
+              icon="fa-solid fa-circle-xmark"
+              style={{
                 position: "absolute",
                 top: "-20%",
                 right: 0,
@@ -192,15 +196,13 @@ export default function RegisterUser() {
               onClick={() => setOpenAuth("")}
             />
 
-          
-              
-            <hr />
+            <hr className="m-[0.25rem_0]" />
           </div>
           {errorListUpdate &&
             errorListUpdate.map((error, index) => (
               <p
                 key={index}
-                className="alert alert-secondary alerthemself"
+                className="alert alert-secondary alerthemself  translate-y-[30px]"
                 style={{ width: "90%" }}
               >
                 {error[index].message}
@@ -208,7 +210,7 @@ export default function RegisterUser() {
             ))}
           {success && (
             <p
-              className="alert alert-secondary alerthemself"
+              className="alert alert-secondary alerthemself  translate-y-[30px]"
               style={{ width: "90%" }}
             >
               تم التحديث بنجاح
@@ -258,11 +260,16 @@ export default function RegisterUser() {
                 style={{ marginTop: "7px", display: "flex", gap: "10px" }}
               >
                 <div>
-                  <img
-                    src={`https://syrianrevolution1.com/images/${userUpdate?.selfImg}`}
-                    alt="profile"
-                    style={{ width: "50px", height: "50px" }}
-                  />
+                  {userUpdate?.selfImg && (
+                    <Image
+                      src={`https://syrianrevolution1.com/images/${userUpdate?.selfImg}`}
+                      alt="profile"
+                      priority={true}
+                      width={50}
+                      height={50}
+                      // style={{ width: "50px", height: "50px" }}
+                    />
+                  )}
                 </div>
                 <div>
                   <p style={{ fontSize: "11px", marginBottom: "10px" }}>
@@ -356,7 +363,12 @@ export default function RegisterUser() {
             </div>
 
             {data.role === "user" && (
-              <Link to="/privateNewsUser">المنشورات الخاصة بي</Link>
+              <Link
+                href="/privateNewsUser"
+                className="font-[400] text-[#0a58ca] text-[1rem] leading-[24px] underline pb-[5px]"
+              >
+                المنشورات الخاصة بي
+              </Link>
             )}
           </div>
 

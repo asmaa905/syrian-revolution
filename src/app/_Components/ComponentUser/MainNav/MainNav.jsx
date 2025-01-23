@@ -16,18 +16,17 @@ import {
   faSquareTwitter,
   faSquareYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-
+import Image from "next/image";
 // import { faCircleXmark, faEye } from "@fortawesome/free-solid-svg-icons";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
-// import RegisterUser from "../RegisterUser/RegisterUser";
-// import LoginUser from "../LoginUser/LoginUser";
+import RegisterUser from "../RegisterUser/RegisterUser";
+import LoginUser from "../LoginUser/LoginUser";
 import { ContextUser } from "../../../../context/Context";
 import SuccessRegister from "../SuccessRegister/SuccessRegister";
-// import ForgetPassword from "../ForgetPassword/ForgetPassword";
-// import RestNewPassword from "../../../js/componantUser/RestNewPassword/RestNewPassword";
-// import imgone from "../../image/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png";
-// import UpdateLogin from "../UpdateLogin";
-
+import ForgetPassword from "../ForgetPassword/ForgetPassword";
+import RestNewPassword from "../RestNewPassword/RestNewPassword";
+import profile_img from "../../../../assets/images/profile_img.png";
+import UpdateLogin from "../UpdateLogin";
 
 import axios from "axios";
 import { useQuery } from "react-query";
@@ -106,111 +105,112 @@ export default function MainNav() {
       <div className="max-w-screen-xl mx-auto px-4 md:px-0 py-4">
         <div className="flex  py-3 items-center flex-col md:flex-row">
           <div className="w-full md:w-1/3 flex justify-between items-center">
-            <h1 className="m-0 text-lg font-bold md:block hidden">الثورة السورية</h1>
-        
+            <h1 className="m-0 text-lg  md:block hidden font-[500] text-[#212529] text-[24px] leading-[29px] ">
+              الثورة السورية
+            </h1>
           </div>
-          <div
-            className="w-full md:w-2/3   flex flex-col md:flex-row justify-end gap-5 items-center "
-          >
+          <div className="w-full md:w-2/3   flex flex-col md:flex-row justify-end gap-5 items-center ">
+            <div className="flex items-center  relative w-full md:w-fit">
+              <div className="flex justify-between md:justify-end items-center w-full md:w-fit relative">
+                {/* <h1 className="m-0 text-lg font-bold md:hidden block">
+                    الثورة السورية
+                  </h1> */}
 
-<div className="flex items-center  relative w-full md:w-fit">
-<div className="flex justify-between md:justify-end items-center w-full md:w-fit relative">
-<h1 className="m-0 text-lg font-bold md:hidden block">الثورة السورية</h1>
-           <p
-                className="m-0 px-4 py-2  cursor-pointer"
-                onClick={() => setOpen(true)}
-              >
-                تواصل معنا
-              </p>
-</div>
-              <div
-                  className=" cursor-pointer ms-2"
-                  onClick={() => setOpenNoti(true)}
+                <p
+                  className="m-0 px-4 py-2  cursor-pointer"
+                  onClick={() => setOpen(true)}
                 >
-                  
-                  <FontAwesomeIcon icon={["fa-regular" ,"fa-bell"]} />
-                </div>
-           </div>
+                  تواصل معنا
+                </p>
+              </div>
+              <div
+                className=" cursor-pointer ms-2"
+                onClick={() => setOpenNoti(true)}
+              >
+                <FontAwesomeIcon icon={["fa-regular", "fa-bell"]} />
+              </div>
+            </div>
             <div className="flex justify-between items-center  bg-gray-600">
-              {open &&   <div className="absolute md:right-[43%] md:top-[4%]  top-[11%] right-[10%]  bg-[#3035a1] text-white text-lg rounded-md flex items-center  p-2">
-      <a
-        href="https://api.whatsapp.com/send/?phone=4917676000731"
-        target="_blank"
-        className="text-white ml-2"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={["fa-regular", "comment-dots"]} />
-      </a>
-      <a
-        href="https://whatsapp.com/channel/0029VadYk723LdQRWZRO4t3S"
-        target="_blank"
-        className="text-white ml-2"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faWhatsapp} />
-      </a>
-      <a
-        href="https://www.instagram.com/syrian_revolut/"
-        target="_blank"
-        className="text-white ml-2"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faInstagram} />
-      </a>
-      <a
-        href="https://t.me/Syrian_Revolution7"
-        target="_blank"
-        className="text-white ml-2"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faTelegram} />
-      </a>
-      <a
-        href="https://www.tiktok.com/@syrian.revolution7"
-        target="_blank"
-        className="text-white ml-2"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faTiktok} />
-      </a>
-      <a
-        href="https://www.facebook.com/syrian.revolut1"
-        target="_blank"
-        className="text-white ml-2"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faSquareFacebook} />
-      </a>
-      <a
-        href="https://x.com/syrian_revolut"
-        target="_blank"
-        className="text-white ml-2"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faSquareTwitter} />
-      </a>
-      <a
-        href="https://youtube.com/@syrian.revolution7"
-        target="_blank"
-        className="text-white ml-2"
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faSquareYoutube} />
-      </a>
-      <FontAwesomeIcon
-        icon={["fa-regular", "circle-xmark"]}
-        className="text-red-500 cursor-pointer ml-2"
-        onClick={() => setOpen(false)}
-      />
-    </div>}
-           
+              {open && (
+                <div className="absolute md:right-[43%] md:top-[4%]  top-[11%] right-[10%]  bg-[#3035a1] text-white text-lg rounded-md flex items-center  p-2">
+                  <a
+                    href="https://api.whatsapp.com/send/?phone=4917676000731"
+                    target="_blank"
+                    className="text-white ml-2"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={["fa-regular", "comment-dots"]} />
+                  </a>
+                  <a
+                    href="https://whatsapp.com/channel/0029VadYk723LdQRWZRO4t3S"
+                    target="_blank"
+                    className="text-white ml-2"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={faWhatsapp} />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/syrian_revolut/"
+                    target="_blank"
+                    className="text-white ml-2"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={faInstagram} />
+                  </a>
+                  <a
+                    href="https://t.me/Syrian_Revolution7"
+                    target="_blank"
+                    className="text-white ml-2"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={faTelegram} />
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@syrian.revolution7"
+                    target="_blank"
+                    className="text-white ml-2"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={faTiktok} />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/syrian.revolut1"
+                    target="_blank"
+                    className="text-white ml-2"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={faSquareFacebook} />
+                  </a>
+                  <a
+                    href="https://x.com/syrian_revolut"
+                    target="_blank"
+                    className="text-white ml-2"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={faSquareTwitter} />
+                  </a>
+                  <a
+                    href="https://youtube.com/@syrian.revolution7"
+                    target="_blank"
+                    className="text-white ml-2"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={faSquareYoutube} />
+                  </a>
+                  <FontAwesomeIcon
+                    icon={["fa-regular", "circle-xmark"]}
+                    className="text-red-500 cursor-pointer ml-2"
+                    onClick={() => setOpen(false)}
+                  />
+                </div>
+              )}
+
               <div className="relative">
                 <span className="absolute -right-2 text-sm">
                   {numberDate && number
                     ? numberDate + number
                     : numberDate || number || ""}
                 </span>
-            
               </div>
             </div>
             <div className="w-full md:w-auto border rounded-md px-3">
@@ -222,9 +222,7 @@ export default function MainNav() {
                 <option value="option1">
                   اخر الاخبار و الارشيف و الرموز والعملاء
                 </option>
-                <option value="option2">
-                  الشهداء و المعتقلين و المفقودين
-                </option>
+                <option value="option2">الشهداء و المعتقلين و المفقودين</option>
                 <option value="option3"> الملفات</option>
               </select>
             </div>
@@ -239,7 +237,16 @@ export default function MainNav() {
                       onClick={() => setOpenAuth("update")}
                     />
                   ) : (
-                    "imgone"
+                    <Image
+                      src={profile_img}
+                      alt="himself"
+                      width={40}
+                      style={{
+                        borderRadius: "40%",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => setOpenAuth("update")}
+                    />
                   )}
                   <button
                     onClick={handleLogout}
@@ -288,17 +295,14 @@ export default function MainNav() {
                     <button
                       onClick={() => setPageNot((old) => old + 1)}
                       disabled={
-                        dataData?.data?.data &&
-                        !dataData?.data?.data.length
+                        dataData?.data?.data && !dataData?.data?.data.length
                       }
                       className="btn btn-secondary"
                     >
                       +
                     </button>
                     <button
-                      onClick={() =>
-                        setPageNot((old) => Math.max(old - 1, 1))
-                      }
+                      onClick={() => setPageNot((old) => Math.max(old - 1, 1))}
                       disabled={pageNot === 1}
                       className="btn btn-secondary"
                     >
@@ -316,6 +320,14 @@ export default function MainNav() {
           </div>
         )}
       </div>
+      {openAuth === "register" && <RegisterUser />}
+      {openAuth === "login" && <LoginUser />}
+      {openAuth === "successRegister" && <SuccessRegister />}
+      {openAuth === "forget" && <ForgetPassword />}
+      {openAuth === "rest" && <RestNewPassword />} {/*when user logged**/}
+      {openAuth === "return" && <RestNewPassword />}
+      {/*when user logged**/}
+      {openAuth === "update" && <UpdateLogin />}
     </>
   );
 }

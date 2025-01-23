@@ -2,7 +2,7 @@
 
 import React, { useContext, useState } from "react";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ContextUser } from "../../../../context/Context";
 import Joi from "joi";
 
@@ -123,17 +123,20 @@ export default function RegisterUser() {
       <div className={style.RegisterUser}>
         <form className={style.forms} onSubmit={handleSubmit}>
           <div className={style.headForm}>
-            <p>انشاء حساب</p>
-            <FontAwesomeIcon icon="fa-solid fa-circle-xmark"  style={{
+            <h6 className="mb-[0.5rem]">انشاء حساب</h6>
+            <FontAwesomeIcon
+              icon="fa-solid fa-circle-xmark"
+              style={{
                 position: "absolute",
                 top: "-20%",
                 right: "5px",
                 color: "red",
                 cursor: "pointer",
               }}
-              onClick={() => setOpenAuth("")}/>
-          
-            <hr />
+              onClick={() => setOpenAuth("")}
+            />
+
+            <hr className="m-[0.25rem_0_1rem]" />
           </div>
           <div className={style.inform}>
             {errorListUser &&
@@ -244,7 +247,7 @@ export default function RegisterUser() {
                 <p>تحميل صورة الملف الشخصي (اختياري)</p>
               </div>
               <div className={style.pictureInput}>
-                <label htmlFor="file" className={styles.customfileupload}>
+                <label htmlFor="file" className={style.customfileupload}>
                   {/* <label
                   htmlFor="file-upload1"
                   className={style.customfileupload}
@@ -253,7 +256,7 @@ export default function RegisterUser() {
                 </label>
                 <input
                   type="file"
-                  className={`form-control ${styles.fileInput}`}
+                  className={`form-control ${style.fileInput}`}
                   id="file-upload1"
                   name="selfImg"
                   onChange={handleChangeImageProfile}
