@@ -3,7 +3,7 @@
 import "./globals.css";
 
 
-// import Navbar from "./_Components/ComponentUser/Navbar/Navbar";
+import Navbar from "./_Components/ComponentUser/Navbar/Navbar";
 import Footer from './_Components/ComponentUser/Footer/Footer'
 import { ContextProvider } from "../context/Context";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -17,7 +17,7 @@ import * as solidIcons from "@fortawesome/free-solid-svg-icons";
 import * as regularIcons from "@fortawesome/free-regular-svg-icons";
 import * as brandIcons from "@fortawesome/free-brands-svg-icons";
 import MainNav from "./_Components/ComponentUser/MainNav/MainNav";
-
+import 'flowbite';
 // Function to add all icons from a set
 const addAllIcons = (iconSet) => {
   return Object.keys(iconSet)
@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
         <QueryClientProvider client={queryClient}>
           <ContextProvider>
             <MainNav/>
-            {/* <Navbar /> */}
+            <Navbar />
             <main>{children}</main>
             <Footer />
           </ContextProvider>

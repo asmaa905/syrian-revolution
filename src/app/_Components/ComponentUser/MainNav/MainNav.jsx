@@ -103,23 +103,26 @@ export default function MainNav() {
 
   return (
     <>
-      <div className="max-w-screen-xlg mx-auto px-4 md:px-12">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-0 py-4">
         <div className="flex  py-3 items-center flex-col md:flex-row">
           <div className="w-full md:w-1/3 flex justify-between items-center">
-            <h1 className="m-0 text-lg font-bold">الثورة السورية</h1>
+            <h1 className="m-0 text-lg font-bold md:block hidden">الثورة السورية</h1>
         
           </div>
           <div
             className="w-full md:w-2/3   flex flex-col md:flex-row justify-end gap-5 items-center "
           >
 
-<div className="flex items-center  relative">
+<div className="flex items-center  relative w-full">
+<div className="flex justify-between md:justify-end items-center w-full relative">
+<h1 className="m-0 text-lg font-bold md:hidden block">الثورة السورية</h1>
            <p
                 className="m-0 px-4 py-2  cursor-pointer"
                 onClick={() => setOpen(true)}
               >
                 تواصل معنا
               </p>
+</div>
               <div
                   className=" cursor-pointer ms-2"
                   onClick={() => setOpenNoti(true)}
@@ -128,8 +131,8 @@ export default function MainNav() {
                   <FontAwesomeIcon icon={["fa-regular" ,"fa-bell"]} />
                 </div>
            </div>
-            <div className="flex justify-between items-center relative">
-              {open &&   <div className="absolute md:left-[140px]   bg-[#3035a1] text-white text-lg rounded-md flex items-center  p-2">
+            <div className="flex justify-between items-center  bg-gray-600">
+              {open &&   <div className="absolute md:right-[43%] md:top-[4%]  top-[11%] right-[10%]  bg-[#3035a1] text-white text-lg rounded-md flex items-center  p-2">
       <a
         href="https://api.whatsapp.com/send/?phone=4917676000731"
         target="_blank"
