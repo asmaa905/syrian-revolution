@@ -1,9 +1,11 @@
+"use client";
+
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useQuery } from "react-query";
-import { useNavigate } from "react-router-dom";
 export default function FlagBlackListThree() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   function getAllLastNews() {
     return axios.get(
@@ -29,17 +31,17 @@ export default function FlagBlackListThree() {
       <div className="demonstrations py-3 " style={{ marginBottom: "100px" }}>
         <div className="container">
           <div className="row" style={{ justifyContent: "space-between" }}>
-            <div className="col-md-6">
+            <div className="md:w-1/2">
               <div className="row gy-2">
-                {data1?.data.map((e,i) => (
-                  <div className="col-md-6" key={i}>
+                {data1?.data.map((e, i) => (
+                  <div className="md:w-1/2" key={i}>
                     <div className="news">
                       <div className="item">
                         <div className="image">
                           <img
                             src={`https://syrianrevolution1.com/postImages/${e?.selfImg}`}
                             alt="lastNews"
-                            className=" w-100 rounded-3 fimg"
+                            className=" w-full rounded-3 h-[195px]"
                           />
                         </div>
                         <div className="text">
@@ -47,7 +49,7 @@ export default function FlagBlackListThree() {
                             {e?.name}
                             <br />
                             <button
-                              className=" d-inline-block mx-1 px-3 rounded-3 btu"
+                              className=" d-inline-block mx-1 px-3 rounded-3 btn"
                               onClick={() => navigate(`/newsDetails/${e._id}`)}
                             >
                               المزيد
@@ -65,25 +67,25 @@ export default function FlagBlackListThree() {
             </div>
             <div className="lastSlider col-md-5">
               <div className=" muted p-2 overflow-hidden">
-                {data2?.data.map((e,i) => (
+                {data2?.data.map((e, i) => (
                   <div
                     className="row border-bottom pb-2 pt-2 border-2 overflow-hidden"
-                    style={ { backgroundColor: "#ECECEC" } }
+                    style={{ backgroundColor: "#ECECEC" }}
                     key={i}
                   >
-                    <div className="col-md-4">
+                    <div className="md:w-1/3">
                       <img
                         src={`https://syrianrevolution1.com/postImages/${e?.selfImg}`}
                         alt="lastNews"
-                        className="w-100"
+                        className="w-full"
                       />
                     </div>
-                    <div className="col-md-8">
+                    <div className="md:w-2/3">
                       <p>
                         {e?.name}
                         <br />
                         <button
-                          className="btu d-inline-block mx-1 px-3 rounded-3"
+                          className="btn d-inline-block mx-1 px-3 rounded-3"
                           onClick={() => navigate(`/newsDetails/${e._id}`)}
                         >
                           المزيد

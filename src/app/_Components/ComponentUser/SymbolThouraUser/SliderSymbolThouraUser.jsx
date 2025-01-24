@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "react-query";
+import { useRouter } from "next/navigation";
 export default function SliderSymbolThouraUser() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [page, setPage] = useState(1);
   ///////////////////////////////////////////
   function getAllLastNews(page = 1) {
@@ -114,7 +114,7 @@ export default function SliderSymbolThouraUser() {
                   </small>
                   <button
                     className=" d-inline-block mx-1  rounded-3 btu"
-                    onClick={() => navigate(`/newsDetails/${sym._id}`)}
+                    onClick={() => router.push(`/newsDetails/${sym._id}`)}
                   >
                     المزيد
                   </button>

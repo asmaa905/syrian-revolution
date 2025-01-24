@@ -3,11 +3,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import { useNavigate } from "react-router-dom";
 
 import style from "../../../../css/componantUser/MainPage/FlagsUser/FlagsUser.module.css";
+import { useRouter } from "next/navigation";
 export default function FlagsUser() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [page, setPage] = useState(1);
   const [selectedOption, setSelectedOption] = useState("");
   const currentUserId = localStorage.getItem("idUserLogin");
@@ -18,7 +18,6 @@ export default function FlagsUser() {
     );
   }
   const { data: data1, refetch } = useQuery("one", getAllLastNews);
-  ///////////////////////////////////
 
   function getAllLastNews1(page = 1) {
     return axios.get(
@@ -197,7 +196,7 @@ export default function FlagsUser() {
                         <br />
                         <button
                           className="btu d-inline-block mx-1 px-3 rounded-3"
-                          onClick={() => navigate(`/newsDetails/${e._id}`)}
+                          onClick={() => router.push(`/newsDetails/${e._id}`)}
                         >
                           المزيد
                         </button>

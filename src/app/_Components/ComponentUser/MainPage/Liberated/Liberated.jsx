@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "react-query";
+import { useRouter } from "next/navigation";
 export default function Liberated() {
   const currentUserId = localStorage.getItem("idUserLogin");
-  const navigate = useNavigate();
+  const router = useRouter();
   const [selectedOption, setSelectedOption] = useState("");
   const { data, refetch } = useQuery("lasts", getAllLastNews);
 
@@ -86,14 +86,14 @@ export default function Liberated() {
                     <img
                       src={`https://syrianrevolution1.com/postImages/${data?.data[0]?.selfImg}`}
                       alt="home"
-                      className=" w-100 rounded-3 fimg h-75"
+                      className=" w-full rounded-3 h-[195px] h-75"
                       fetchpriority="high"
                     />
                   ) : (
                     <img
                       src={`https://syrianrevolution1.com/postImages/${data?.data[0]?.images[0].imgPath}`}
                       alt="home"
-                      className=" w-100 rounded-3 fimg h-75"
+                      className=" w-full rounded-3 h-[195px] h-75"
                       fetchpriority="high"
                     />
                   )}
@@ -106,7 +106,7 @@ export default function Liberated() {
                         marginBottom: "30px",
                         height: "200px",
                       }}
-                      className="w-100 rounded-3 fimg"
+                      className="w-full rounded-3 h-[195px]"
                       controls
                     >
                       <source
@@ -122,9 +122,9 @@ export default function Liberated() {
                     {data?.data[0]?.name}
                     <br />
                     <button
-                      className="btu d-inline-block mx-1 px-3 rounded-3"
+                      className="btn d-inline-block mx-1 px-3 rounded-3"
                       onClick={() =>
-                        navigate(`/newsDetails/${data?.data[0]._id}`)
+                        router.push(`/newsDetails/${data?.data[0]._id}`)
                       }
                     >
                       المزيد
@@ -179,14 +179,14 @@ export default function Liberated() {
                               <img
                                 src={`https://syrianrevolution1.com/postImages/${e.images[0]?.imgPath}`}
                                 alt={e.images[0]?.description || "image"}
-                                className="w-100 rounded-3 fimg"
+                                className="w-full rounded-3 h-[195px]"
                                 fetchpriority="high"
                               />
                             ) : (
                               <img
                                 src={`https://syrianrevolution1.com/postImages/${e.selfImg}`}
                                 alt={e.images[0]?.description || "image"}
-                                className="w-100 rounded-3 fimg"
+                                className="w-full rounded-3 h-[195px]"
                                 fetchpriority="high"
                               />
                             )}
@@ -200,7 +200,7 @@ export default function Liberated() {
                                   marginBottom: "30px",
                                   height: "200px",
                                 }}
-                                className="w-100 rounded-3 fimg"
+                                className="w-full rounded-3 h-[195px]"
                                 controls
                               >
                                 <source
@@ -216,9 +216,9 @@ export default function Liberated() {
                               {e?.name}
                               <br />
                               <button
-                                className="btu d-inline-block mx-1 px-3 rounded-3"
+                                className="btn d-inline-block mx-1 px-3 rounded-3"
                                 onClick={() =>
-                                  navigate(`/newsDetails/${e._id}`)
+                                  router.push(`/newsDetails/${e._id}`)
                                 }
                               >
                                 المزيد

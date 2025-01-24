@@ -1,9 +1,10 @@
+"use client"
 import axios from "axios";
 import React from "react";
 import { useQuery } from "react-query";
-import { useNavigate } from "react-router-dom";
+import {useRouter} from 'next/navigation'
 export default function Liberated() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   function getAllLastNews() {
     return axios.get(
@@ -18,13 +19,13 @@ export default function Liberated() {
       <div className="demonstrations py-3">
         <div className="container">
           <div className="row gy-3 mb-5">
-            <div className="col-md-6 h-100">
+            <div className="md:w-1/2 h-100">
               <div className="right h-100">
                 <div className="image mb-4">
                   <img
                     src={`https://syrianrevolution1.com/postImages/${data?.data[0]?.selfImg}`}
                     alt="symbolThowra"
-                    className=" w-100 rounded-3 gimg"
+                    className=" w-full rounded-3 gimg"
                   />
                 </div>
                 <div style={{ width: "60%" }}>
@@ -32,9 +33,9 @@ export default function Liberated() {
                     {data?.data[0]?.name}
                     <br />
                     <button
-                      className="btu d-inline-block mx-1 px-3 rounded-3 "
+                      className="btn d-inline-block mx-1 px-3 rounded-3 "
                       onClick={() =>
-                        navigate(`/newsDetails/${data?.data[0]?._id}`)
+                        router.push(`/newsDetails/${data?.data[0]?._id}`)
                       }
                     >
                       المزيد
@@ -47,18 +48,18 @@ export default function Liberated() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="md:w-1/2">
               <div className="row gy-2">
                 {data?.data.length > 0 &&
                   data?.data.slice(1, 5).map((e, i) => (
-                    <div className="col-md-6" key={i}>
+                    <div className="md:w-1/2" key={i}>
                       <div className="news">
                         <div className="item">
                           <div className="image">
                             <img
                               src={`https://syrianrevolution1.com/postImages/${e?.selfImg}`}
                               alt="symbolThowra"
-                              className=" w-100 rounded-3 fimg"
+                              className=" w-full rounded-3h-[195px]"
                             />
                           </div>
                           <div className="text">
@@ -66,9 +67,9 @@ export default function Liberated() {
                               {e?.name}
                               <br />
                               <button
-                                className="btu d-inline-block mx-1 px-3 rounded-3"
+                                className="btn d-inline-block mx-1 px-3 rounded-3"
                                 onClick={() =>
-                                  navigate(`/newsDetails/${e?._id}`)
+                                  router.push(`/newsDetails/${e?._id}`)
                                 }
                               >
                                 المزيد

@@ -2,15 +2,14 @@
 
 import React, { useState } from "react";
 import "../../../../css/componantUser/GaraamSystem/RegimeMassacres/RegimeMassacresUser.css";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
-//src\css\componantUser\GaraamSystem\RegimeMassacres\RegimeMassacresUser.css
 import { useQuery } from "react-query";
+import { useRouter } from "next/navigation";
 export default function RegimeMassacresUser() {
   const [selectedOption, setSelectedOption] = useState("");
   const currentUserId = localStorage.getItem("idUserLogin");
 
-  const navigate = useNavigate();
+  const router = useRouter();
 
   function getAllLastNews() {
     return axios.get(
@@ -46,7 +45,6 @@ export default function RegimeMassacresUser() {
         }
       );
       refetch();
-      console.log("تم تحديث الرؤية بنجاح", res);
     } catch (error) {
       console.error("حدث خطأ أثناء تحديث الرؤية:", error);
     }
@@ -90,13 +88,13 @@ export default function RegimeMassacresUser() {
                     <img
                       src={`https://syrianrevolution1.com/postImages/${last.images[0]?.imgPath}`}
                       alt={last.images[0]?.description || "image"}
-                      className="w-100 rounded-3 fimg"
+                      className="w-full rounded-3 h-[195px]"
                     />
                   ) : (
                     <img
                       src={`https://syrianrevolution1.com/postImages/${last.selfImg}`}
                       alt={last.images[0]?.description || "image"}
-                      className="w-100 rounded-3 fimg"
+                      className="w-full rounded-3 h-[195px]"
                     />
                   )}
 
@@ -109,7 +107,7 @@ export default function RegimeMassacresUser() {
                         marginBottom: "30px",
                         height: "200px",
                       }}
-                      className="w-100 rounded-3 fimg"
+                      className="w-full rounded-3 h-[195px]"
                       controls
                     >
                       <source
@@ -125,8 +123,8 @@ export default function RegimeMassacresUser() {
                     {last.name}
                     <br />
                     <button
-                      className="btu d-inline-block mx-1 px-3 rounded-3"
-                      onClick={() => navigate(`/newsDetails/${last._id}`)}
+                      className="btn d-inline-block mx-1 px-3 rounded-3"
+                      onClick={() => router.push(`/newsDetails/${last._id}`)}
                     >
                       المزيد
                     </button>

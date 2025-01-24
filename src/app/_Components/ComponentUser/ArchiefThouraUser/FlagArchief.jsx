@@ -1,12 +1,11 @@
 "use client";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 
-import { useNavigate } from "react-router-dom";
-
 export default function FlagArchief() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [page, setPage] = useState(1);
   function getAllLastNews() {
     return axios.get(
@@ -56,7 +55,7 @@ export default function FlagArchief() {
                             <img
                               src={`https://syrianrevolution1.com/postImages/${e?.selfImg}`}
                               alt="mozaharat"
-                              className=" w-100 rounded-3 fimg"
+                              className=" w-full rounded-3 h-[195px]"
                             />
                           </div>
                           <div className="text">
@@ -66,7 +65,7 @@ export default function FlagArchief() {
                               <button
                                 className="btu d-inline-block mx-1 px-3 rounded-3"
                                 onClick={() =>
-                                  navigate(`/newsDetails/${e._id}`)
+                                  router.push(`/newsDetails/${e._id}`)
                                 }
                               >
                                 المزيد
@@ -94,7 +93,7 @@ export default function FlagArchief() {
                       <img
                         src={`https://syrianrevolution1.com/postImages/${e?.selfImg}`}
                         alt="lastNews"
-                        className="w-100"
+                        className="w-full"
                       />
                     </div>
                     <div className="col-md-8">
@@ -103,7 +102,7 @@ export default function FlagArchief() {
                         <br />
                         <button
                           className="btu d-inline-block mx-1 px-3 rounded-3"
-                          onClick={() => navigate(`/newsDetails/${e._id}`)}
+                          onClick={() => router.push(`/newsDetails/${e._id}`)}
                         >
                           المزيد
                         </button>

@@ -1,13 +1,14 @@
+"use client"
 import axios from "axios";
 import React from "react";
 import { useQuery } from "react-query";
 
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 
 export default function LiberatedArchiefTwo() {
 
-  const navigate = useNavigate();
+  const router = useRouter();
 
  function getAllLastNews() {
     return axios
@@ -38,7 +39,7 @@ const {data} = useQuery('mareek2',getAllLastNews)
                     <button
                       className="btu d-inline-block mx-1 px-3 rounded-3"
                       onClick={() =>
-                        navigate(`/newsDetails/${data?.data[0]?._id}`)
+                        router.push(`/newsDetails/${data?.data[0]?._id}`)
                       }
                     >
                       المزيد
@@ -70,7 +71,7 @@ const {data} = useQuery('mareek2',getAllLastNews)
                             <br />
                             <button
                               className="btu d-inline-block mx-1 px-3 rounded-3"
-                              onClick={() => navigate(`/newsDetails/${e?._id}`)}
+                              onClick={() => router.push(`/newsDetails/${e?._id}`)}
                             >
                               المزيد
                             </button>

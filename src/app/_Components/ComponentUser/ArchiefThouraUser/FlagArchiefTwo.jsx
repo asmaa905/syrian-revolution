@@ -1,12 +1,11 @@
 "use client";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 
-import { useNavigate } from "react-router-dom";
-
 export default function FlagArchiefTwo() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [page, setPage] = useState(1);
   function getAllLastNews() {
     return axios.get(
@@ -66,7 +65,9 @@ export default function FlagArchiefTwo() {
                             <br />
                             <button
                               className="btu d-inline-block mx-1 px-3 rounded-3"
-                              onClick={() => navigate(`/newsDetails/${e._id}`)}
+                              onClick={() =>
+                                router.push(`/newsDetails/${e._id}`)
+                              }
                             >
                               المزيد
                             </button>
@@ -102,7 +103,7 @@ export default function FlagArchiefTwo() {
                         <br />
                         <button
                           className="btu d-inline-block mx-1 px-3 rounded-3"
-                          onClick={() => navigate(`/newsDetails/${e._id}`)}
+                          onClick={() => router.push(`/newsDetails/${e._id}`)}
                         >
                           المزيد
                         </button>

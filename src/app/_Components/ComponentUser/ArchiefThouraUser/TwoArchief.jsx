@@ -3,9 +3,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
+
 export default function TwoArchief() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [page, setPage] = useState(1);
   function getAllLastNews() {
     return axios.get(
@@ -65,7 +66,7 @@ export default function TwoArchief() {
                               <button
                                 className="btu d-inline-block mx-1 px-3 rounded-3"
                                 onClick={() =>
-                                  navigate(`/newsDetails/${e._id}`)
+                                  router.push(`/newsDetails/${e._id}`)
                                 }
                               >
                                 المزيد
@@ -102,7 +103,7 @@ export default function TwoArchief() {
                         <br />
                         <button
                           className="btu d-inline-block mx-1 px-3 rounded-3"
-                          onClick={() => navigate(`/newsDetails/${e._id}`)}
+                          onClick={() => router.push(`/newsDetails/${e._id}`)}
                         >
                           المزيد
                         </button>

@@ -1,10 +1,12 @@
+"use client"
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useQuery } from 'react-query';
+import { useRouter } from "next/navigation";
+
 export default function LiberatedArchief() {
 
- const navigate = useNavigate();
+ const router = useRouter();
 
    function getAllLastNews() {
      return axios
@@ -37,7 +39,7 @@ export default function LiberatedArchief() {
                     <button
                       className="btu d-inline-block mx-1 px-3 rounded-3"
                       onClick={() =>
-                        navigate(`/newsDetails/${data?.data[0]?._id}`)
+                        router.push(`/newsDetails/${data?.data[0]?._id}`)
                       }
                     >
                       المزيد
@@ -69,7 +71,7 @@ export default function LiberatedArchief() {
                             <br />
                             <button
                               className="btu d-inline-block mx-1 px-3 rounded-3"
-                              onClick={() => navigate(`/newsDetails/${e?._id}`)}
+                              onClick={() => router.push(`/newsDetails/${e?._id}`)}
                             >
                               المزيد
                             </button>

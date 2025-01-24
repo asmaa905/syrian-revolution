@@ -1,10 +1,11 @@
+"use client"
 import React  from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "react-query";
+import {useRouter} from 'next/navigation'
 export default function LiberatedTwo() {
 
-    const navigate = useNavigate();
+    const router = useRouter();
 
        function getAllLastNews() {
         return axios
@@ -37,7 +38,7 @@ export default function LiberatedTwo() {
                     <button
                       className="btu d-inline-block mx-1 px-3 rounded-3"
                       onClick={() =>
-                        navigate(`/newsDetails/${data?.data[0]?._id}`)
+                        router.push(`/newsDetails/${data?.data[0]?._id}`)
                       }
                     >
                       المزيد
@@ -71,7 +72,7 @@ export default function LiberatedTwo() {
                               <button
                                 className="btu d-inline-block mx-1 px-3 rounded-3"
                                 onClick={() =>
-                                  navigate(`/newsDetails/${e?._id}`)
+                                  router.push(`/newsDetails/${e?._id}`)
                                 }
                               >
                                 المزيد

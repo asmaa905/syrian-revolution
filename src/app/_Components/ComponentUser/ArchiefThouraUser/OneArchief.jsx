@@ -1,8 +1,10 @@
-import { useNavigate } from "react-router-dom";
+"use client"
 import axios from "axios";
 import { useQuery } from "react-query";
+import { useRouter } from "next/navigation";
+
 export default function OneArchief() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   function getAllLastNews() {
     return axios.get(
@@ -36,7 +38,7 @@ export default function OneArchief() {
                     <button
                       className="btu d-inline-block mx-1 px-3 rounded-3"
                       onClick={() =>
-                        navigate(`/newsDetails/${data?.data[0]?._id}`)
+                        router.push(`/newsDetails/${data?.data[0]?._id}`)
                       }
                     >
                       المزيد
@@ -71,7 +73,7 @@ export default function OneArchief() {
                               <button
                                 className="btu d-inline-block mx-1 px-3 rounded-3"
                                 onClick={() =>
-                                  navigate(`/newsDetails/${e?._id}`)
+                                  router.push(`/newsDetails/${e?._id}`)
                                 }
                               >
                                 المزيد

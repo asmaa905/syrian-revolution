@@ -55,6 +55,9 @@
   .bg-danger {
     @apply bg-[#dc3545];
   }
+  .gimg {
+    @apply md:h-[450px];
+  }
 }
 
 :root {
@@ -182,7 +185,8 @@ select {
 .lastSlider1::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-.slick-next:before, .slick-prev:before {
+.slick-next:before,
+.slick-prev:before {
   color: #000 !important;
   font-size: 30px !important;
 }

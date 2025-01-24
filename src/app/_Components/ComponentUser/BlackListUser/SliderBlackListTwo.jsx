@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import Slider from "react-slick";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
+
 import { useQuery } from "react-query";
 import axios from "axios";
 export default function SliderBlackListTwo() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [page, setPage] = useState(1);
   ///////////////////////////////////////////
   function getAllLastNews() {
@@ -98,7 +99,7 @@ export default function SliderBlackListTwo() {
                   <img
                     src={`https://syrianrevolution1.com/postImages/${sym.selfImg}`}
                     alt="symbolThowra"
-                    className=" w-100 slide-image"
+                    className=" w-full slide-image"
                     style={{ height: "250px" }}
                   />
                 </div>
@@ -110,8 +111,8 @@ export default function SliderBlackListTwo() {
                   </small>
 
                   <button
-                    className=" d-inline-block mx-1  rounded-3 btu"
-                    onClick={() => navigate(`/newsDetails/${sym._id}`)}
+                    className=" d-inline-block mx-1  rounded-3 btn"
+                    onClick={() => router.push(`/newsDetails/${sym._id}`)}
                   >
                     المزيد
                   </button>
