@@ -67,7 +67,7 @@ export default function Subscribes() {
           }}
         >
           <button
-            className="btn btn-danger"
+            className="btn bg-[#dc3545] text-[#fff]"
             onClick={() => setOpenSubscrips(false)}
           >
             رجوع

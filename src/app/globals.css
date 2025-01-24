@@ -21,11 +21,10 @@
        focus:outline-none focus:shadow-[0_0_0_.25rem_#0d6efd40];
   }
   .btn {
-    @apply hover:bg-[#0b5ed7] hover:text-[#fff] hover:border-[#0a58ca] 
-    inline-block py-1.5 px-3 text-base font-normal leading-6 text-center bg-transparent text-inherit border rounded cursor-pointer transition-colors duration-150 ease-in-out;
+    @apply inline-block py-1.5 px-3 text-base font-normal leading-6 text-center bg-transparent text-inherit border rounded cursor-pointer transition-colors duration-150 ease-in-out;
   }
   .btn-primary {
-    @apply inline-block py-1.5 px-3 text-base font-normal leading-6 text-center text-white bg-blue-600 border border-blue-600 rounded cursor-pointer transition-colors duration-150 ease-in-out hover:bg-blue-500 hover:border-blue-400;
+    @apply hover:text-[#fff]  inline-block py-1.5 px-3 text-base font-normal leading-6 text-center text-white bg-blue-600 border border-blue-600 rounded cursor-pointer transition-colors duration-150 ease-in-out hover:bg-blue-500 hover:border-blue-400;
   }
 
   .mb-4 {
@@ -49,6 +48,12 @@
   }
   .alertthemself {
     @apply text-sm mx-auto p-1 w-4/5;
+  }
+  .alert-success {
+    @apply bg-[#d1e7dd] border border-[#a3cfbb] text-[#0a3622];
+  }
+  .bg-danger {
+    @apply bg-[#dc3545];
   }
 }
 
@@ -126,11 +131,17 @@ body {
   padding-right: 0.75rem;
   width: 100%;
 }
-/* .news-header::after {
-  content: "";
-  width: 90%;
-  position: absolute;
-} */
+p {
+  margin-bottom: 1rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5rem;
+}
 .header {
   position: relative; /* Ensure a positioning context */
 }

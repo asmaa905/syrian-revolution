@@ -1,26 +1,19 @@
-'use client'
+"use client";
 import React, { useContext, useEffect, useState } from "react";
-// import MainNav from "../MainNav/MainNav";
-// import Navbar from "../Navbar/Navbar";
-// import Footer from "../Footer/Footer";
-import axios from "axios";
-// import { useNavigate, useParams } from "react-router-dom";
 
+import axios from "axios";
 import { ContextUser } from "@/context/Context";
 import { useRouter } from "next/navigation";
+import profile_img from "../../../../assets/images/profile_img.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-
-// import one from "../.. ";
-// import AlertImageDash from "../../componantDashboard/AlertImageDash/AlertImageDash";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faSubscript } from "@fortawesome/free-solid-svg-icons";
-// import Subscribes from "../subscribe/Subscribes";
-export default function NewsDetailsMartyr({params}) {
-  console.log(params)
+import Subscribes from "@/app/_Components/ComponentUser/subscribe/Subscribes";
+import AlertImageDash from "@/app/_Components/Dashboard/AlertImageDash/AlertImageDash";
+export default function NewsDetailsMartyr({ params }) {
   const [single, setSingle] = useState([]);
   const { openAlert, openAlertStore, setOpenSubscrips, openSubscrips } =
     useContext(ContextUser);
-  const { id } = params;
+  const { id } = React.use(params);
   useEffect(() => {
     async function getSingle() {
       await axios
@@ -47,39 +40,45 @@ export default function NewsDetailsMartyr({params}) {
   return (
     <>
       {openAlert && <AlertImageDash src={openAlertStore} />}
- 
+
       <div className="demonstrations py-3" style={{ marginBottom: "30px" }}>
-        <div className="max-w-screen-xl mx-auto px-8 md:px-0" style={{ marginTop: "30px" }}>
-          <div
-            className="flex md:flex-row flex-col gap-12"
-           
-          >
+        <div
+          className="max-w-screen-xl mx-auto px-8 md:px-0"
+          style={{ marginTop: "30px" }}
+        >
+          <div className="flex md:flex-row flex-col gap-12">
             <div className="md:w-2/3 ">
-              <h4 className="text-[24px] mb-[30px] font-medium"> الاسم : {single?.name}</h4>
+              <h4 className="text-[24px] mb-[30px] leading-[28px] font-[500] text-[#212529]">
+                {" "}
+                الاسم : {single?.name}
+              </h4>
               <img
                 src={`https://syrianrevolution1.com/imgData/${single?.profileImage}`}
                 alt={single?.name}
-                style={{  marginBottom: "30px",height:'450px' }}
-                className="w-full"
-             
-             
+                style={{ marginBottom: "30px" }}
+                className="w-full md:h-[450px]"
               />
               <h6 className="mb-2"> اسم الاب : </h6>
-              <p className="text-[25px] font-normal leading-9 mb-4">
+              <p className="text-[25px] text-[#212529] font-[400] leading-[38px]">
                 {" "}
                 {single?.fatherName !== "undefined" ? single?.fatherName : ""}
               </p>
               <h6 className="mb-2"> اسم الام : </h6>
-              <p className="mb-4">
+              <p className="text-[25px] text-[#212529] font-[400] leading-[38px]">
                 {" "}
                 {single?.motherName !== "undefined" ? single?.motherName : ""}
               </p>
               <h6 className="mb-2"> الكنية : </h6>
-              <p> {single?.nikeName !== "undefined" ? single?.nikeName : ""}</p>
+              <p className="text-[25px] text-[#212529] font-[400] leading-[38px]">
+                {single?.nikeName !== "undefined" ? single?.nikeName : ""}
+              </p>
               <h6 className="mb-2"> التفاصيل : </h6>
-              <p className="text-[25px] font-normal leading-9 mb-4"> {single?.details !== "undefined" ? single?.details : ""}</p>
+              <p className="text-[25px] leading-[38px] font-[400] text-[#212529]">
+                {" "}
+                {single?.details !== "undefined" ? single?.details : ""}
+              </p>
               <h6 className="mb-2">المحافظة : </h6>
-              <p className="text-[25px] font-normal leading-9 mb-4">
+              <p className="text-[25px] leading-[38px] font-[400] text-[#212529]">
                 {single?.governorate !== "undefined" ? single?.governorate : ""}
               </p>
               <h6 className="mb-2">تاريخ الميلاد : </h6>
@@ -87,7 +86,7 @@ export default function NewsDetailsMartyr({params}) {
                 {single?.dateOfBirth ? single?.dateOfBirth.slice(0, 10) : ""}
               </p>
               <h6 className="mb-2">تاريخ النشر</h6>
-              <p className="datedetails mb-4">
+              <p className="datedetails text-[13px] leading-[20px] font-[400] text-[#212529]">
                 {single?.createdAt && single?.createdAt.slice(0, 10)}
               </p>
 
@@ -109,28 +108,30 @@ export default function NewsDetailsMartyr({params}) {
                     {single?.user?.selfImg !== undefined &&
                     single?.user?.selfImg !== "undefined" &&
                     single?.user?.selfImg !== "" ? (
-                      <img
+                      <Image
                         src={`https://syrianrevolution1.com/images/${single?.user?.selfImg}`}
-                        alt="profile"
+                        alt="martyr poster"
+                        width={50}
+                        height={50}
                         style={{
-                          width: "50px",
-                          height: "50px",
                           borderRadius: "50%",
                         }}
                       />
                     ) : (
-                      <img
-                        // src={one}
-                        alt="profile"
+                      <Image
+                        src={profile_img}
+                        alt="martyr poster"
+                        width={50}
+                        height={50}
                         style={{
-                          width: "50px",
-                          height: "50px",
                           borderRadius: "50%",
                         }}
                       />
                     )}
 
-                    <p>{single?.user?.username}</p>
+                    <p className="text-[25px] leading-[38px] font-[400] text-[#212529]">
+                      {single?.user?.username}
+                    </p>
                   </div>
                 </div>
                 <div
@@ -147,8 +148,13 @@ export default function NewsDetailsMartyr({params}) {
                   }}
                   onClick={() => setOpenSubscrips(true)}
                 >
-                  <p style={{ fontSize: "14px", marginTop: "12px" }}>مشاركة</p>
-                  {/* <FontAwesomeIcon icon={faSubscript} /> */}
+                  <p
+                    className="leading-[21px] text-[#fff] font-[400]"
+                    style={{ fontSize: "14px" }}
+                  >
+                    مشاركة
+                  </p>
+                  <FontAwesomeIcon icon="fa-solid fa-subscript" />
                 </div>
               </div>
             </div>
@@ -161,7 +167,7 @@ export default function NewsDetailsMartyr({params}) {
                     style={{ backgroundColor: "#fdfafa" }}
                     key={i}
                   >
-                    <div className="w-1/3">
+                    <div className="md:w-1/3">
                       <img
                         src={`https://syrianrevolution1.com/imgData/${e?.profileImage}`}
                         alt={archief?.name}
@@ -173,8 +179,7 @@ export default function NewsDetailsMartyr({params}) {
                         {e?.name}
                         <br />
                         <button
-                            className="bg-[#ffbaba] text-[15px] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
-
+                          className="btn bg-[#ffbaba] text-[15px] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
                           onClick={() =>
                             router.push(`/NewsDetailsMartyr/${e._id}`)
                           }
@@ -191,7 +196,6 @@ export default function NewsDetailsMartyr({params}) {
         </div>
         {openSubscrips && <Subscribes />}
       </div>
-      {/* <Footer /> */}
     </>
   );
 }

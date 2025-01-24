@@ -1,9 +1,7 @@
-'use client'
+"use client";
 import React, { useContext, useEffect, useState } from "react";
 
-
 import axios from "axios";
-
 
 import { ContextUser } from "@/context/Context";
 // import AlertImageDash from "../../componantDashboard/AlertImageDash/AlertImageDash";
@@ -12,11 +10,11 @@ import { ContextUser } from "@/context/Context";
 // import { faSubscript } from "@fortawesome/free-solid-svg-icons";
 // import Subscribes from "../subscribe/Subscribes";
 import { useRouter } from "next/navigation";
-export default function NewsDetailsMascers({params}) {
+export default function NewsDetailsMascers({ params }) {
   const [single, setSingle] = useState([]);
   const { openAlert, openAlertStore, setOpenSubscrips, openSubscrips } =
     useContext(ContextUser);
-  const { id } = params;
+  const { id } = React.use(params);
   useEffect(() => {
     async function getSingle() {
       await axios
@@ -45,13 +43,13 @@ export default function NewsDetailsMascers({params}) {
       {openAlert && <AlertImageDash src={openAlertStore} />}
 
       <div className="demonstrations py-3">
-        <div className="max-w-screen-xl mx-auto" style={{ marginTop: "30px" }}>
-          <div
-            className="flex md:flex-row flex-col gap-4"
-       
-          >
+        <div
+          className="max-w-screen-xl mx-auto container"
+          style={{ marginTop: "30px" }}
+        >
+          <div className="flex md:flex-row flex-col gap-4">
             <div className="md:w-2/3 ">
-              <h4 className="text-[24px] mb-[30px] font-medium">
+              <h4 className="text-[24px] mb-[30px] leading-[28px] font-[500] text-[#212529]">
                 {" "}
                 العنوان : {single?.title}
               </h4>
@@ -61,13 +59,15 @@ export default function NewsDetailsMascers({params}) {
                 style={{ width: "100%", marginBottom: "30px" }}
               />
               <h6 className="mb-2"> التفاصيل : </h6>
-              <p className="text-[25px] font-normal leading-9 mb-4"> {single?.details !== "undefined" ? single?.details : ""}</p>
+              <p className="text-[25px] leading-[38px] font-[400] text-[#212529]">
+                {single?.details !== "undefined" ? single?.details : ""}
+              </p>
               <h6 className="mb-2">المحافظة : </h6>
-              <p className="text-[25px] font-normal leading-9 mb-4">
+              <p className="text-[25px] leading-[38px] font-[400] text-[#212529]">
                 {single?.governorate !== "undefined" ? single?.governorate : ""}
               </p>
               <h6 className="mb-2">تاريخ النشر</h6>
-              <p className="datedetails">
+              <p className="datedetails text-[13px] leading-[20px] font-[400] text-[#212529]">
                 {single?.createdAt && single?.createdAt.slice(0, 10)}
               </p>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -75,28 +75,31 @@ export default function NewsDetailsMascers({params}) {
                   {single?.user?.selfImg !== undefined &&
                   single?.user?.selfImg !== "undefined " &&
                   single?.user?.selfImg !== "" ? (
-                    <img
+                    <Image
                       src={`https://syrianrevolution1.com/images/${single?.user?.selfImg}`}
-                      alt="profile"
+                      alt="mascer"
+                      width={50}
+                      height={50}
                       style={{
-                        width: "50px",
-                        height: "50px",
                         borderRadius: "50%",
                       }}
                     />
                   ) : (
-                    "imgone"
-                    // <img
-                    //   src={one}
-                    //   alt="profile"
-                    //   style={{
-                    //     width: "50px",
-                    //     height: "50px",
-                    //     borderRadius: "50%",
-                    //   }}
-                    // />
+                    <Image
+                      src={profile_img}
+                      alt="mascer"
+                      width={40}
+                      height={50}
+                      style={{
+                        borderRadius: "40%",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => setOpenAuth("update")}
+                    />
                   )}
-                  <p>{single?.user?.username}</p>
+                  <p className="text-[25px] leading-[38px] font-[400] text-[#212529]">
+                    {single?.user?.username}
+                  </p>
                 </div>
                 <div
                   style={{
@@ -112,13 +115,18 @@ export default function NewsDetailsMascers({params}) {
                   }}
                   onClick={() => setOpenSubscrips(true)}
                 >
-                  <p style={{ fontSize: "14px", marginTop: "12px" }}>مشاركة</p>
-                  {/* <FontAwesomeIcon icon={faSubscript} /> */}
+                  <p
+                    className="leading-[21px] text-[#fff] font-[400]"
+                    style={{ fontSize: "14px", paddingTop: "15px" }}
+                  >
+                    مشاركة
+                  </p>
+                  <FontAwesomeIcon icon="fa-solid fa-subscript" />
                 </div>
               </div>
             </div>
             {/* /////////////////////// */}
-            <div className="lastSlider1 md:w-1/3 max-h-[700px] overflow-y-auto  px-[16px]">
+            <div className="md:w-1/3 max-h-[700px] overflow-y-auto lastSlider1 px-[16px]">
               <div className=" muted p-2 overflow-hidden">
                 {archief.slice(0, 50).map((e, i) => (
                   <div
@@ -126,11 +134,11 @@ export default function NewsDetailsMascers({params}) {
                     style={{ backgroundColor: "#fdfafa" }}
                     key={i}
                   >
-                    <div className="w-1/3">
+                    <div className="md:w-1/3">
                       <img
                         src={`https://syrianrevolution1.com/postImages/${e?.profileImage}`}
-                        alt=  {e?.title}
-                        className="w-100"
+                        alt={e?.title}
+                        className="w-full"
                       />
                     </div>
                     <div className="w-2/3">
@@ -138,8 +146,7 @@ export default function NewsDetailsMascers({params}) {
                         {e?.title}
                         <br />
                         <button
-                                                    className="bg-[#ffbaba] text-[15px] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
-
+                          className="btn bg-[#ffbaba] text-[15px] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
                           onClick={() =>
                             router.push(`/NewsDetailsMascers/${e._id}`)
                           }
@@ -156,7 +163,6 @@ export default function NewsDetailsMascers({params}) {
         </div>
         {openSubscrips && <Subscribes />}
       </div>
-
     </>
   );
 }

@@ -7,12 +7,16 @@ import styles from "./lastNews.module.css";
 import axios from "axios";
 import { useQuery } from "react-query";
 
-export default function OneMainPageFirst() {
+export default function lastNewsSection() {
   const [selectedOptions, setSelectedOptions] = useState({});
-  const router = useRouter(); // Correct use of useRouter for client-side navigation
+  const router = useRouter();
   const currentUserId = localStorage.getItem("idUserLogin");
-
-  const queryClient = useQuery();
+  const splitNewsName = (name) => {
+    if (name.length > 69) {
+      return name.slice(0, 69) + "...";
+    }
+    return name;
+  };
 
   function getAllLastNews() {
     return axios.get(
@@ -21,7 +25,6 @@ export default function OneMainPageFirst() {
   }
 
   let { data, refetch } = useQuery("lastNews", getAllLastNews);
-  console.log(data);
 
   const handleChange = async (event, newsId) => {
     const newValue = event.target.value;
@@ -52,17 +55,15 @@ export default function OneMainPageFirst() {
       );
 
       refetch();
-      console.log("تم تحديث الرؤية بنجاح", res);
     } catch (error) {
       console.error("حدث خطأ أثناء تحديث الرؤية:", error);
     }
   };
-
   return (
     <>
       <div className="container">
-        <div className={`${styles.header} position-relative py-5`}>
-          <h3 className="header-text relative"> آخر الأخبار </h3>
+        <div className={`${styles.header} position-relative py-[3rem]`}>
+          <h3 className="header-text relative text-danger"> آخر الأخبار </h3>
         </div>
       </div>
       <section className="regime" style={{ marginBottom: "50px" }}>
@@ -73,7 +74,10 @@ export default function OneMainPageFirst() {
                 (e) => e.category === "lastNews" && e.visibility === "العامة"
               )
               .map((last, i) => (
-                <div className="col-md-3" key={i}>
+                <div
+                  className="lg:w-[25%] md:w-[33.33%] flex-[0_0_auto] w-full sm:w-[50%] px-[0.75rem] mt-[1rem] max-w-[100%]"
+                  key={i}
+                >
                   <div>
                     {currentUserId === last.user._id ? (
                       <select
@@ -81,7 +85,7 @@ export default function OneMainPageFirst() {
                         value={selectedOptions[last._id] || last.visibility}
                         onChange={(event) => handleChange(event, last._id)}
                         style={{ padding: "5px", fontSize: "14px" }}
-                        className="m-2"
+                        className="m-2 font-[400] text-[14px]"
                       >
                         <option value="" disabled>
                           {last.visibility}
@@ -91,17 +95,16 @@ export default function OneMainPageFirst() {
                         <option value="خاص بي">خاص بي</option>
                       </select>
                     ) : (
-                      <p className="m-0 p-0 fs-6">{last.visibility}</p>
+                      <p className="m-2 font-[400] text-[14px]">
+                        {last.visibility}
+                      </p>
                     )}
                   </div>
                   {last.images.length > 0 && (
                     <img
                       src={`https://syrianrevolution1.com/postImages/${last.images[0]?.imgPath}`}
                       alt={last.images[0]?.description || "image"}
-                      className=" w-100 rounded-3 fimg "
-                      // width={500}
-                      // height={300}
-                      // priority={true}
+                      className="w-full rounded-[0.5rem] h-[195px]"
                       fetchPriority="high"
                     />
                   )}
@@ -114,7 +117,7 @@ export default function OneMainPageFirst() {
                         marginBottom: "30px",
                         height: "200px",
                       }}
-                      className="w-100 rounded-3 fimg"
+                      className="w-full rounded-[0.5rem] h-[195px]"
                       controls
                     >
                       <source
@@ -125,16 +128,18 @@ export default function OneMainPageFirst() {
                     </video>
                   )}
 
-                  <p>
-                    {last.name}
+                  <p className="font-[400] text-[25px] leading-[38px] text-[#212529]">
+                    {last.name.length > 69
+                      ? splitNewsName(last.name)
+                      : last.name}
                     <br />
                     <button
-                      className="btu d-inline-block mx-1 px-3 rounded-3"
+                      className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
                       onClick={() => router.push(`/newsDetails/${last._id}`)}
                     >
                       المزيد
                     </button>
-                    <small className="datedSingle">
+                    <small className="datedSingle text-[12px] leading-[18px] font-[400] text-[#808080]">
                       {last?.createdAt && last?.createdAt.slice(0, 10)}
                     </small>
                   </p>

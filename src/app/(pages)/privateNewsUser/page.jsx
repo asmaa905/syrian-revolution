@@ -83,8 +83,6 @@ export default function PrivateNewsUser() {
                   className="lg:w-[25%] md:w-[33.33%] flex-[0_0_auto] w-full sm:w-[50%] px-[0.75rem] mt-[1rem] max-w-[100%]"
                   key={i}
                 >
-                  {console.log(data.lists)}
-
                   <div>
                     <select
                       id="small-dropdown"
