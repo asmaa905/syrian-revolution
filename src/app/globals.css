@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer components {
   .header-text {
     @apply text-[27px] leading-[33px] font-[500]  text-[#dc3545];
@@ -66,6 +67,9 @@
 :after,
 :before {
   box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
   color: var(--foreground);

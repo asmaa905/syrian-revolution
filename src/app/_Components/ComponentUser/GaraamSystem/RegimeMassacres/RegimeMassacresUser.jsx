@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import SliderGaraemSystem from "../SliderGaraemSystem";
+
 export default function RegimeMassacresUser() {
   const router = useRouter();
   function getMascersSystem1() {

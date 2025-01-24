@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 
-import "../../../css/componantUser/GraamQasad/SliderGramaamQasad.css";
-import { useNavigate } from "react-router-dom";
+// import "../../../css/componantUser/GraamQasad/SliderGramaamQasad.css";
+import { useRouter } from "next/navigation";
 import { useQuery } from "react-query";
 import axios from "axios";
 export default function SliderGraemTwo() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [page, setPage] = useState(10);
   function getAllLastNews() {
     return axios.get(
@@ -95,7 +95,7 @@ export default function SliderGraemTwo() {
   };
   return (
     <div style={{ marginBottom: "100px" }}>
-      <div className="container">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-0">
         <div className="slider-container px-4 position-relative">
           <Slider {...settings}>
             {data?.data.map((e, i) => (
@@ -103,8 +103,8 @@ export default function SliderGraemTwo() {
                 <div className="image mb-2 mx-2 ">
                   <img
                     src={`https://syrianrevolution1.com/imgData/${e.profileImage}`}
-                    alt="mascers"
-                    className=" w-100 slide-image"
+                    alt={e?.name}
+                    className=" w-full slide-image"
                     style={{ height: "250px" }}
                   />
                 </div>
@@ -116,8 +116,9 @@ export default function SliderGraemTwo() {
                     {e?.createdAt && e?.createdAt.slice(0, 10)}
                   </small>
                   <button
-                    className="btu d-inline-block mx-1 px-3 rounded-3"
-                    onClick={() => navigate(`/NewsDetailsMartyr/${e._id}`)}
+                                 className="bg-[#ffbaba] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
+
+                    onClick={() => router.push(`/NewsDetailsMartyr/${e._id}`)}
                   >
                     المزيد
                   </button>
@@ -130,15 +131,21 @@ export default function SliderGraemTwo() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              gap:'10px',
+              marginTop:"15px",
             }}
           >
-            <button onClick={handleNextPage} className="btn btn-secondary">
+            <button onClick={handleNextPage} 
+                              className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400"
+
+            >
               +
             </button>
             <button
               onClick={handlePreviousPage}
               disabled={page === 1}
-              className="btn btn-secondary"
+              className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400"
+
             >
               -
             </button>

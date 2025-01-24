@@ -1,11 +1,14 @@
+'use client'
 import React from "react";
 import "../../../../css/componantUser/GaraamSystem/RegimeMassacres/RegimeMassacresUser.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+
 import SliderGraamQasad from "../SliderGraamQasad";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 export default function RegimeMassacresUser() {
-  const navigate = useNavigate();
+  const router = useRouter();
   function getMascersSystem1() {
     return axios.get(
       "http://localhost:4500/massacres/search?responsibleAuthority=qasad&limit=8"
@@ -14,7 +17,7 @@ export default function RegimeMassacresUser() {
   const { data } = useQuery("oneMascersQasads1", getMascersSystem1, {
     cacheTime: 1800000,
   });
-
+console.log(data)
   return (
     <>
       <section
@@ -29,16 +32,16 @@ export default function RegimeMassacresUser() {
                 <div className="image mb-2">
                   <img
                     src={`http://localhost:4500/postImages/${e.profileImage}`}
-                    alt="home"
-                    className=" w-100 rounded-3 fimg"
+                    alt={e?.title}
+                    className=" w-full rounded-md h-[195px]"
                   />
                 </div>
                 <p>
                   {e?.title ? e?.title : ""}
                   <br />
                   <button
-                    className="btu d-inline-block mx-1 px-3 rounded-3"
-                    onClick={() => navigate(`/NewsDetailsMascers/${e._id}`)}
+                     className="bg-[#ffbaba] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
+                    onClick={() => router.push(`/NewsDetailsMascers/${e._id}`)}
                   >
                     المزيد
                   </button>
