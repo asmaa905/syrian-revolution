@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 export default function SearchMascers() {
   const [name, setName] = useState("");
@@ -69,9 +70,14 @@ export default function SearchMascers() {
               onClick={handlesearch}
             >
               {isLoading ? (
-            <div className="animate-spin h-5 w-5 border-4 border-t-4 border-secondary rounded-full" role="status">  
-            <span className="sr-only">Loading...</span>  
-          </div>  
+           <div role="status">
+                         <FontAwesomeIcon
+                           icon={faSpinner}
+                           spin
+                           className="h-5 w-5 text-secondary"
+                         />
+                         <span className="sr-only">Loading...</span>
+                       </div>   
               ) : (
                 " بحث"
               )}

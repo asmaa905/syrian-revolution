@@ -3,11 +3,12 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import "../../../css/componantUser/GaraamSystem/SliderGramaamSystem.css";
-import { useNavigate } from "react-router-dom";
+
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useQuery } from "react-query";
 export default function SliderGrammSystemTwo() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [page, setPage] = useState(10);
   function getAllLastNews(page = 1) {
     return axios.get(
@@ -100,7 +101,7 @@ export default function SliderGrammSystemTwo() {
                 <div className="image mb-2 mx-2 ">
                   <img
                     src={`https://syrianrevolution1.com/imgData/${e.profileImage}`}
-                    alt="mascers"
+                    alt={e.name}
                     className=" w-100 slide-image"
                     style={{ height: "250px" }}
                   />
@@ -112,8 +113,8 @@ export default function SliderGrammSystemTwo() {
                     {e?.createdAt && e?.createdAt.slice(0, 10)}
                   </small>
                   <button
-                    className="btu d-inline-block mx-1 px-3 rounded-3"
-                    onClick={() => navigate(`/NewsDetailsMartyr/${e._id}`)}
+                 className="bg-[#ffbaba] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
+                    onClick={() => router.push(`/NewsDetailsMartyr/${e._id}`)}
                   >
                     المزيد
                   </button>
@@ -124,17 +125,19 @@ export default function SliderGrammSystemTwo() {
           <div
             style={{
               display: "flex",
+              gap:'10px',
+              marginTop:"15px",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
-            <button onClick={handleNextPage} className="btn btn-secondary">
+            <button onClick={handleNextPage} c className='px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400'>
               +
             </button>
             <button
               onClick={handlePreviousPage}
               disabled={page === 1}
-              className="btn btn-secondary"
+           className='px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400'
             >
               -
             </button>

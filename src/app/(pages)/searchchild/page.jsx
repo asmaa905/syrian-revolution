@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 export default function SearchList() {
   const [name, setName] = useState("");
@@ -13,10 +14,10 @@ export default function SearchList() {
   const [isLoading, setIsLoading] = useState(false);
   function searchList() {
     return axios.get(
-      `https://syrianrevolution1.com/lists/searchName?name=${name}`
+      `https://syrianrevolution1.com/childData/searchName?name=${name}`
     );
   }
-  const { data, refetch } = useQuery("searchLists", searchList, {
+  const { data, refetch } = useQuery("searchchild", searchList, {
     enabled: false,
     onSettled: () => {
       setIsLoading(false);
@@ -69,9 +70,14 @@ export default function SearchList() {
               onClick={handlesearch}
             >
               {isLoading ? (
-            <div className="animate-spin h-5 w-5 border-4 border-t-4 border-secondary rounded-full" role="status">  
-            <span className="sr-only">Loading...</span>  
-          </div>  
+           <div role="status">
+                         <FontAwesomeIcon
+                           icon={faSpinner}
+                           spin
+                           className="h-5 w-5 text-secondary"
+                         />
+                         <span className="sr-only">Loading...</span>
+                       </div>  
               ) : (
                 " بحث"
               )}
@@ -100,9 +106,9 @@ export default function SearchList() {
                 {data?.data.map((e, i) => (
                   <div className="px-8 md:px-0" key={i}>
                     <div className="image mb-2">
-                      {e?.selfImg&&   <img
-                        src={`https://syrianrevolution1.com/postImages/${e.selfImg}`}
-                        alt="martyr"
+                      {e?.profileImage&&   <img
+                      src={`https://syrianrevolution1.com/imgData/${e?.profileImage}`}
+                        alt={e?.name}
                         className=" w-full rounded-md h-[195px] "
                       />}
                    
@@ -112,7 +118,7 @@ export default function SearchList() {
                       <br />
                       <button
                         className="bg-[#ffbaba] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
-                        onClick={() => router.push(`/newsDetails/${e._id}`)}
+                        onClick={() => router.push(`/NewsDetailsMartyr/${e._id}`)}
                       >
                         المزيد
                       </button>

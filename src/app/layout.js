@@ -16,6 +16,8 @@ import * as solidIcons from "@fortawesome/free-solid-svg-icons";
 import * as regularIcons from "@fortawesome/free-regular-svg-icons";
 import * as brandIcons from "@fortawesome/free-brands-svg-icons";
 import MainNav from "./_Components/ComponentUser/MainNav/MainNav";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "flowbite";
 // Function to add all icons from a set
 const addAllIcons = (iconSet) => {

@@ -138,9 +138,10 @@ export default function NewsDetailsMascers({params}) {
                         {e?.title}
                         <br />
                         <button
-                          className=" btu d-inline-block mx-1 px-3 rounded-3"
+                                                    className="bg-[#ffbaba] text-[15px] d-inline-block mx-1 rounded-md mt-[10px] px-[10px] -translate-y-[5px]"
+
                           onClick={() =>
-                            router.id(`/NewsDetailsMascers/${e._id}`)
+                            router.push(`/NewsDetailsMascers/${e._id}`)
                           }
                         >
                           المزيد

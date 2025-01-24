@@ -306,7 +306,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block "
-        to="threeone"
+        to="fourone"
         duration={500}
         offset={-70}
         >
@@ -318,7 +318,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block "
-        to="threetwo"
+        to="fourtwo"
         duration={500}
         offset={-70}
         >
@@ -330,7 +330,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block"
-        to="threethree"
+        to="fourthree"
         duration={500}
         offset={-70}
         >
@@ -342,7 +342,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block"
-        to="threethree"
+        to="fourfour"
         duration={500}
         offset={-70}
         >
@@ -393,7 +393,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block "
-        to="threeone"
+        to="fiveone"
         duration={500}
         offset={-70}
         >
@@ -405,7 +405,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block "
-        to="threetwo"
+        to="fivetwo"
         duration={500}
         offset={-70}
         >
@@ -417,7 +417,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block"
-        to="threethree"
+        to="fivethree"
         duration={500}
         offset={-70}
         >
@@ -429,7 +429,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block"
-        to="threethree"
+        to="fivefour"
         duration={500}
         offset={-70}
         >
@@ -481,7 +481,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block "
-        to="threeone"
+        to="sevenone"
         duration={500}
         offset={-70}
         >
@@ -493,7 +493,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block "
-        to="threetwo"
+        to="seventwo"
         duration={500}
         offset={-70}
         >
@@ -505,7 +505,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block"
-        to="threethree"
+        to="seventhree"
         duration={500}
         offset={-70}
         >
@@ -517,7 +517,7 @@ const pathName=usePathname()
 
       <ScrollLink
         className="nav-link text-white block"
-        to="threethree"
+        to="sevenfour"
         duration={500}
         offset={-70}
         >

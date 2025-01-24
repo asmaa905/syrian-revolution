@@ -215,7 +215,7 @@ export default function MainNav() {
             </div>
             <div className="w-full md:w-auto border rounded-md px-3">
               <select
-                className="form-select w-full outline-none"
+                className="form-select border-none w-full outline-none"
                 onChange={handleSelectChange}
               >
                 <option>ابحث عن</option>

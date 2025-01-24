@@ -167,7 +167,7 @@ export default function NewsDetails({params}) {
                         <>
                           <img
                             src={`https://syrianrevolution1.com/postImages/${e?.images[0]?.imgPath}`}
-                            alt="home"
+                            alt={e?.images[0]?.description}
                             className=" w-100 rounded-md fimg h-25"
                             fetchpriority="high"
                           />
