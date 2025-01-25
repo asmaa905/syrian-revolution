@@ -53,8 +53,9 @@ export default function SearchList() {
           </span>
           <div className="flex translate-y-[40px] items-center w-[80%] gap-5 mx-auto" >
             <div className="flex flex-col ">
-              <label htmlFor="" className="text-[10px] text-[#212529]">الاسم</label>
+              <label htmlFor="name-input" className="text-[10px] text-[#212529]">الاسم</label>
               <input
+                id="name-input"
                 type="text"
                 name="name"
                 className="border px-3 py-[6px] rounded-md text-[16px] placeholder:text-[10px] text-[#212529]"

@@ -208,3 +208,24 @@ select {
 button:not(:disabled) {
   cursor: pointer;
 }
+td,th{
+  width: fit-content;
+}
+table{
+  margin: 30px auto auto;
+  text-align: center;
+  width: 100%;
+}
+th{
+  color: #2c3d76;
+  font-size: 13px;
+  padding: 7px 0;
+}
+td{
+  color: #212529;
+  font-size: 13px;
+  padding: 7px 0;
+}
+tr{
+  margin:  7px 0;
+}

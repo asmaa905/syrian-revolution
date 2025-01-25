@@ -100,7 +100,7 @@ export default function SliderGaraemSystem() {
                   <img
                     src={`https://syrianrevolution1.com/postImages/${e?.profileImage}`}
                     alt={e?.title}
-                    className=" w-100 rounded-full"
+                    className=" w-full rounded-full"
                     style={{ height: "250px" }}
                   />
                 </div>
