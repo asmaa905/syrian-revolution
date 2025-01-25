@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useContext, useEffect } from "react";
-import "../../../css/componantUser/MainNav/MainNav.css";
+// import "../../../css/componantUser/MainNav/MainNav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCommentDots,
@@ -105,14 +105,14 @@ export default function MainNav() {
       <div className="max-w-screen-xl mx-auto px-4 md:px-0 py-4">
         <div className="flex  py-3 items-center flex-col md:flex-row">
           <div className="w-full md:w-1/3 flex justify-between items-center">
-            <h1 className="m-0 text-lg  md:block hidden font-[500] text-[#212529] text-[24px] leading-[29px] ">
+            <h1 className="m-0   md:block hidden font-[500] text-[#212529] text-[24px] leading-[29px] ">
               الثورة السورية
             </h1>
           </div>
           <div className="w-full md:w-2/3   flex flex-col md:flex-row justify-end gap-5 items-center ">
             <div className="flex items-center  relative w-full md:w-fit">
               <div className="flex justify-between md:justify-end items-center w-full md:w-fit relative">
-                {/* <h1 className="m-0 text-lg font-bold md:hidden block">
+                {/* <h1 className="m-0 text-[24px] font-bold md:hidden block">
                     الثورة السورية
                   </h1> */}
 
@@ -124,7 +124,7 @@ export default function MainNav() {
                 </p>
               </div>
               <div
-                className=" cursor-pointer ms-2"
+                className=" cursor-pointer ms-2 text-[24px] notification relative"
                 onClick={() => setOpenNoti(true)}
               >
                 <FontAwesomeIcon icon={["fa-regular", "fa-bell"]} />
@@ -226,9 +226,9 @@ export default function MainNav() {
                 <option value="option3"> الملفات</option>
               </select>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center ms-auto">
               {localStorage.getItem("token") ? (
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 me-auto">
                   {localStorage?.selfImg ? (
                     <img
                       src={`https://syrianrevolution1.com/images/${localStorage?.selfImg}`}
@@ -256,15 +256,15 @@ export default function MainNav() {
                   </button>
                 </div>
               ) : (
-                <div className="flex items-center gap-4 me-auto">
+                <div className="flex items-center gap-4 ">
                   <button
-                    className="px-4 py-1 text-sm bg-blue-600 text-white rounded"
+                    className="px-[12px] py-[6px]  bg-[#131434] text-white rounded"
                     onClick={() => setOpenAuth("register")}
                   >
                     انشاء حساب
                   </button>
                   <button
-                    className="px-4 py-1 text-sm bg-green-600 text-white rounded"
+                    className="px-[12px] py-[6px]   text-[#131434] border border-[#131434] rounded"
                     onClick={() => setOpenAuth("login")}
                   >
                     تسجيل الدخول

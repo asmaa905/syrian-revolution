@@ -88,7 +88,7 @@ export default function WantedToSystem() {
 
             ادخل البيانات هنا
           </span>
-          <div className="flex gap-5 items-center w-4/5 translate-y-10 mx-auto">
+          <div className="flex md:flex-row flex-col gap-5 items-center w-4/5 translate-y-10 mx-auto">
             <div>
             <label htmlFor="name-input" className="text-[10px] text-[#212529]">الاسم</label>
 <input
@@ -161,7 +161,7 @@ export default function WantedToSystem() {
             نتائج البحث
           </span>
           <div  style={{ marginTop: "45px" }}>
-            <div className='overflow-auto h-[350px]'>
+            <div className='overflow-auto h-[350px] wantedscroll '>
               <div >
                 <table className='min-w-[1500px]'>
                   <thead className="bg-[#D7D4D4]">
