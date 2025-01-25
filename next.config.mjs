@@ -1,8 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    domains: ["syrianrevolution1.com"], // Add the domain here
+export default {
+  reactStrictMode: true,
+  // experimental: {
+  //   appDir: true, // If using the app directory
+  // },
+  webpack(config) {
+    config.infrastructureLogging = { debug: true };
+    return config;
   },
 };
-
-export default nextConfig;
