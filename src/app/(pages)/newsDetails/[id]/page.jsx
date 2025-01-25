@@ -55,7 +55,7 @@ export default function NewsDetails({ params }) {
                       src={`https://syrianrevolution1.com/postImages/${image.imgPath}`}
                       alt={image?.description || "image"}
                       className="w-[75%] rounded-[0.5rem] md:h-[450px] h-[75%]"
-                      fetchpriority="high"
+                      fetchPriority="high"
                     />
                     <p>{image.description}</p>
                   </div>
@@ -168,7 +168,7 @@ export default function NewsDetails({ params }) {
                             src={`https://syrianrevolution1.com/postImages/${e?.images[0]?.imgPath}`}
                             alt={e?.images[0]?.description}
                             className=" w-full rounded-md  h-[25%_!important]"
-                            fetchpriority="high"
+                            fetchPriority="high"
                           />
                         </>
                       )}

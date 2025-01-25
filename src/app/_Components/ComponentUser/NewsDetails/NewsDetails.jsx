@@ -60,7 +60,7 @@ export default function NewsDetails() {
                       src={`https://syrianrevolution1.com/postImages/${image.imgPath}`}
                       alt={image.description || "image"}
                       className="w-75 rounded-3 fimg h-75"
-                      fetchpriority="high"
+                      fetchPriority="high"
                     />
                     <p>{image.description}</p>
                   </div>
@@ -150,7 +150,8 @@ export default function NewsDetails() {
                   onClick={() => setOpenSubscrips(true)}
                 >
                   <p style={{ fontSize: "14px", marginTop: "12px" }}>مشاركة</p>
-                  <FontAwesomeIcon icon="fa-solid fa-subscript" />                </div>
+                  <FontAwesomeIcon icon="fa-solid fa-subscript" />{" "}
+                </div>
               </div>
             </div>
             {/* /////////////////////// */}
@@ -169,7 +170,7 @@ export default function NewsDetails() {
                             src={`https://syrianrevolution1.com/postImages/${e?.images[0]?.imgPath}`}
                             alt="home"
                             className=" w-100 rounded-3 fimg h-25"
-                            fetchpriority="high"
+                            fetchPriority="high"
                           />
                         </>
                       )}

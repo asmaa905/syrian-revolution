@@ -326,7 +326,7 @@ export default function AddShahedUser() {
               name="details"
               id="details"
               onChange={handlechange}
-              className="p-2 border rounded"
+              className="p-2 border rounded-1"
             ></textarea>
           </div>
         </div>
@@ -334,14 +334,15 @@ export default function AddShahedUser() {
         <div className="mt-6 flex justify-center">
           <button
             type="submit"
-            className="px-6 py-3 text-white bg-green-500 rounded hover:bg-green-600"
+            className="p-[2px_25px] border-none rounded-[20px] cursor-pointer "
+            style={{ color: "white", backgroundColor: "green" }}
           >
             {loading ? (
               <div className="spinner-border text-white" role="status">
                 <span className="sr-only">Loading...</span>
               </div>
             ) : (
-              "إضافة"
+              "اضافةبيانات "
             )}
           </button>
         </div>

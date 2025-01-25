@@ -129,14 +129,14 @@ export default function FlagsUser() {
                               src={`https://syrianrevolution1.com/postImages/${e.images[0]?.imgPath}`}
                               alt={e.images[0]?.description || "image"}
                               className="w-full rounded-[0.5rem] h-[195px]"
-                              fetchpriority="high"
+                              fetchPriority="high"
                             />
                           ) : (
                             <img
                               src={`https://syrianrevolution1.com/postImages/${e.selfImg}`}
                               alt={e.images[0]?.description || "image"}
                               className="w-full rounded-[0.5rem] h-[195px]"
-                              fetchpriority="high"
+                              fetchPriority="high"
                             />
                           )}
                           {e?.video && (
@@ -180,7 +180,7 @@ export default function FlagsUser() {
                           src={`https://syrianrevolution1.com/postImages/${e.images[0]?.imgPath}`}
                           alt={e.images[0]?.description || "image"}
                           className="w-full rounded-[0.5rem] h-[195px] h-[50%_!important]"
-                          fetchpriority="high"
+                          fetchPriority="high"
                         />
                       )}
                       {e?.video && (
@@ -226,10 +226,13 @@ export default function FlagsUser() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  gap:"3px"
+                  gap: "3px",
                 }}
               >
-                <button onClick={handleNextPage} className="btn btn-secondary rounded-3">
+                <button
+                  onClick={handleNextPage}
+                  className="btn btn-secondary rounded-3"
+                >
                   +
                 </button>
                 <button
