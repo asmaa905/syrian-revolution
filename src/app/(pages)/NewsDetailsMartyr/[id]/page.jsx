@@ -110,7 +110,7 @@ export default function NewsDetailsMartyr({ params }) {
                     single?.user?.selfImg !== "" ? (
                       <Image
                         src={`https://syrianrevolution1.com/images/${single?.user?.selfImg}`}
-                        alt="martyr poster"
+                        alt="profile"
                         width={50}
                         height={50}
                         style={{
@@ -120,7 +120,7 @@ export default function NewsDetailsMartyr({ params }) {
                     ) : (
                       <Image
                         src={profile_img}
-                        alt="martyr poster"
+                        alt="profile"
                         width={50}
                         height={50}
                         style={{

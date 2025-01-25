@@ -105,7 +105,7 @@ export default function NewsDetails({ params }) {
                   single?.user?.selfImg !== "" ? (
                     <Image
                       src={`https://syrianrevolution1.com/images/${single?.user?.selfImg}`}
-                      alt="news poster"
+                      alt="profile"
                       width={50}
                       height={50}
                       style={{
@@ -115,7 +115,7 @@ export default function NewsDetails({ params }) {
                   ) : (
                     <Image
                       src={profile_img}
-                      alt="news poster"
+                      alt="profile"
                       width={50}
                       height={50}
                       style={{

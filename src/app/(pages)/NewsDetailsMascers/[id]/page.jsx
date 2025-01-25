@@ -4,12 +4,12 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 
 import { ContextUser } from "@/context/Context";
-// import AlertImageDash from "../../componantDashboard/AlertImageDash/AlertImageDash";
-// import one from "../../image/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faSubscript } from "@fortawesome/free-solid-svg-icons";
-// import Subscribes from "../subscribe/Subscribes";
+import profile_img from "../../../../assets/images/profile_img.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Subscribes from "@/app/_Components/ComponentUser/subscribe/Subscribes";
+import AlertImageDash from "@/app/_Components/Dashboard/AlertImageDash/AlertImageDash";
 export default function NewsDetailsMascers({ params }) {
   const [single, setSingle] = useState([]);
   const { openAlert, openAlertStore, setOpenSubscrips, openSubscrips } =
@@ -77,7 +77,7 @@ export default function NewsDetailsMascers({ params }) {
                   single?.user?.selfImg !== "" ? (
                     <Image
                       src={`https://syrianrevolution1.com/images/${single?.user?.selfImg}`}
-                      alt="mascer"
+                      alt="profile"
                       width={50}
                       height={50}
                       style={{
@@ -87,7 +87,7 @@ export default function NewsDetailsMascers({ params }) {
                   ) : (
                     <Image
                       src={profile_img}
-                      alt="mascer"
+                      alt="profile"
                       width={40}
                       height={50}
                       style={{
