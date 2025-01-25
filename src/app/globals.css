@@ -187,6 +187,16 @@ select {
   outline: none;
   padding: 2px !important;
 }
+.lastSlider::-webkit-scrollbar {
+  width: 10px;
+}
+
+.lastSlider::-webkit-scrollbar-thumb {
+  background: #bc5a5a;
+}
+.lastSlider::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
 .lastSlider1::-webkit-scrollbar {
   width: 10px;
 }
