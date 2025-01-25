@@ -12,9 +12,12 @@ export default function MainPage() {
         <title>الثورة السورية | اخر الاخبار</title>
       </Head>
       <Header />
-      <div className="container">
-        <div className="header position-relative py-5">
-          <h1 className=" text-danger"> آخر الأخبار </h1>
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
+        <div className="header position-relative py-[3rem]">
+          <h1 className=" text-danger leading-[34px] text-[28px] text-[#dc3545] font-[500]">
+            {" "}
+            آخر الأخبار{" "}
+          </h1>
         </div>
       </div>
       <RegimeMassacres />

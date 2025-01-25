@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 // import "./SliderGramaamDaaeh";
-import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 export default function SliderDaaedTwo() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [page, setPage] = useState(1);
   function getAllLastNews() {
     return axios.get(
@@ -115,7 +115,7 @@ export default function SliderDaaedTwo() {
                   </small>
                   <button
                     className="btu d-inline-block mx-1 px-3 rounded-3"
-                    onClick={() => navigate(`/NewsDetailsMartyr/${e._id}`)}
+                    onClick={() => router.push(`/NewsDetailsMartyr/${e._id}`)}
                   >
                     المزيد
                   </button>

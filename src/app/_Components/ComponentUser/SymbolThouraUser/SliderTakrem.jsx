@@ -94,8 +94,8 @@ export default function SliderTakrem() {
   };
   return (
     <div className="mb-5">
-      <div className="container">
-        <div className="slider-container px-4 position-relative">
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
+      <div className="slider-container px-4 position-relative">
           <Slider {...settings}>
             {data?.data.map((sym, i) => (
               <div className="slide mx-2" key={i}>
@@ -103,18 +103,18 @@ export default function SliderTakrem() {
                   <img
                     src={`https://syrianrevolution1.com/postImages/${sym.selfImg}`}
                     alt="symbolThowra"
-                    className=" w-100 slide-image"
+                    className=" w-full slide-image"
                     style={{ height: "250px" }}
                   />
                 </div>
-                <p className="px-2 text-center">
+                <p className="px-2 text-center font-[400] text-[25px] leading-[38px] text-[#212529]">
                   {sym?.name ? sym?.name : ""}
                   <br />
-                  <small className="datedSlider">
+                  <small className="datedSlider text-[12px] leading-[18px] font-[400] text-[#808080]">
                     {sym?.createdAt && sym?.createdAt.slice(0, 10)}
                   </small>
                   <button
-                    className="d-inline-block mx-1 px-3 rounded-3 btu"
+                    className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
                     onClick={() => router.push(`/newsDetails/${sym._id}`)}
                   >
                     المزيد
@@ -128,6 +128,7 @@ export default function SliderTakrem() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              gap:"3px"
             }}
           >
             <button onClick={handleNextPage} className="btn btn-secondary">

@@ -3,6 +3,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+import Image from "next/image";
 
 import style from "../../../../css/componantUser/MainPage/FlagsUser/FlagsUser.module.css";
 import { useRouter } from "next/navigation";
@@ -11,7 +12,12 @@ export default function FlagsUser() {
   const [page, setPage] = useState(1);
   const [selectedOption, setSelectedOption] = useState("");
   const currentUserId = localStorage.getItem("idUserLogin");
-
+  const splitNewsName = (name) => {
+    if (name.length > 69) {
+      return name.slice(0, 69) + "...";
+    }
+    return name;
+  };
   function getAllLastNews() {
     return axios.get(
       "https://syrianrevolution1.com/lists/search?category=lastNews&page=4&limit=9"
@@ -78,9 +84,9 @@ export default function FlagsUser() {
   return (
     <div>
       <div className="demonstrations py-3">
-        <div className="container">
+        <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
           <div className="row" style={{ justifyContent: "space-between" }}>
-            <div className="col-md-6">
+            <div className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]">
               <div className="row gy-2">
                 {data1?.data
                   .filter(
@@ -88,7 +94,10 @@ export default function FlagsUser() {
                       e.category === "lastNews" && e.visibility === "العامة"
                   )
                   .map((e, i) => (
-                    <div className="col-md-6" key={i}>
+                    <div
+                      className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]"
+                      key={i}
+                    >
                       <div className="news">
                         <div className="">
                           <div>
@@ -98,7 +107,7 @@ export default function FlagsUser() {
                                 value={selectedOption[e._id] || e.visibility}
                                 onChange={(event) => handleChange(event, e._id)}
                                 style={{ padding: "5px", fontSize: "14px" }}
-                                className="m-2"
+                                className="m-2 font-[400] text-[14px]"
                               >
                                 <option value="" disabled>
                                   {e.visibility}
@@ -110,21 +119,23 @@ export default function FlagsUser() {
                                 </>
                               </select>
                             ) : (
-                              <p className="m-0 p-0 fs-6">{e.visibility}</p>
+                              <p className="m-2 font-[400] text-[14px]">
+                                {e.visibility}
+                              </p>
                             )}
                           </div>
                           {e.images[0] ? (
                             <img
                               src={`https://syrianrevolution1.com/postImages/${e.images[0]?.imgPath}`}
                               alt={e.images[0]?.description || "image"}
-                              className="w-100 rounded-3 fimg"
+                              className="w-full rounded-[0.5rem] h-[195px]"
                               fetchpriority="high"
                             />
                           ) : (
                             <img
                               src={`https://syrianrevolution1.com/postImages/${e.selfImg}`}
                               alt={e.images[0]?.description || "image"}
-                              className="w-100 rounded-3 fimg"
+                              className="w-full rounded-[0.5rem] h-[195px]"
                               fetchpriority="high"
                             />
                           )}
@@ -137,7 +148,7 @@ export default function FlagsUser() {
                                 marginBottom: "30px",
                                 height: "200px",
                               }}
-                              className="w-100 rounded-3 fimg"
+                              className="w-full rounded-[0.5rem] h-[195px]"
                               controls
                             >
                               <source
@@ -153,7 +164,9 @@ export default function FlagsUser() {
                   ))}
               </div>
             </div>
-            <div className={`${style.lastSlider} col-md-5`}>
+            <div
+              className={`${style.lastSlider} md:w-5/12  flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]`}
+            >
               <div className=" muted p-2">
                 {data2?.data.map((e, i) => (
                   <div
@@ -161,12 +174,12 @@ export default function FlagsUser() {
                     className="row border-bottom pb-2 pt-2 border-2 overflow-hidden"
                     style={{ backgroundColor: "#ECECEC" }}
                   >
-                    <div className="col-md-4">
+                    <div className="md:w-1/3 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]">
                       {e.images.length > 0 && (
                         <img
                           src={`https://syrianrevolution1.com/postImages/${e.images[0]?.imgPath}`}
                           alt={e.images[0]?.description || "image"}
-                          className="w-100 rounded-3 fimg h-50"
+                          className="w-full rounded-[0.5rem] h-[195px] h-[50%_!important]"
                           fetchpriority="high"
                         />
                       )}
@@ -179,7 +192,7 @@ export default function FlagsUser() {
                             marginBottom: "30px",
                             height: "200px",
                           }}
-                          className="w-100 rounded-3 fimg h-50"
+                          className="w-full rounded-[0.5rem] h-[195px] h-[50%_!important]"
                           controls
                         >
                           <source
@@ -190,17 +203,17 @@ export default function FlagsUser() {
                         </video>
                       )}
                     </div>
-                    <div className="col-md-8">
-                      <p>
-                        {e?.name}
+                    <div className="md:w-2/3 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]">
+                      <p className="font-[400] text-[25px] leading-[38px] text-[#212529]">
+                        {e?.name.length > 69 ? splitNewsName(e?.name) : e?.name}
                         <br />
                         <button
-                          className="btu d-inline-block mx-1 px-3 rounded-3"
+                          className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
                           onClick={() => router.push(`/newsDetails/${e._id}`)}
                         >
                           المزيد
                         </button>
-                        <small className="datedSingle">
+                        <small className="datedSingle text-[12px] leading-[18px] font-[400] text-[#808080]">
                           {e?.createdAt && e?.createdAt.slice(0, 10)}
                         </small>
                       </p>
@@ -213,15 +226,16 @@ export default function FlagsUser() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  gap:"3px"
                 }}
               >
-                <button onClick={handleNextPage} className="btn btn-secondary">
+                <button onClick={handleNextPage} className="btn btn-secondary rounded-3">
                   +
                 </button>
                 <button
                   onClick={handlePreviousPage}
                   disabled={page === 1}
-                  className="btn btn-secondary"
+                  className="btn btn-secondary rounded-3 opacity-1 cursor-default"
                 >
                   -
                 </button>

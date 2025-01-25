@@ -53,10 +53,10 @@ export default function Liberated() {
   return (
     <div>
       <div className="demonstrations py-3">
-        <div className="container">
-          <div className="row gy-3 mb-5">
-            <div className="col-md-6 h-100">
-              <div className="right h-100">
+        <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
+          <div className="row mt-[-1rem] mb-[3rem]">
+            <div className="md:w-1/2 flex-[0_0_auto] h-[100%] px-[0.75rem]">
+              <div className="right h-[100%]">
                 <div className=" ">
                   <div>
                     {currentUserId === data?.data[0].user._id ? (
@@ -69,8 +69,8 @@ export default function Liberated() {
                         onChange={(event) =>
                           handleChange(event, data?.data[0]._id)
                         }
-                        style={{ padding: "5px", fontSize: "14px" }}
-                        className="m-2"
+                        style={{ padding: "5px" }}
+                        className="m-2 font-[400] text-[14px]"
                       >
                         <option value="" disabled>
                           {data?.data[0].visibility}
@@ -79,21 +79,23 @@ export default function Liberated() {
                         <option value="خاص بي">خاص بي</option>
                       </select>
                     ) : (
-                      <p className="m-0 p-0 fs-6">{data?.data[0].visibility}</p>
+                      <p className="m-2 font-[400] text-[14px]">
+                        {data?.data[0].visibility}
+                      </p>
                     )}
                   </div>
                   {data?.data[0]?.selfImg ? (
                     <img
                       src={`https://syrianrevolution1.com/postImages/${data?.data[0]?.selfImg}`}
                       alt="home"
-                      className=" w-full rounded-3 h-[195px] h-75"
-                      fetchpriority="high"
+                      className=" w-full rounded-[0.5rem] h-[75%]"
+                      fetchPriority="high"
                     />
                   ) : (
                     <img
                       src={`https://syrianrevolution1.com/postImages/${data?.data[0]?.images[0].imgPath}`}
                       alt="home"
-                      className=" w-full rounded-3 h-[195px] h-75"
+                      className=" w-full rounded-[0.5rem] h-[75%]"
                       fetchpriority="high"
                     />
                   )}
@@ -106,7 +108,7 @@ export default function Liberated() {
                         marginBottom: "30px",
                         height: "200px",
                       }}
-                      className="w-full rounded-3 h-[195px]"
+                      className="w-full rounded-[0.5rem] h-[195px]"
                       controls
                     >
                       <source
@@ -118,18 +120,20 @@ export default function Liberated() {
                   )}
                 </div>
                 <div className="info">
-                  <p>
-                    {data?.data[0]?.name}
+                  <p className="font-[400] text-[25px] leading-[38px] text-[#212529]">
+                    {data?.data[0].name.length > 69
+                      ? splitNewsName(data?.data[0].name)
+                      : data?.data[0].name}
                     <br />
                     <button
-                      className="btn d-inline-block mx-1 px-3 rounded-3"
+                      className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
                       onClick={() =>
                         router.push(`/newsDetails/${data?.data[0]._id}`)
                       }
                     >
                       المزيد
                     </button>
-                    <small className="datedSingle">
+                    <small className="datedSingle text-[12px] leading-[18px] font-[400] text-[#808080]">
                       {data?.data.length > 0 &&
                         data?.data[0]?.createdAt.slice(0, 10)}
                     </small>
@@ -137,7 +141,7 @@ export default function Liberated() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="md:w-1/2 flex-[0_0_auto] px-[0.75rem] mt-[1rem] max-w-[100%]">
               <div className="row gy-2">
                 {data?.data
                   .filter(
@@ -146,7 +150,7 @@ export default function Liberated() {
                   )
                   .slice(1, 5)
                   .map((e, i) => (
-                    <div className="col-md-6" key={i}>
+                    <div className="md:w-1/2 flex-[0_0_auto] px-[0.75rem] mt-[1rem] max-w-[100%]" key={i}>
                       <div className="news">
                         <div className="item">
                           <div className=" ">
@@ -159,7 +163,7 @@ export default function Liberated() {
                                     handleChange(event, e._id)
                                   }
                                   style={{ padding: "5px", fontSize: "14px" }}
-                                  className="m-2"
+                                  className="m-2 font-[400] text-[14px]"
                                 >
                                   <option value="" disabled>
                                     {e.visibility}
@@ -171,7 +175,9 @@ export default function Liberated() {
                                   </>
                                 </select>
                               ) : (
-                                <p className="m-0 p-0 fs-6">{e.visibility}</p>
+                                <p className="m-2 font-[400] text-[14px]">
+                                  {e.visibility}
+                                </p>
                               )}
                             </div>
 
@@ -179,14 +185,14 @@ export default function Liberated() {
                               <img
                                 src={`https://syrianrevolution1.com/postImages/${e.images[0]?.imgPath}`}
                                 alt={e.images[0]?.description || "image"}
-                                className="w-full rounded-3 h-[195px]"
+                                className="w-full rounded-[0.5rem] h-[195px]"
                                 fetchpriority="high"
                               />
                             ) : (
                               <img
                                 src={`https://syrianrevolution1.com/postImages/${e.selfImg}`}
                                 alt={e.images[0]?.description || "image"}
-                                className="w-full rounded-3 h-[195px]"
+                                className="w-full rounded-[0.5rem] h-[195px]"
                                 fetchpriority="high"
                               />
                             )}
@@ -200,7 +206,7 @@ export default function Liberated() {
                                   marginBottom: "30px",
                                   height: "200px",
                                 }}
-                                className="w-full rounded-3 h-[195px]"
+                                className="w-full rounded-[0.5rem] h-[195px]"
                                 controls
                               >
                                 <source
@@ -212,18 +218,20 @@ export default function Liberated() {
                             )}
                           </div>
                           <div className="text">
-                            <p>
-                              {e?.name}
+                            <p className="font-[400] text-[25px] leading-[38px] text-[#212529]">
+                              {e?.name.length > 69
+                                ? splitNewsName(e?.name)
+                                : e?.name}
                               <br />
                               <button
-                                className="btn d-inline-block mx-1 px-3 rounded-3"
+                                className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
                                 onClick={() =>
                                   router.push(`/newsDetails/${e._id}`)
                                 }
                               >
                                 المزيد
                               </button>
-                              <small className="datedSingle">
+                              <small className="datedSingle text-[12px] leading-[18px] font-[400] text-[#808080]">
                                 {e?.createdAt && e?.createdAt.slice(0, 10)}
                               </small>
                             </p>

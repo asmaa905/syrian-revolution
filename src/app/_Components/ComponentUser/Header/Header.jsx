@@ -12,7 +12,6 @@ export default function Header() {
 
   function handleOpen() {
     setOpenAuth("enterinform");
-    console.log("allbackground", allBackground);
   }
 
   return (

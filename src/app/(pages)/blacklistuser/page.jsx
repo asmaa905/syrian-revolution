@@ -17,24 +17,32 @@ export default function BlackListUser() {
       </Head>
       <Header />
 
-      <div className="container">
-        <div className="header position-relative py-5">
-          <h1 className=" text-danger"> القائمة السوداء </h1>
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
+        <div className="header position-relative py-[3rem]">
+          <h1 className="  text-danger leading-[35px] text-[24px] text-[#dc3545] font-[500] pl-2">
+            القائمة السوداء
+          </h1>
         </div>
       </div>
       <FlagBlackListThree />
       <SliderBlackListThree />
-      <div className="container">
-        <div className="header position-relative py-5">
-          <h3 className=" text-danger"> عملاء </h3>
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
+        <div className="header position-relative py-[3rem]">
+          <h3 className="  text-danger leading-[34px] text-[28px] text-[#dc3545] font-[500]">
+            {" "}
+            عملاء{" "}
+          </h3>
         </div>
       </div>
       <FlagBlackList />
       <SliderBlackList />
 
-      <div className="container">
-        <div className="header position-relative py-5">
-          <h3 className=" text-danger"> مجرمين الحرب </h3>
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
+        <div className="header position-relative py-[3rem]">
+          <h3 className="  text-danger leading-[34px] text-[28px] text-[#dc3545] font-[500]">
+            {" "}
+            مجرمين الحرب{" "}
+          </h3>
         </div>
       </div>
       <FlagBlackListTwo />

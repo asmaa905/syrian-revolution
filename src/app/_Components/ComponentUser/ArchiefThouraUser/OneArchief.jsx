@@ -1,11 +1,16 @@
-"use client"
+"use client";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { useRouter } from "next/navigation";
 
 export default function OneArchief() {
   const router = useRouter();
-
+  const splitNewsName = (name) => {
+    if (name.length > 69) {
+      return name.slice(0, 69) + "...";
+    }
+    return name;
+  };
   function getAllLastNews() {
     return axios.get(
       "https://syrianrevolution1.com/lists/search?category=archiefthoura&limit=5"
@@ -18,32 +23,34 @@ export default function OneArchief() {
   return (
     <div id="oneoneone">
       <div className="demonstrations py-3">
-        <div className="container">
+        <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
           <div className="row gy-3 mb-5">
-            <div className="col-md-6 h-100">
-              <div className="right h-100">
+            <div className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%]">
+              <div className="right h-[100%]">
                 <div className="image mb-4">
                   <img
                     src={`https://syrianrevolution1.com/postImages/${data?.data[0]?.selfImg}`}
                     alt="mozaharat"
-                    className=" w-100 rounded-3 gimg"
+                    className=" w-full rounded-[0.5rem] md:h-[450px]"
                     fetchpriority="high"
                   />
                 </div>
                 <div className="info">
-                  <p>
-                    {data?.data[0]?.name}
+                  <p className="font-[400] text-[25px] leading-[38px] text-[#212529]">
+                    {data?.data[0]?.name.length > 69
+                      ? splitNewsName(data?.data[0]?.name)
+                      : data?.data[0]?.name}
                     <br />
 
                     <button
-                      className="btu d-inline-block mx-1 px-3 rounded-3"
+                      className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
                       onClick={() =>
                         router.push(`/newsDetails/${data?.data[0]?._id}`)
                       }
                     >
                       المزيد
                     </button>
-                    <small className="datedSingle">
+                    <small className="datedSingle text-[12px] leading-[18px] font-[400] text-[#808080]">
                       {data?.data.length > 0 &&
                         data?.data[0]?.createdAt.slice(0, 10)}
                     </small>
@@ -51,34 +58,39 @@ export default function OneArchief() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]">
               <div className="row gy-2">
                 {data?.data.length > 0 &&
                   data?.data.slice(1, 5).map((e, i) => (
-                    <div className="col-md-6" key={i}>
+                    <div
+                      className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]"
+                      key={i}
+                    >
                       <div className="news">
                         <div className="item">
                           <div className="image">
                             <img
                               src={`https://syrianrevolution1.com/postImages/${e?.selfImg}`}
                               alt="mozaharat"
-                              className=" w-100 rounded-3 fimg"
+                              className=" w-full rounded-[0.5rem] h-[195px]"
                               fetchpriority="high"
                             />
                           </div>
                           <div className="text">
-                            <p style={{ marginTop: "10px" }}>
-                              {e?.name}
+                            <p className="font-[400] text-[25px] leading-[38px] text-[#212529]">
+                              {e?.name.length > 69
+                                ? splitNewsName(e?.name)
+                                : e?.name}
                               <br />
                               <button
-                                className="btu d-inline-block mx-1 px-3 rounded-3"
+                                className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
                                 onClick={() =>
                                   router.push(`/newsDetails/${e?._id}`)
                                 }
                               >
                                 المزيد
                               </button>
-                              <small className="datedSingle">
+                              <small className="datedSingle text-[12px] leading-[18px] font-[400] text-[#808080]">
                                 {e?.createdAt && e?.createdAt.slice(0, 10)}
                               </small>
                             </p>

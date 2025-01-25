@@ -93,7 +93,7 @@ export default function SliderSymbolThouraUser() {
   };
   return (
     <div>
-      <div className="container">
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
         <div className="slider-container px-4 position-relative">
           <Slider {...settings}>
             {data?.data.map((sym, i) => (
@@ -102,7 +102,7 @@ export default function SliderSymbolThouraUser() {
                   <img
                     src={`https://syrianrevolution1.com/postImages/${sym.selfImg}`}
                     alt="symbolThowra"
-                    className=" w-100 slide-image"
+                    className=" w-full slide-image"
                     style={{ height: "250px" }}
                   />
                 </div>
@@ -113,7 +113,7 @@ export default function SliderSymbolThouraUser() {
                     {sym?.createdAt && sym?.createdAt.slice(0, 10)}
                   </small>
                   <button
-                    className=" d-inline-block mx-1  rounded-3 btu"
+                    className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
                     onClick={() => router.push(`/newsDetails/${sym._id}`)}
                   >
                     المزيد
@@ -128,6 +128,7 @@ export default function SliderSymbolThouraUser() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              gap:"3px"
             }}
           >
             <button onClick={handleNextPage} className="btn btn-secondary">

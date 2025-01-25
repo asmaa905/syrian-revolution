@@ -8,7 +8,12 @@ import { useRouter } from "next/navigation";
 export default function RegimeMassacresUser() {
   const [selectedOption, setSelectedOption] = useState("");
   const currentUserId = localStorage.getItem("idUserLogin");
-
+  const splitNewsName = (name) => {
+    if (name.length > 69) {
+      return name.slice(0, 69) + "...";
+    }
+    return name;
+  };
   const router = useRouter();
 
   function getAllLastNews() {
@@ -60,7 +65,10 @@ export default function RegimeMassacresUser() {
                 (e) => e.category === "lastNews" && e.visibility === "العامة"
               )
               .map((last, i) => (
-                <div className="col-md-3" key={i}>
+                <div
+                  className="lg:w-[25%] md:w-[33.33%] flex-[0_0_auto] w-full sm:w-[50%] px-[0.75rem] mt-[1rem] max-w-[100%]"
+                  key={i}
+                >
                   <div>
                     {currentUserId === last.user._id ? (
                       <select
@@ -68,7 +76,7 @@ export default function RegimeMassacresUser() {
                         value={selectedOption[last._id] || last.visibility}
                         onChange={(event) => handleChange(event, last._id)}
                         style={{ padding: "5px", fontSize: "14px" }}
-                        className="m-2"
+                        className="m-2 font-[400] text-[14px]"
                       >
                         <option value="" disabled>
                           {last.visibility}
@@ -80,7 +88,9 @@ export default function RegimeMassacresUser() {
                         </>
                       </select>
                     ) : (
-                      <p className="m-0 p-0 fs-6">{last.visibility}</p>
+                      <p className="m-2 font-[400] text-[14px]">
+                        {last.visibility}
+                      </p>
                     )}
                   </div>
 
@@ -88,13 +98,13 @@ export default function RegimeMassacresUser() {
                     <img
                       src={`https://syrianrevolution1.com/postImages/${last.images[0]?.imgPath}`}
                       alt={last.images[0]?.description || "image"}
-                      className="w-full rounded-3 h-[195px]"
+                      className="w-full rounded-[0.5rem] h-[195px]"
                     />
                   ) : (
                     <img
                       src={`https://syrianrevolution1.com/postImages/${last.selfImg}`}
                       alt={last.images[0]?.description || "image"}
-                      className="w-full rounded-3 h-[195px]"
+                      className="w-full rounded-[0.5rem] h-[195px]"
                     />
                   )}
 
@@ -107,7 +117,7 @@ export default function RegimeMassacresUser() {
                         marginBottom: "30px",
                         height: "200px",
                       }}
-                      className="w-full rounded-3 h-[195px]"
+                      className="w-full rounded-[0.5rem] h-[195px]"
                       controls
                     >
                       <source
@@ -119,16 +129,18 @@ export default function RegimeMassacresUser() {
                   )}
 
                   {/* عرض النصوص */}
-                  <p>
-                    {last.name}
+                  <p className="font-[400] text-[25px] leading-[38px] text-[#212529]">
+                    {last.name.length > 69
+                      ? splitNewsName(last.name)
+                      : last.name}
                     <br />
                     <button
-                      className="btn d-inline-block mx-1 px-3 rounded-3"
+                      className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
                       onClick={() => router.push(`/newsDetails/${last._id}`)}
                     >
                       المزيد
                     </button>
-                    <small className="datedSingle">
+                    <small className="datedSingle text-[12px] leading-[18px] font-[400] text-[#808080]">
                       {last?.createdAt && last?.createdAt.slice(0, 10)}
                     </small>
                   </p>
