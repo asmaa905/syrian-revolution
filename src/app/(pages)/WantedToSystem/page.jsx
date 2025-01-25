@@ -8,6 +8,7 @@ import axios from "axios";
 import Joi from "joi";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import Head from "next/head";
 
 export default function WantedToSystem() {
   const [data, setData] = useState([]);
@@ -66,7 +67,22 @@ export default function WantedToSystem() {
   }
   return (
     <>
-    
+          <Head>
+  <title>الثورة السورية |المطلوبين للنظام 
+ 
+
+  </title>
+
+  <meta
+  name="description"
+  content="منصة لتوثيق المطلوبين للنظام، تشمل معلومات حول الاسم، الكنية، واسم الأب. قم بإضافة بياناتك للبحث عن المفقودين والمعتقلين في سياق الثورة السورية."
+/>
+<meta
+  name="keywords"
+  content="المطلوبين للنظام, الاسم, الكنية, اسم الأب, الثورة السورية, توثيق المطلوبين, مفقودين, معتقلين, حقوق الإنسان, العدالة"
+/>
+
+  </Head>
       <div >
         <div style={{ width: "100%", marginTop: "10px" }}>
           {errorListUser &&
