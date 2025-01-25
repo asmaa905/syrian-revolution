@@ -229,3 +229,24 @@ td{
 tr{
   margin:  7px 0;
 }
+.wantedscroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.wantedscroll::-webkit-scrollbar-thumb {
+  background: #3035a1;
+}
+.wantedscroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.notification::after {
+  background-color: red;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  content: "";
+  height: 12px;
+  position: absolute;
+  right: -1px;
+  top: 10px;
+  width: 12px;
+}
