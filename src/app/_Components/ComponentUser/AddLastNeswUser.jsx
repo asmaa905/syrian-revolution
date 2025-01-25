@@ -353,9 +353,7 @@ export default function AddLastNeswUser() {
       </form>
       <div className={styles.btnbottom}>
         <button
-          className={`btn ${
-            saveLoading ? "btn-success text-white" : "btn-outline-success"
-          } rounded-[2rem]`}
+          className={`btn  btn-success text-white rounded-[2rem]`}
           onClick={handleSubmit}
         >
           {loading ? (
