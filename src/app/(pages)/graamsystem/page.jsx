@@ -8,6 +8,19 @@ import Head from "next/head";
 
 export default function GraamSystem() {
   return <>
+  <Head>
+  <title>الثورة السورية |  ملفات النظام
+  </title>
+
+  <meta
+          name="description"
+          content="منصة إخبارية تقدم توثيقًا للشهداء، البحث عن المفقودين، ومعلومات حول المعتقلين. اعرف آخر الأخبار وساهم في إيصال صوت الضحايا."
+        />
+        <meta
+          name="keywords"
+          content="شهداء, مفقودين, معتقلين, توثيق, تكريم, حقوق الإنسان, العدالة"
+        />
+  </Head>
   <Header/>
 
   <div className=" max-w-screen-xl mx-auto">

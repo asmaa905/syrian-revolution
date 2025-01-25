@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import Head from "next/head";
 
 export default function SearchList() {
   const [name, setName] = useState("");
@@ -33,6 +34,25 @@ export default function SearchList() {
 
   return (
     <>
+    <Head>
+  <title>الثورة السورية |الشهداء و المعتقلين و المفقودين 
+ 
+
+  </title>
+
+  <meta
+  name="description"
+  content="منصة لتوثيق الشهداء والمعتقلين والمفقودين في الثورة السورية. تعرف على قصص الشهداء، احصل على معلومات حول المعتقلين، وشارك في البحث عن المفقودين."
+/>
+
+
+<meta
+  name="keywords"
+  content="الشهداء, المعتقلين, المفقودين, الثورة السورية, توثيق, حقوق الإنسان, العدالة, البحث عن المفقودين, قصص الشهداء, توثيق المعتقلين"
+/>
+
+
+  </Head>
 <h1 className="hidden"></h1>
       <div >
         <div style={{ width: "100%", marginTop: "10px" }}>
