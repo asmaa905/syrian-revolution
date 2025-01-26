@@ -86,7 +86,7 @@ export default function FlagsUser() {
       <div className="demonstrations py-3">
         <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
           <div className="row" style={{ justifyContent: "space-between" }}>
-            <div className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]">
+            <div className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] w-full">
               <div className="row gy-2">
                 {data1?.data
                   .filter(
@@ -95,7 +95,7 @@ export default function FlagsUser() {
                   )
                   .map((e, i) => (
                     <div
-                      className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]"
+                      className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] w-full"
                       key={i}
                     >
                       <div className="news">
@@ -165,7 +165,7 @@ export default function FlagsUser() {
               </div>
             </div>
             <div
-              className={`${style.lastSlider} md:w-5/12  flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]`}
+              className={`${style.lastSlider} lastSlider md:w-5/12  flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] w-full`}
             >
               <div className=" muted p-2">
                 {data2?.data.map((e, i) => (
@@ -174,12 +174,12 @@ export default function FlagsUser() {
                     className="row border-bottom pb-2 pt-2 border-2 overflow-hidden"
                     style={{ backgroundColor: "#ECECEC" }}
                   >
-                    <div className="md:w-1/3 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]">
+                    <div className="md:w-1/3 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] w-full">
                       {e.images.length > 0 && (
                         <img
                           src={`https://syrianrevolution1.com/postImages/${e.images[0]?.imgPath}`}
                           alt={e.images[0]?.description || "image"}
-                          className="w-full rounded-[0.5rem] h-[195px] h-[50%_!important]"
+                          className="w-full rounded-[0.5rem] h-[50%_!important]"
                           fetchPriority="high"
                         />
                       )}
@@ -203,7 +203,7 @@ export default function FlagsUser() {
                         </video>
                       )}
                     </div>
-                    <div className="md:w-2/3 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%]">
+                    <div className="md:w-2/3 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] w-full">
                       <p className="font-[400] text-[25px] leading-[38px] text-[#212529]">
                         {e?.name.length > 69 ? splitNewsName(e?.name) : e?.name}
                         <br />

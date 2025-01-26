@@ -15,8 +15,8 @@ export default function SymbolThouraUser() {
       </Head>
       <Header />
 
-      <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
-        <div className="header position-relative py-[3rem]">
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-0 md:py-4 py-0">
+        <div className="header position-relative md:py-[3rem] py-[2rem]">
           <h1 className="  text-danger leading-[34px] text-[28px] text-[#dc3545] font-[500]">
             رموز الثورة
           </h1>
@@ -25,9 +25,9 @@ export default function SymbolThouraUser() {
       <Liberated />
       <SliderSymbolThouraUser />
 
-      <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
-        <div className="header position-relative py-[3rem]">
-          <h3 className="  text-danger leading-[34px] text-[28px] text-[#dc3545] font-[500]">
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-0 md:py-4 py-0">
+        <div className="header position-relative md:py-[3rem] py-[2rem]">
+          <h3 className="  text-danger leading-[34px] text-[24px] text-[#dc3545] font-[500]">
             بطاقات التكريم
           </h3>
         </div>

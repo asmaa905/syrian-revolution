@@ -44,12 +44,12 @@ export default function FlagArchief() {
       <div className="demonstrations  py-[3rem]">
         <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
           <div className="row" style={{ justifyContent: "space-between" }}>
-            <div className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%]">
+            <div className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%] w-full">
               <div className="row gy-2">
                 {data1?.data.length > 0 &&
                   data1?.data.map((e, i) => (
                     <div
-                      className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%]"
+                      className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%] w-full"
                       key={i}
                     >
                       <div className="news">
@@ -84,7 +84,7 @@ export default function FlagArchief() {
                   ))}
               </div>
             </div>
-            <div className="lastSlider md:w-5/12 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%]">
+            <div className="lastSlider md:w-5/12 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%] w-full">
               <div className=" muted p-2 overflow-hidden">
                 {data2?.data.map((e, i) => (
                   <div
@@ -92,14 +92,14 @@ export default function FlagArchief() {
                     style={{ backgroundColor: "#ECECEC" }}
                     key={i}
                   >
-                    <div className="md:w-1/3 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%]">
+                    <div className="md:w-1/3 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%] w-full">
                       <img
                         src={`https://syrianrevolution1.com/postImages/${e?.selfImg}`}
                         alt="lastNews"
                         className="w-full"
                       />
                     </div>
-                    <div className="md:w-2/3 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%]">
+                    <div className="md:w-2/3 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%] w-full">
                     <p className="font-[400] text-[25px] leading-[38px] text-[#212529]">
                       {e?.name}
                         <br />

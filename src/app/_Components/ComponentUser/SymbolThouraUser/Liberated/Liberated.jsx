@@ -19,7 +19,7 @@ export default function Liberated() {
       <div className="demonstrations  py-[3rem]">
         <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
           <div className="row gy-3 mb-5">
-            <div className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%]">
+            <div className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%] w-full">
               <div className="right h-[100%]">
                 <div className="image mb-4">
                   <img
@@ -48,12 +48,12 @@ export default function Liberated() {
                 </div>
               </div>
             </div>
-            <div className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%]">
+            <div className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%] w-full">
               <div className="row gy-2">
                 {data?.data.length > 0 &&
                   data?.data.slice(1, 5).map((e, i) => (
                     <div
-                      className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%]"
+                      className="md:w-1/2 flex-[0_0_auto]   px-[0.75rem] mt-[1rem] max-w-[100%] h-[100%] w-full"
                       key={i}
                     >
                       <div className="news">

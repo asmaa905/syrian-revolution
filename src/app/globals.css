@@ -330,7 +330,7 @@ tr {
   width: 12px;
 }
 
-.notification-body .new p::before{
+.notification-body .new p::before {
   border-radius: 50px;
   content: "";
   height: 100%;
@@ -342,5 +342,14 @@ tr {
 .notification-body .new p::before {
   background-color: #f009;
 }
+/* btn disabled */
 
-
+.btn.disabled,
+.btn:disabled,
+fieldset:disabled .btn {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+  opacity: 0.65;
+  pointer-events: none;
+}

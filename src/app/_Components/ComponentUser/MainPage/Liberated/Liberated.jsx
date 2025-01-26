@@ -9,7 +9,12 @@ export default function Liberated() {
   const router = useRouter();
   const [selectedOption, setSelectedOption] = useState("");
   const { data, refetch } = useQuery("lasts", getAllLastNews);
-
+  const splitNewsName = (name) => {
+    if (name.length > 69) {
+      return name.slice(0, 69) + "...";
+    }
+    return name;
+  };
   const handleChange = async (event, newsId) => {
     const newValue = event.target.value;
 
@@ -55,7 +60,7 @@ export default function Liberated() {
       <div className="demonstrations py-3">
         <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
           <div className="row mt-[-1rem] mb-[3rem]">
-            <div className="md:w-1/2 flex-[0_0_auto] h-[100%] px-[0.75rem]">
+            <div className="md:w-1/2 flex-[0_0_auto] h-[100%] px-[0.75rem] w-full">
               <div className="right h-[100%]">
                 <div className=" ">
                   <div>
@@ -141,7 +146,7 @@ export default function Liberated() {
                 </div>
               </div>
             </div>
-            <div className="md:w-1/2 flex-[0_0_auto] px-[0.75rem] mt-[1rem] max-w-[100%]">
+            <div className="md:w-1/2 flex-[0_0_auto] px-[0.75rem] mt-[1rem] max-w-[100%]  w-full">
               <div className="row gy-2">
                 {data?.data
                   .filter(

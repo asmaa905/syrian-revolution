@@ -19,22 +19,28 @@ export default function ArchiefThourahUser() {
 
       <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
         <div className="header position-relative py-[3rem]">
-          <h1 className="  text-danger leading-[34px] text-[28px] text-[#dc3545] font-[500]">ارشيف الثورة</h1>
+          <h1 className="  text-danger leading-[34px] text-[28px] text-[#dc3545] font-[500]">
+            ارشيف الثورة
+          </h1>
         </div>
       </div>
       <OneArchief />
       <TwoArchief />
       <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
-        <div className="header position-relative py-[3REM]">
-          <h3 className="  text-danger leading-[34px] text-[28px] text-[#dc3545] font-[500]">المظاهرات</h3>
+        <div className="header position-relative py-[3rem]">
+          <h3 className="  text-danger leading-[34px] text-[28px] text-[#dc3545] font-[500]">
+            المظاهرات
+          </h3>
         </div>
       </div>
       <LiberatedArchief />
       <FlagArchief />
 
       <div className="container max-w-screen-xl mx-auto px-4 md:px-0 py-4">
-        <div className="header position-relative py-[3REM]">
-          <h3 className="  text-danger leading-[34px] text-[28px] text-[#dc3545] font-[500]">معارك الثوار</h3>
+        <div className="header position-relative py-[3rem]">
+          <h3 className="  text-danger leading-[34px] text-[28px] text-[#dc3545] font-[500]">
+            معارك الثوار
+          </h3>
         </div>
       </div>
       <LiberatedArchiefTwo />
