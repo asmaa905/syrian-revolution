@@ -260,3 +260,15 @@ tr{
   top: 10px;
   width: 12px;
 }
+.notification-body .new p::before{
+  border-radius: 50px;
+  content: "";
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 10px;
+}
+.notification-body .new p::before {
+  background-color: #f009;
+}

@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState, useContext, useEffect } from "react";
-// import "../../../css/componantUser/MainNav/MainNav.css";
+import "../../../css/componantUser/MainNav/MainNav.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCommentDots,
-  faCircleXmark,
-} from "@fortawesome/free-regular-svg-icons";
+// import {
+//   faCommentDots,
+//   faCircleXmark,
+// } from "@fortawesome/free-regular-svg-icons";
 import {
   faWhatsapp,
   faInstagram,
@@ -17,8 +18,8 @@ import {
   faSquareYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
-// import { faCircleXmark, faEye } from "@fortawesome/free-solid-svg-icons";
-import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
+import { faCircleXmark, faEye,faCommentDots } from "@fortawesome/free-solid-svg-icons";
+// import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
 import RegisterUser from "../RegisterUser/RegisterUser";
 import LoginUser from "../LoginUser/LoginUser";
 import { ContextUser } from "../../../../context/Context";
@@ -128,6 +129,11 @@ export default function MainNav() {
                 onClick={() => setOpenNoti(true)}
               >
                 <FontAwesomeIcon icon={["fa-regular", "fa-bell"]} />
+                <span className="absolute -right-2 text-sm">
+                  {numberDate && number
+                    ? numberDate + number
+                    : numberDate || number || ""}
+                </span>
               </div>
             </div>
             <div className="flex justify-between items-center  bg-gray-600">
@@ -206,11 +212,11 @@ export default function MainNav() {
               )}
 
               <div className="relative">
-                <span className="absolute -right-2 text-sm">
+                {/* <span className="absolute -right-2 text-sm">
                   {numberDate && number
                     ? numberDate + number
                     : numberDate || number || ""}
-                </span>
+                </span> */}
               </div>
             </div>
             <div className="w-full md:w-auto border rounded-md px-3">
@@ -275,10 +281,10 @@ export default function MainNav() {
           </div>
         </div>
         {openNoti && (
-          <div className={style.RegisterUser}>
-            <div className={style.forms}>
+          <div className="fixed top-0 left-1/2 transform -translate-x-1/2 w-full h-full bg-[#00011C80] z-50">
+            <div className="w-3/5 h-[77%] bg-[#F7F7F7] mx-auto rounded-md mt-4 overflow-auto">
               <div
-                className={style.headForm}
+                className='relative mx-auto text-center transform translate-y-5 w-[90%]'
                 onClick={() => setOpenNoti(false)}
               >
                 <FontAwesomeIcon
@@ -286,35 +292,166 @@ export default function MainNav() {
                   className="absolute top-[-20%] right-1 text-red-600 cursor-pointer"
                 />
               </div>
-              <div className="p-3">
-                <h4 className="text-red-600">
-                  <i className="fa-regular fa-bell"></i> الإشعارات الجديدة
-                </h4>
-                {dataData?.data?.data?.length > 0 && (
-                  <div>
-                    <button
-                      onClick={() => setPageNot((old) => old + 1)}
-                      disabled={
-                        dataData?.data?.data && !dataData?.data?.data.length
-                      }
-                      className="btn btn-secondary"
-                    >
-                      +
-                    </button>
-                    <button
-                      onClick={() => setPageNot((old) => Math.max(old - 1, 1))}
-                      disabled={pageNot === 1}
-                      className="btn btn-secondary"
-                    >
-                      -
-                    </button>
-                  </div>
-                )}
-                {dataData?.data?.data &&
-                  dataData?.data?.data.length > 0 &&
-                  dataData?.data?.data.map((notification) => (
-                    <p key={notification.id}>{notification.message}</p>
-                  ))}
+              <div className="relative top-8 mx-auto w-4/5 p-3 notification-body">
+                <div className="new">
+                  <h4 className="text-[#dc3545] text-[24px]">
+                    <span className="text-[24px]">
+                    <FontAwesomeIcon icon={["fa-regular", "fa-bell"]} />
+                    </span>{" "}
+                    الإشعارات الجديدة
+                  </h4>
+                  {dataData?.data?.data?.length > 0 ? (
+                    <>
+                      <button
+                        onClick={() => setPageNot((old) => old + 1)}
+                        disabled={
+                          dataData?.data?.data && !dataData?.data?.data.length
+                        }
+                        className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 me-2"
+
+                      >
+                        +
+                      </button>
+                      <button
+                        onClick={() =>
+                          setPageNot((old) => Math.max(old - 1, 1))
+                        }
+                        disabled={pageNot === 1}
+                        className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
+
+                      >
+                        -
+                      </button>
+                    </>
+                  ) : (
+                    ""
+                  )}
+
+                  {dataData?.data?.data &&
+                    dataData?.data?.data.length > 0 &&
+                    dataData?.data?.data
+                      .filter((e) => e?.data?.isAccepted === true)
+                      .map((e, i) => (
+                        <p
+                          className="  note  relative bg-white p-2 ps-12  m-0 mb-2"
+                          key={i}
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            gap: "10px",
+                            alignItems: "center",
+                          }}
+                        >
+                          <span>
+                            <small> تمت اضافة منشور جديد بعنوان </small>
+                            <small style={{ color: "#2d2dc3" }}>
+                              {e?.type === "add child data post"
+                                ? e?.data?.name.slice(0, 60)
+                                : e?.type === "add list data post"
+                                ? e?.data?.name.slice(0, 60)
+                                : e?.type === "add massacres data post"
+                                ? e?.data?.title.slice(0, 60)
+                                : ""}
+                            </small>
+                            <small>
+                              {" "}
+                              (
+                              {e?.data?.category === "lastNews"
+                                ? "اخر الاخبار"
+                                : e?.data?.category === "archiefthoura"
+                                ? "ارشيف الثورة"
+                                : e?.data?.category === "mozaharat"
+                                ? "المظاهرات"
+                                : e?.data?.category === "maarek"
+                                ? "معارك الثوار"
+                                : e?.data?.category === "symbols"
+                                ? "رموز الثورة"
+                                : e?.data?.category === "takrem"
+                                ? "بطاقات التكريم"
+                                : e?.data?.category === "blacklist"
+                                ? "القائمة السوداء"
+                                : e?.data?.category === "Traitors"
+                                ? "العملاء"
+                                : e?.data?.category === "mogramharb"
+                                ? "مجرمين الحرب"
+                                : e?.type === "add massacres data post"
+                                ? "ملفات"
+                                : e?.data?.category === "martyr"
+                                ? "الشهداء"
+                                : e?.data?.category === "adetaine"
+                                ? "المعتقلين"
+                                : e?.data?.category === "missing"
+                                ? "المفقودين"
+                                : ""}{" "}
+                              ){" "}
+                            </small>
+                          </span>
+                          <FontAwesomeIcon
+                            icon={faEye}
+                            style={{ cursor: "pointer" }}
+                            onClick={() => {
+                              <>
+                                {e?.type === "add child data post"
+                                  ? router.push(
+                                      `/NewsDetailsMartyr/${e?.data?._id}`
+                                    )
+                                  : e?.type === "add list data post"
+                                  ? router.push(`/newsDetails/${e?.data?._id}`)
+                                  : e?.type === "add massacres data post"
+                                  ? router.push(
+                                      `/NewsDetailsMascers/${e?.data?._id}`
+                                    )
+                                  : ""}
+                                {setOpenNoti(false)}
+                              </>;
+                            }}
+                          />
+                        </p>
+                      ))}
+                  {notification?.child && notification?.child?.length > 0
+                    ? notification?.child
+                        .slice()
+                        .reverse()
+                        .map((e, i) => (
+                          <p
+                            className="  note  relative bg-white p-2 ps-12 m-0 mb-2"
+                            key={i}
+                          >
+                            {e?.notification}
+                          </p>
+                        ))
+                    : ""}
+                  {notification?.lists && notification?.lists?.length > 0
+                    ? notification?.lists
+                        .slice()
+                        .reverse()
+                        .map((e, i) => (
+                          <p
+                            className=" note  relative bg-white p-2 ps-12 m-0 mb-2"
+                            key={i}
+                          >
+                            {e?.notification}
+                          </p>
+                        ))
+                    : ""}
+                  {notification?.massacres &&
+                  notification?.massacres?.length > 0
+                    ? notification?.massacres
+                        .slice()
+                        .reverse()
+                        .map((e, i) => (
+                          <p
+                            className="note  relative bg-white p-2 ps-12 m-0 mb-2"
+                            key={i}
+                          >
+                            {e?.notification}
+                          </p>
+                        ))
+                    : ""}
+                  <p className=" note relative bg-white p-2 ps-12 m-0 mb-2">
+                    {notification ? notification?.notification : ""}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
