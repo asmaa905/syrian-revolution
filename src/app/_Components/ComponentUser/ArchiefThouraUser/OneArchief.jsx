@@ -32,7 +32,7 @@ export default function OneArchief() {
                     src={`https://syrianrevolution1.com/postImages/${data?.data[0]?.selfImg}`}
                     alt="mozaharat"
                     className=" w-full rounded-[0.5rem] md:h-[450px]"
-                    fetchpriority="high"
+                    fetchPriority="high"
                   />
                 </div>
                 <div className="info">
@@ -73,7 +73,7 @@ export default function OneArchief() {
                               src={`https://syrianrevolution1.com/postImages/${e?.selfImg}`}
                               alt="mozaharat"
                               className=" w-full rounded-[0.5rem] h-[195px]"
-                              fetchpriority="high"
+                              fetchPriority="high"
                             />
                           </div>
                           <div className="text">

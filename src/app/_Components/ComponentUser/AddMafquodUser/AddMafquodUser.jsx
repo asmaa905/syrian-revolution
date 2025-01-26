@@ -324,7 +324,7 @@ export default function AddShahedUser() {
       </form>
       <div className={styles.btnbottom}>
         <button
-          className={`add`}
+          className={`p-[2px_25px] border-none rounded-[20px] cursor-pointer `}
           style={{ color: "white", backgroundColor: "green" }}
           onClick={handleSubmit}
         >

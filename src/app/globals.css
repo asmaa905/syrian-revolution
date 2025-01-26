@@ -29,7 +29,13 @@
   .btn-secondary {
     @apply bg-[#6c757d] text-[#fff] border border-[#6c757d];
   }
-
+  .btn-success {
+    @apply text-white bg-green-600 border border-green-600 hover:bg-green-700 hover:border-green-700 focus:ring focus:ring-green-300 active:bg-green-700 active:border-green-700 disabled:bg-green-600 disabled:border-green-600 transition duration-150;
+  }
+  .btn-outline-success {
+    @apply text-green-600 border border-green-600 hover:text-white hover:bg-green-600 focus:ring focus:ring-green-300 disabled:text-green-600 
+    disabled:bg-transparent disabled:border-green-600 transition duration-150;
+  }
   .mb-4 {
     @apply mb-[1.5rem_!important];
   }
@@ -218,27 +224,90 @@ select {
 button:not(:disabled) {
   cursor: pointer;
 }
-td,th{
+td,
+th {
   width: fit-content;
 }
-table{
+table {
   margin: 30px auto auto;
   text-align: center;
   width: 100%;
 }
-th{
+th {
   color: #2c3d76;
   font-size: 13px;
   padding: 7px 0;
 }
-td{
+td {
   color: #212529;
   font-size: 13px;
   padding: 7px 0;
 }
-tr{
-  margin:  7px 0;
+tr {
+  margin: 7px 0;
 }
+/* header styles */
+
+.header-container {
+  position: relative;
+  text-align: center;
+}
+
+.perantHeader {
+  height: 400px;
+}
+.perantHeader img {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.015);
+}
+
+.perantpar {
+  font-family: Cairo;
+  width: 70%;
+  margin-top: 1%;
+  font-weight: 400;
+  line-height: 29.98px;
+}
+.head-btn {
+  padding: 0px, 47px, 0px, 47px;
+  background-color: #8f0101;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-left: 75%;
+  width: 146px;
+  height: auto;
+  margin-top: 9px;
+}
+
+@media only screen and (max-width: 992px) {
+  .head-btn {
+    margin-top: 0;
+  }
+}
+.perantparhead {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  text-align: right;
+  color: white;
+  line-height: 1.8;
+}
+@media (max-width: 800px) {
+  .perantparhead {
+    width: 100%;
+  }
+}
+.head-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  z-index: 0;
+  object-fit: cover;
+}
+
 .wantedscroll::-webkit-scrollbar {
   width: 10px;
 }
@@ -260,6 +329,7 @@ tr{
   top: 10px;
   width: 12px;
 }
+
 .notification-body .new p::before{
   border-radius: 50px;
   content: "";
@@ -272,3 +342,5 @@ tr{
 .notification-body .new p::before {
   background-color: #f009;
 }
+
+

@@ -96,7 +96,7 @@ export default function Liberated() {
                       src={`https://syrianrevolution1.com/postImages/${data?.data[0]?.images[0].imgPath}`}
                       alt="home"
                       className=" w-full rounded-[0.5rem] h-[75%]"
-                      fetchpriority="high"
+                      fetchPriority="high"
                     />
                   )}
                   {data?.data[0]?.video && (
@@ -150,7 +150,10 @@ export default function Liberated() {
                   )
                   .slice(1, 5)
                   .map((e, i) => (
-                    <div className="md:w-1/2 flex-[0_0_auto] px-[0.75rem] mt-[1rem] max-w-[100%]" key={i}>
+                    <div
+                      className="md:w-1/2 flex-[0_0_auto] px-[0.75rem] mt-[1rem] max-w-[100%]"
+                      key={i}
+                    >
                       <div className="news">
                         <div className="item">
                           <div className=" ">
@@ -186,14 +189,14 @@ export default function Liberated() {
                                 src={`https://syrianrevolution1.com/postImages/${e.images[0]?.imgPath}`}
                                 alt={e.images[0]?.description || "image"}
                                 className="w-full rounded-[0.5rem] h-[195px]"
-                                fetchpriority="high"
+                                fetchPriority="high"
                               />
                             ) : (
                               <img
                                 src={`https://syrianrevolution1.com/postImages/${e.selfImg}`}
                                 alt={e.images[0]?.description || "image"}
                                 className="w-full rounded-[0.5rem] h-[195px]"
-                                fetchpriority="high"
+                                fetchPriority="high"
                               />
                             )}
 

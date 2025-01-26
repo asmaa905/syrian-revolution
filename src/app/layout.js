@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="apple-touch-icon" href="/public/faveicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
         <title>الثورة السورية</title>
       </head>
