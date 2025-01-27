@@ -8,7 +8,8 @@ import Image from "next/image";
 import { ContextUser } from "@/context/Context";
 import { useRouter } from "next/navigation";
 import Subscribes from "@/app/_Components/ComponentUser/subscribe/Subscribes";
-import AlertImageDash from "@/app/_Components/Dashboard/AlertImageDash/AlertImageDash";
+import AlertImageDash from "@/app/_Components/componantDashboard/AlertImageDash/AlertImageDash";
+
 export default function NewsDetails({ params }) {
   const [single, setSingle] = useState([]);
   const { setOpenSubscrips, openSubscrips } = useContext(ContextUser);

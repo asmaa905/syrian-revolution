@@ -9,9 +9,10 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { ContextUser } from "../../../../context/Context";
 // import one from "../.. ";
-import AlertImageDash from "../../componantDashboard/AlertImageDash/AlertImageDash";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Subscribes from "../subscribe/Subscribes";
+import AlertImageDash from "../../componantDashboard/AlertImageDash/AlertImageDash";
 export default function NewsDetailsMartyr() {
   const [single, setSingle] = useState([]);
   const { openAlert, openAlertStore, setOpenSubscrips, openSubscrips } =
@@ -143,7 +144,8 @@ export default function NewsDetailsMartyr() {
                   onClick={() => setOpenSubscrips(true)}
                 >
                   <p style={{ fontSize: "14px", marginTop: "12px" }}>مشاركة</p>
-                  <FontAwesomeIcon icon="fa-solid fa-subscript" />                </div>
+                  <FontAwesomeIcon icon="fa-solid fa-subscript" />{" "}
+                </div>
               </div>
             </div>
             {/* /////////////////////// */}

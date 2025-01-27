@@ -1,10 +1,9 @@
 "use client";
+
 import React, { useContext } from "react";
 import style from "../../../css/componantDashboard/AlertImageDash/AlertImageDash.module.css";
-//css/componantDashboard/AlertImageDash/AlertImageDash.module.css
 import { saveAs } from "file-saver";
-import { ContextUser } from "../../../../context/Context";
-
+import { ContextUser } from "../../context/Context";
 export default function AlertImageDash({ src }) {
   const { setOpenAlert } = useContext(ContextUser);
 
@@ -16,7 +15,7 @@ export default function AlertImageDash({ src }) {
     <div className={style.RegisterUser}>
       <form className={style.formsSuccessRegister}>
         <div className={style.informSuccess}>
-          <Image src={src} alt="martyr or adetainee" />
+          <img src={src} alt="martyr or adetainee" />
           <div className={style.btnInpu}>
             <button onClick={() => setOpenAlert(false)}> اغلاق</button>
           </div>

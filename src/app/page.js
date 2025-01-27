@@ -4,7 +4,6 @@ import Head from "next/head";
 import { useSearchParams } from "next/navigation";
 import { ContextUser } from "../context/Context";
 import Header from "./_Components/ComponentUser/Header/Header";
-import AlertImageDash from "./_Components/Dashboard/AlertImageDash/AlertImageDash";
 import LastNews from "./_Components/ComponentUser/MainPageFirst/LastNewsSection/lastNewsSection";
 import Martyr from "./_Components/ComponentUser/MainPageFirst/MartyrSection/MartyrSection";
 import System from "./_Components/ComponentUser/MainPageFirst/SystemSection/SystemSection";
@@ -13,6 +12,7 @@ import Maarek from "./_Components/ComponentUser/MainPageFirst/MaarekSection/Maar
 import Symbols from "./_Components/ComponentUser/MainPageFirst/SymbolsSection/SymbolsSection";
 import MessageOpenHomeUser from "./_Components/ComponentUser/MessageOpenHomeUser/MessageOpenHomeUser";
 import UpdatedPassword from "./_Components/ComponentUser/UpdatedPassword/UpdatedPassword";
+import AlertImageDash from "./_Components/componantDashboard/AlertImageDash/AlertImageDash";
 
 export default function HomeUser({ searchGlobal, setSearchGlobal }) {
   const { openAlert, openAlertStore, openOne } = useContext(ContextUser);

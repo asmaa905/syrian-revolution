@@ -9,10 +9,11 @@ import Image from "next/image";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { ContextUser } from "../../../../context/Context";
-import AlertImageDash from "../../componantDashboard/AlertImageDash/AlertImageDash";
+
 import profile_img from "../../../../assets/images/profile_img.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Subscribes from "../subscribe/Subscribes";
+import AlertImageDash from "../../componantDashboard/AlertImageDash/AlertImageDash";
 export default function NewsDetailsMascers() {
   const [single, setSingle] = useState([]);
   const { openAlert, openAlertStore, setOpenSubscrips, openSubscrips } =

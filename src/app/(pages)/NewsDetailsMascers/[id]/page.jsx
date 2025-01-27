@@ -9,7 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Subscribes from "@/app/_Components/ComponentUser/subscribe/Subscribes";
-import AlertImageDash from "@/app/_Components/Dashboard/AlertImageDash/AlertImageDash";
+import AlertImageDash from "@/app/_Components/componantDashboard/AlertImageDash/AlertImageDash";
+
 export default function NewsDetailsMascers({ params }) {
   const [single, setSingle] = useState([]);
   const { openAlert, openAlertStore, setOpenSubscrips, openSubscrips } =
