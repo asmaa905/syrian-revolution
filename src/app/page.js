@@ -1,8 +1,7 @@
 "use client";
-import { useContext } from "react";
+import { Suspense, useContext } from "react";
 import Head from "next/head";
-
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { ContextUser } from "../context/Context";
 import Header from "./_Components/ComponentUser/Header/Header";
 import AlertImageDash from "./_Components/Dashboard/AlertImageDash/AlertImageDash";
@@ -18,9 +17,6 @@ import UpdatedPassword from "./_Components/ComponentUser/UpdatedPassword/Updated
 export default function HomeUser({ searchGlobal, setSearchGlobal }) {
   const { openAlert, openAlertStore, openOne } = useContext(ContextUser);
 
-  const searchParams = useSearchParams();
-  const userId = searchParams.get("id"); // Get userId from query parameter
-
   return (
     <>
       <Head>
@@ -29,21 +25,31 @@ export default function HomeUser({ searchGlobal, setSearchGlobal }) {
         <style></style>
       </Head>
       <Header />
-      <div className="centerUser py-6 px-4">
-        {/* Render UpdatedPassword if userId exists */}
-        {userId ? <UpdatedPassword userId={userId} /> : null}
-        <>
-          <LastNews />
-          <Martyr />
-          <System />
-          <Revolution />
-          <Maarek />
-          <Symbols />
-        </>
-      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <UserPageContent />
+      </Suspense>
       {/* Conditional Modals */}
       {openAlert && <AlertImageDash src={openAlertStore} />}
       {openOne && <MessageOpenHomeUser />}
     </>
+  );
+}
+function UserPageContent() {
+  const searchParams = useSearchParams();
+  const userId = searchParams.get("id"); // Get userId from query parameter
+
+  return (
+    <div className="centerUser py-6 px-4">
+      {/* Render UpdatedPassword if userId exists */}
+      {userId ? <UpdatedPassword userId={userId} /> : null}
+      <>
+        <LastNews />
+        <Martyr />
+        <System />
+        <Revolution />
+        <Maarek />
+        <Symbols />
+      </>
+    </div>
   );
 }
