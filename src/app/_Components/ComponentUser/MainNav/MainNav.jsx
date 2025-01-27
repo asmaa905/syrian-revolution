@@ -4,10 +4,6 @@ import React, { useState, useContext, useEffect } from "react";
 // import "../../../css/componantUser/MainNav/MainNav.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faCommentDots,
-//   faCircleXmark,
-// } from "@fortawesome/free-regular-svg-icons";
 import {
   faWhatsapp,
   faInstagram,
@@ -18,7 +14,11 @@ import {
   faSquareYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
-import { faCircleXmark, faEye,faCommentDots } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleXmark,
+  faEye,
+  faCommentDots,
+} from "@fortawesome/free-solid-svg-icons";
 // import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
 import RegisterUser from "../RegisterUser/RegisterUser";
 import LoginUser from "../LoginUser/LoginUser";
@@ -113,10 +113,6 @@ export default function MainNav() {
           <div className="w-full md:w-2/3   flex flex-col md:flex-row justify-end gap-5 items-center ">
             <div className="flex items-center  relative w-full md:w-fit">
               <div className="flex justify-between md:justify-end items-center w-full md:w-fit relative">
-                {/* <h1 className="m-0 text-[24px] font-bold md:hidden block">
-                    الثورة السورية
-                  </h1> */}
-
                 <p
                   className="m-0 px-4 py-2  cursor-pointer"
                   onClick={() => setOpen(true)}
@@ -284,7 +280,7 @@ export default function MainNav() {
           <div className="fixed top-0 left-1/2 transform -translate-x-1/2 w-full h-full bg-[#00011C80] z-50">
             <div className="w-3/5 h-[77%] bg-[#F7F7F7] mx-auto rounded-md mt-4 overflow-auto">
               <div
-                className='relative mx-auto text-center transform translate-y-5 w-[90%]'
+                className="relative mx-auto text-center transform translate-y-5 w-[90%]"
                 onClick={() => setOpenNoti(false)}
               >
                 <FontAwesomeIcon
@@ -296,7 +292,7 @@ export default function MainNav() {
                 <div className="new">
                   <h4 className="text-[#dc3545] text-[24px]">
                     <span className="text-[24px]">
-                    <FontAwesomeIcon icon={["fa-regular", "fa-bell"]} />
+                      <FontAwesomeIcon icon={["fa-regular", "fa-bell"]} />
                     </span>{" "}
                     الإشعارات الجديدة
                   </h4>
@@ -308,7 +304,6 @@ export default function MainNav() {
                           dataData?.data?.data && !dataData?.data?.data.length
                         }
                         className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 me-2"
-
                       >
                         +
                       </button>
@@ -318,7 +313,6 @@ export default function MainNav() {
                         }
                         disabled={pageNot === 1}
                         className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
-
                       >
                         -
                       </button>

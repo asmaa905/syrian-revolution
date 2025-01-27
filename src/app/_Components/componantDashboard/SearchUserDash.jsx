@@ -1,19 +1,19 @@
 "use client";
 
 import styles from "../../css/styleDashboard/SuperVisor.module.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useState } from "react";
-import { useDashboard } from "../context/DashboardContext";
-// import {
-//   faEye,
-//   faPenToSquare,
-//   faTrash,
-// } from "@fortawesome/free-solid-svg-icons";
-import { ContextUser } from "../context/Context";
-import { useNavigate } from "react-router-dom";
-import DisplayTawsec from "./DisplayTawsec";
+import {
+  faEye,
+  faPenToSquare,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useQuery } from "react-query";
+import { useDashboard } from "@/context/DashboardContext";
+import { ContextUser } from "@/context/Context";
+import DisplayTawsec from "./DisplayTawsec";
+import { useRouter } from "next/navigation";
 export default function SearchUserDash() {
   const [disTawsec, setDisTawsec] = useState();
   const [imageProfile, setImageProfile] = useState("");
@@ -119,7 +119,7 @@ export default function SearchUserDash() {
     }
   }
 
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <>
@@ -199,7 +199,7 @@ export default function SearchUserDash() {
                       )}
                     </td>
                     <td>
-                      {/* <FontAwesomeIcon
+                      <FontAwesomeIcon
                         icon={faTrash}
                         className="bg-danger p-1 text-white"
                         style={{ cursor: "pointer" }}
@@ -240,7 +240,7 @@ export default function SearchUserDash() {
                           localStorage.setItem("IdUpdateUser", user._id);
                           if (user?.role === "owner") {
                             if (role === "owner") {
-                              navigate("/dashboard/updateuser");
+                              router.push("/dashboard/updateuser");
                             } else {
                               return alert("لا يمكنك التعديل علي هذا الحساب");
                             }
@@ -248,12 +248,12 @@ export default function SearchUserDash() {
 
                           if (user?.role === "admin") {
                             if (role === "owner") {
-                              navigate("/dashboard/updateuser");
+                              router.push("/dashboard/updateuser");
                             } else if (
                               role === "admin" &&
                               user?._id === localStorage.getItem("idUserLogin")
                             ) {
-                              navigate("/dashboard/updateuser");
+                              router.push("/dashboard/updateuser");
                             } else {
                               return alert("لا يمكنك التعديل علي هذا الحساب");
                             }
@@ -262,7 +262,7 @@ export default function SearchUserDash() {
                             user?.role === "user" ||
                             user?.role === "supervisor"
                           ) {
-                            navigate("/dashboard/updateuser");
+                            router.push("/dashboard/updateuser");
                           }
                         }}
                       />
@@ -273,19 +273,19 @@ export default function SearchUserDash() {
                         onClick={() => {
                           if (user?.role === "owner") {
                             if (role === "owner") {
-                              navigate(`/dashboard/singleUser/${user._id}`);
+                              router.push(`/dashboard/singleUser/${user._id}`);
                             } else {
                               return alert("لا يمكنك  رؤية هذا الحساب");
                             }
                           }
                           if (user?.role === "admin") {
                             if (role === "owner") {
-                              navigate(`/dashboard/singleUser/${user._id}`);
+                              router.push(`/dashboard/singleUser/${user._id}`);
                             } else if (
                               role === "admin" &&
                               user?._id === localStorage.getItem("idUserLogin")
                             ) {
-                              navigate(`/dashboard/singleUser/${user._id}`);
+                              router.push(`/dashboard/singleUser/${user._id}`);
                             } else {
                               return alert("لا يمكنك  رؤية هذا الحساب");
                             }
@@ -294,10 +294,10 @@ export default function SearchUserDash() {
                             user?.role === "user" ||
                             user?.role === "supervisor"
                           ) {
-                            navigate(`/dashboard/singleUser/${user._id}`);
+                            router.push(`/dashboard/singleUser/${user._id}`);
                           }
                         }}
-                      /> */}
+                      />
                     </td>
                   </tr>
                 ))}
