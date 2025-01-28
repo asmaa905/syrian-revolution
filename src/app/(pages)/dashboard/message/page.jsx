@@ -221,11 +221,12 @@ export default function MessageDashboard() {
           </div>
           <div className={styles.btnbottom} style={{ justifyContent: "start" }}>
             <button
-              className={`add`}
+              className={`add rounded-[20px]`}
               style={{
                 color: "white",
                 backgroundColor: "green",
-                padding: "3px",
+                padding: "2px 25px",
+                border: "none",
               }}
               onClick={handleSubmit}
             >
@@ -281,11 +282,12 @@ export default function MessageDashboard() {
           </div>
           <div className={styles.btnbottom} style={{ justifyContent: "start" }}>
             <button
-              className={`add`}
+              className={`add rounded-[20px]`}
               style={{
                 color: "white",
                 backgroundColor: "green",
-                padding: "3px",
+                padding: "2px 25px",
+                border: "none",
               }}
               onClick={handleSubmitDesktop}
             >
@@ -342,11 +344,12 @@ export default function MessageDashboard() {
           </div>
           <div className={styles.btnbottom} style={{ justifyContent: "start" }}>
             <button
-              className={`add`}
+              className={`add rounded-[20px]`}
               style={{
                 color: "white",
                 backgroundColor: "green",
-                padding: "3px",
+                padding: "2px 25px",
+                border: "none",
               }}
               onClick={handleSubmitAndroid}
             >

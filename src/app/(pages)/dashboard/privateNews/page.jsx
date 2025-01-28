@@ -1,37 +1,41 @@
 "use client";
 
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useQuery } from "react-query";
 import { useRouter } from "next/navigation";
-import Header from "../../_Components/ComponentUser/Header/Header";
-export default function PrivateNewsUser() {
-  const [selectedOption, setSelectedOption] = useState({});
-  const [data, setData] = useState({});
+import axios from "axios";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
+export default function PrivateNews() {
+  const [selectedOption, setSelectedOption] = useState("");
   const router = useRouter();
 
-  async function getSingleUserUpdate() {
-    try {
-      const result = await axios.get(
+  function getLastNews() {
+    return axios
+      .get(
         `https://syrianrevolution1.com/users/single/${localStorage.getItem(
           "idUserLogin"
         )}`,
         {
           headers: {
-            Authorization: localStorage.getItem("token"),
+            "Content-Type": "application/json",
+            Authorization: `${localStorage.getItem("token")}`,
           },
         }
-      );
-      setData(result.data);
-      console.log(result.data);
-    } catch (error) {
-      console.error("Error fetching user data", error);
-    }
+      )
+      .then((response) => {
+        console.log(response.data);
+        return response.data;
+      })
+      .catch((error) => {
+        console.error("Error fetching the data: ", error);
+      });
   }
 
-  useEffect(() => {
-    getSingleUserUpdate();
-  }, []);
+  let { data, refetch } = useQuery("last", getLastNews);
 
   const handleChange = async (event, newsId) => {
     const newValue = event.target.value;
@@ -42,11 +46,10 @@ export default function PrivateNewsUser() {
         [newsId]: newValue,
       }));
     } catch (error) {
-      console.error("Error updating visibility", error);
+      console.error("حدث خطأ أثناء تحديث الرؤية:", error);
     }
   };
 
-  getSingleUserUpdate();
   const updateVisibility = async (newsId, newValue) => {
     try {
       const token = localStorage.getItem("token");
@@ -59,29 +62,49 @@ export default function PrivateNewsUser() {
           },
         }
       );
-
-      console.log("Visibility updated successfully", res);
+      console.log("تم تحديث الرؤية بنجاح", res);
+      refetch();
     } catch (error) {
-      console.error("Error updating visibility", error);
+      console.error("حدث خطأ أثناء تحديث الرؤية:", error);
+    }
+  };
+  const publish = async (postId) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        `https://syrianrevolution1.com/lists/posts/${localStorage.getItem(
+          "idUserLogin"
+        )}/publish/${postId}`,
+        {},
+        {
+          headers: {
+            Authorization: ` ${token}`,
+          },
+        }
+      );
+      refetch();
+    } catch (err) {
+      console.error("Error occurred:", err);
+      alert("حدث خطأ أثناء الاتصال بالخادم.");
     }
   };
 
   return (
     <>
-      <Header />
       <section className="regime" style={{ marginBottom: "50px" }}>
         <div className="container py-2">
           <div className="header position-relative py-[3rem]">
             <h5 className="text-danger privite-news-header">منشوراتي الخاصة</h5>
           </div>
-          <div className="row gy-3 mb-4">
+          <Swiper spaceBetween={30} slidesPerView={4} className="row gy-3 mb-4">
             {data?.lists
-              ?.filter((e) => e.visibility === "خاص بي")
-              .slice(0, 4)
-              .map((last, i) => (
-                <div
-                  className="lg:w-[25%] md:w-[33.33%] flex-[0_0_auto] w-full sm:w-[50%] px-[0.75rem] mt-[1rem] max-w-[100%]"
+              ?.filter(
+                (e) => e.category === "lastNews" && e.visibility === "خاص بي"
+              )
+              ?.map((last, i) => (
+                <SwiperSlide
                   key={i}
+                  className="lg:w-[25%] md:w-[33.33%] flex-[0_0_auto] w-full sm:w-[50%] px-[0.75rem] mt-[1rem] max-w-[100%]"
                 >
                   <div>
                     <select
@@ -91,6 +114,9 @@ export default function PrivateNewsUser() {
                       style={{ padding: "5px", fontSize: "14px" }}
                       className="m-2 font-[400] text-[14px]"
                     >
+                      <option value="" disabled>
+                        {last.visibility}
+                      </option>
                       <option value="العامة">العامة</option>
                       <option value="خاص بي">خاص بي</option>
                     </select>
@@ -120,13 +146,13 @@ export default function PrivateNewsUser() {
                         src={`https://syrianrevolution1.com/postImages/${last?.video}`}
                         type="video/mp4"
                       />
-                      Your browser does not support the video tag.
+                      المتصفح الخاص بك لا يدعم تشغيل الفيديو.
                     </video>
                   )}
+
                   <p className="font-[400] text-[25px] leading-[38px] text-[#212529]">
                     {last.name}
                     <br />
-
                     <button
                       className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
                       onClick={() => router.push(`/newsDetails/${last._id}`)}
@@ -134,37 +160,25 @@ export default function PrivateNewsUser() {
                       المزيد
                     </button>
                     <small className="datedSingle text-[12px] leading-[18px] font-[400] text-[#808080]">
-                      {last?.createdAt?.slice(0, 10)}
+                      {last?.createdAt && last?.createdAt.slice(0, 10)}
                     </small>
                   </p>
-                </div>
+                </SwiperSlide>
               ))}
-          </div>
+          </Swiper>
+
           <div className="header position-relative py-[3rem]">
-            <h5 className="text-danger privite-news-header">منشوراتي العامة</h5>
+            <h5 className="text-danger privite-news-header">
+              المنشورات المحفوظة{" "}
+            </h5>
           </div>
-          <div className="row gy-3 mb-4">
-            {data?.lists
-              ?.filter((e) => e.visibility === "العامة")
-              .slice(0, 4)
-              .map((last, i) => (
-                <div
-                  className="lg:w-[25%] md:w-[33.33%] flex-[0_0_auto] w-full sm:w-[50%] px-[0.75rem] mt-[1rem] max-w-[100%]"
-                  key={i}
-                >
-                  <div>
-                    <select
-                      id="small-dropdown"
-                      value={selectedOption[last._id] || last.visibility}
-                      onChange={(event) => handleChange(event, last._id)}
-                      style={{ padding: "5px", fontSize: "14px" }}
-                      className="m-2 font-[400] text-[14px]"
-                    >
-                      <option value="العامة">العامة</option>
-                      <option value="خاص بي">خاص بي</option>
-                    </select>
-                  </div>
-
+          <Swiper spaceBetween={30} slidesPerView={4} className="row gy-3 mb-4">
+            {data?.saveLists?.map((last, i) => (
+              <SwiperSlide
+                className="lg:w-[25%] md:w-[33.33%] flex-[0_0_auto] w-full sm:w-[50%] px-[0.75rem] mt-[1rem] max-w-[100%]"
+                key={i}
+              >
+                <div>
                   {last.images.length > 0 && (
                     <img
                       src={`https://syrianrevolution1.com/postImages/${last.images[0]?.imgPath}`}
@@ -189,26 +203,36 @@ export default function PrivateNewsUser() {
                         src={`https://syrianrevolution1.com/postImages/${last?.video}`}
                         type="video/mp4"
                       />
-                      Your browser does not support the video tag.
+                      المتصفح الخاص بك لا يدعم تشغيل الفيديو.
                     </video>
                   )}
 
                   <p className="font-[400] text-[25px] leading-[38px] text-[#212529]">
                     {last.name}
                     <br />
-                    <button
-                      className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
-                      onClick={() => router.push(`/newsDetails/${last._id}`)}
-                    >
-                      المزيد
-                    </button>
+                    <div>
+                      <button
+                        className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
+                        onClick={() => router.push(`/newsDetails/${last._id}`)}
+                      >
+                        المزيد
+                      </button>
+                      <button
+                        className="btn bg-[#ffbaba] text-[#000] font-[400] border-none text-[15px] leading-[23px] mt-[10px] outline-none p-[0_10px] translate-y-[-5px] d-inline-block mx-1 px-3 rounded-[0.5rem]"
+                        onClick={() => publish(last._id)}
+                      >
+                        نشر
+                      </button>
+                    </div>
+
                     <small className="datedSingle text-[12px] leading-[18px] font-[400] text-[#808080]">
-                      {last?.createdAt?.slice(0, 10)}
+                      {last?.createdAt && last?.createdAt.slice(0, 10)}
                     </small>
                   </p>
                 </div>
-              ))}
-          </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </section>
     </>
