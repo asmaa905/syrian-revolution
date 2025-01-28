@@ -2,11 +2,12 @@
 
 import React, { useContext } from "react";
 import styles from "../../../css/componantDashboard/History/History.module.css";
-import { useNavigate } from "react-router-dom";
-import { ContextUser } from "../../context/Context";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { getAllHistory } from "./MainHistory";
+import { useRouter } from "next/navigation";
+import { ContextUser } from "@/app/context/Context";
+
 export default function AdminHistory() {
   ///////////////////////////////////
   const { page } = useContext(ContextUser);
@@ -18,7 +19,7 @@ export default function AdminHistory() {
       keepPreviousData: true,
     }
   );
-  const navigate = useNavigate();
+  const router = useRouter();
   async function handleDelete(id) {
     await axios
       .delete(`https://syrianrevolution1.com/sgel/${id}`, {
@@ -244,7 +245,7 @@ export default function AdminHistory() {
                   <button
                     className={styles.display}
                     onClick={() =>
-                      navigate(`/dashboard/singleUser/${e?.data?._id}`)
+                      router.push(`/dashboard/singleUser/${e?.data?._id}`)
                     }
                   >
                     عرض المستخدم
@@ -271,7 +272,7 @@ export default function AdminHistory() {
                   <button
                     className={styles.display}
                     onClick={() =>
-                      navigate(
+                      router.push(
                         `/dashboard/singlemessageandpaypal/${e?.data?._id}`
                       )
                     }
@@ -296,7 +297,7 @@ export default function AdminHistory() {
                   <button
                     className={styles.display}
                     onClick={() =>
-                      navigate(
+                      router.push(
                         `/dashboard/dataChildDisplaySitemascr/${e?.data?._id}`
                       )
                     }
@@ -323,7 +324,7 @@ export default function AdminHistory() {
                   <button
                     className={styles.display}
                     onClick={() =>
-                      navigate(
+                      router.push(
                         `/dashboard/dataChildDisplaySite/${e?.data?._id}`
                       )
                     }
@@ -349,7 +350,7 @@ export default function AdminHistory() {
                   <button
                     className={styles.display}
                     onClick={() =>
-                      navigate(`/dashboard/dataDisplaySite/${e?.data?._id}`)
+                      router.push(`/dashboard/dataDisplaySite/${e?.data?._id}`)
                     }
                   >
                     عرض المنشور

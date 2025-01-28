@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { ContextUser } from "../../../../context/Context";
+import { ContextUser } from "../../../context/Context";
 // import one from "../.. ";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

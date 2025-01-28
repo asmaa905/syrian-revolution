@@ -10,7 +10,7 @@ import AddMogramUser from "../AddMogramUser/AddMogramUser";
 import AddKaaenUser from "../AddKaaenUser/AddKaaenUser";
 import AddCreditTakremUser from "../AddCreditTakremUser/AddCreditTakremUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ContextUser } from "../../../../context/Context";
+import { ContextUser } from "../../../context/Context";
 import AddLastNeswUser from "../AddLastNeswUser";
 import AddDamWathaaqUser from "../AddDamWathaaqUser";
 export default function EnterInformUser() {

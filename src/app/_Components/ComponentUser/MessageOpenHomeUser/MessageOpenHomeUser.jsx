@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext } from "react";
 import style from "../../../css/componantUser/MessageOpenHomeUser/MessageOpenHomeUser.module.css";
-import { ContextUser } from "../../../../context/Context";
+import { ContextUser } from "../../../context/Context";
 export default function MessageOpenHomeUser() {
   const { messageAndPaypal, setOpenOne } = useContext(ContextUser);
 

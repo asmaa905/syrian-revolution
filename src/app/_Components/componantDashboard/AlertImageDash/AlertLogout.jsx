@@ -2,7 +2,7 @@
 
 import React, { useContext } from "react";
 import style from "../../../css/componantDashboard/AlertImageDash/AlertImageDash.module.css";
-import { ContextUser } from "../../context/Context";
+import { ContextUser } from "@/app/context/Context";
 export default function AlertLogout({ src }) {
   const { setOpenLogout } = useContext(ContextUser);
   function handleLogout() {

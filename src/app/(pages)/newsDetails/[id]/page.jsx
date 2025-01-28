@@ -5,7 +5,7 @@ import axios from "axios";
 import profile_img from "../../../../assets/images/profile_img.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import { ContextUser } from "@/context/Context";
+import { ContextUser } from "@/app/context/Context";
 import { useRouter } from "next/navigation";
 import Subscribes from "@/app/_Components/ComponentUser/subscribe/Subscribes";
 import AlertImageDash from "@/app/_Components/componantDashboard/AlertImageDash/AlertImageDash";

@@ -1,25 +1,25 @@
 "use client";
 
 import React, { useContext, useEffect, useState } from "react";
+import Link from "next/link";
+import profile_img from "../../../assets/images/profile_img.png";
 import style from "../../css/styleDashboard/leftSideBar.module.css";
-// import imgAvatar from "../image/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png";
-import { Link, NavLink } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faArrowDown,
-//   faArrowRightFromBracket,
-//   faBell,
-//   faComment,
-//   faHouse,
-//   faImage,
-//   faOutdent,
-//   faReceipt,
-//   faUserGroup,
-// } from "@fortawesome/free-solid-svg-icons";
-import { ContextUser, useUser } from "../context/Context";
-import AlertImageDash from "./AlertImageDash/AlertImageDash";
-// import { faPaypal } from "@fortawesome/free-brands-svg-icons";
-// import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowDown,
+  faArrowRightFromBracket,
+  faBell,
+  faComment,
+  faHouse,
+  faImage,
+  faOutdent,
+  faReceipt,
+  faUserGroup,
+} from "@fortawesome/free-solid-svg-icons";
+import { ContextUser, useUser } from "@/app/context/Context";
+import { faPaypal } from "@fortawesome/free-brands-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import AlertLogout from "./AlertImageDash/AlertLogout";
 
 export default function LeftSideBar() {
   const [isMobile, setIsMobile] = useState(false);
@@ -47,7 +47,7 @@ export default function LeftSideBar() {
           localStorage?.selfImg !== "" ? (
             <img
               src={`https://syrianrevolution1.com/images/${localStorage?.selfImg}`}
-              alt="himself"
+              alt="Profile"
               style={{
                 width: "40px",
                 height: "40px",
@@ -56,14 +56,8 @@ export default function LeftSideBar() {
               }}
             />
           ) : (
-            <>imgAvater</>
-          )
-        ) : (
-          ""
-        )}
-        {/* (
             <img
-              src={imgAvatar}
+              src={profile_img}
               alt="himself"
               style={{
                 width: "40px",
@@ -71,93 +65,96 @@ export default function LeftSideBar() {
                 cursor: "pointer",
               }}
             />
-          ) */}
-
+          )
+        ) : (
+          ""
+        )}
         <p>{role}</p>
       </div>
       <div className={style.second}>
         {role === "admin" || role === "owner" ? (
           <div className={style.secondFirst}>
-            <NavLink to="/dashboard/userdash">
-              {/* <FontAwesomeIcon icon={faUserGroup} /> */}
+            <Link href="/dashboard/userdash">
+              <FontAwesomeIcon icon={faUserGroup} />
               المستخدمين
-            </NavLink>
+            </Link>
           </div>
         ) : (
           ""
         )}
         {role === "admin" || role === "owner" || role === "supervisor" ? (
           <div className={style.secondFirst}>
-            <NavLink to="/dashboard/history">
-              {/* <FontAwesomeIcon icon={faBell} /> */}
+            <Link href="/dashboard/history">
+              <FontAwesomeIcon icon={faBell} />
               سجل الانشطة
-            </NavLink>
+            </Link>
           </div>
         ) : (
           ""
         )}
         {role === "admin" || role === "owner" ? (
           <div className={style.secondFirst}>
-            <NavLink to="/dashboard/message">
-              {/* <FontAwesomeIcon icon={faComment} /> */}
+            <Link href="/dashboard/message">
+              <FontAwesomeIcon icon={faComment} />
               رسالة التوجية
-            </NavLink>
+            </Link>
           </div>
         ) : (
           ""
         )}
         {role === "admin" || role === "owner" ? (
           <div className={style.secondFirst}>
-            <NavLink to="/dashboard/paypal">
-              {/* <FontAwesomeIcon icon={faPaypal} /> */}
+            <Link href="/dashboard/paypal">
+              <FontAwesomeIcon icon={faPaypal} />
               حساب بيبال
-            </NavLink>
+            </Link>
           </div>
         ) : (
           ""
         )}
         {role === "admin" || role === "owner" ? (
           <div className={style.secondFirst}>
-            <NavLink to="/dashboard/background">
-              {/* <FontAwesomeIcon icon={faImage} /> */}
+            <Link href="/dashboard/background">
+              <FontAwesomeIcon icon={faImage} />
               الغلاف
-            </NavLink>
+            </Link>
           </div>
         ) : (
           ""
         )}
         {role === "admin" || role === "owner" ? (
           <div className={style.secondFirst}>
-            <NavLink to="/dashboard/privateNews">
-              {/* <FontAwesomeIcon icon={faEye} /> */}
+            <Link href="/dashboard/privateNews">
+              <FontAwesomeIcon icon={faEye} />
               الاخبار الخاصة بي
-            </NavLink>
+            </Link>
           </div>
         ) : (
           ""
         )}
         <div className={style.secondsecond}>
           <div className={style.headsecondsecond}>
-            <Link>
-              {/* <FontAwesomeIcon icon={faArrowDown} /> */}
-
+            <Link href="#">
+              {/* <a> */}
+              <FontAwesomeIcon icon={faArrowDown} />
               {!isMobile ? <p>البيانات المستلمة</p> : ""}
+              {/* </a> */}
             </Link>
           </div>
 
           <div className={style.listSecondSecond}>
-            <NavLink to="/dashboard/martyrs">شهداء</NavLink>
-            <NavLink to="/dashboard/detaineesdash">معتقلين</NavLink>
-            <NavLink to="/dashboard/missingdash">مفقودين</NavLink>
+            <Link href="/dashboard/martyrs">شهداء</Link>
+            <Link href="/dashboard/detaineesdash">معتقلين</Link>
+            <Link href="/dashboard/missingdash">مفقودين</Link>
             <div>
-              <NavLink to="/dashboard/warcriminals"> مجرمين حرب</NavLink>
+              <Link href="/dashboard/warcriminals"> مجرمين حرب</Link>
               <span>{numberMogrem}</span>
             </div>
-            <NavLink to="/dashboard/traitors">عملاء</NavLink>
-            <NavLink to="/dashboard/honorcard"> بطاقات تكريم</NavLink>
-            <NavLink to="/dashboard/lastnewsfromuser"> الأخبار </NavLink>
+            <Link href="/dashboard/traitors">عملاء</Link>
+            <Link href="/dashboard/honorcard"> بطاقات تكريم</Link>
+            <Link href="/dashboard/lastnewsfromuser"> الأخبار </Link>
             {role === "owner" || role === "admin" ? (
-              <NavLink to="/dashboard/wathaaqfromuser"> وثائق </NavLink>
+              <Link href="/dashboard/wathaaqfromuser"> وثائق </Link>
             ) : (
               ""
             )}
@@ -165,46 +162,46 @@ export default function LeftSideBar() {
         </div>
         <div className={style.secondsecond}>
           <div className={style.headsecondsecond}>
-            <Link>
-              {/* <FontAwesomeIcon icon={faOutdent} /> */}
+            <Link href="#">
+              {/* <a> */}
+              <FontAwesomeIcon icon={faOutdent} />
               {!isMobile ? <p> ادخال البيانات</p> : ""}
+              {/* </a> */}
             </Link>
           </div>
 
           <div className={style.listSecondSecond}>
-            <NavLink to="/dashboard/lastnewsdash"> اخر الاخبار</NavLink>
-            <NavLink to="/dashboard/revolutionarchivedash">
-              ارشيف الثورة
-            </NavLink>
-            <NavLink to="/dashboard/symbolsoftherevolution">
-              رموز الثورة
-            </NavLink>
-            <NavLink to="/dashboard/blacklist"> القائمة السوداء</NavLink>
-            <NavLink to="/dashboard/crimessystem"> الملفات</NavLink>
-            <NavLink to="/dashboard/allexcel"> مطلوبين للنظام</NavLink>
+            <Link href="/dashboard/lastnewsdash"> اخر الاخبار</Link>
+            <Link href="/dashboard/revolutionarchivedash">ارشيف الثورة</Link>
+            <Link href="/dashboard/symbolsoftherevolution">رموز الثورة</Link>
+            <Link href="/dashboard/blacklist"> القائمة السوداء</Link>
+            <Link href="/dashboard/crimessystem"> الملفات</Link>
+            <Link href="/dashboard/allexcel"> مطلوبين للنظام</Link>
           </div>
         </div>
         <div className={style.secondFourth}></div>
         <div className={style.secondFourth}>
           <div className={style.headsecondsecond}>
-            <NavLink to="/dashboard/dataDisplaySite">
-              {/* <FontAwesomeIcon icon={faReceipt} /> */}
+            <Link href="/dashboard/dataDisplaySite">
+              <FontAwesomeIcon icon={faReceipt} />
               البيانات المعروضة بالموقع
-            </NavLink>
-          </div>
-        </div>
-        <div className={style.secondFourth}>
-          <div className={style.headsecondsecond}>
-            <Link to="/">
-              {/* <FontAwesomeIcon icon={faHouse} /> */}
-              الرئيسية
             </Link>
           </div>
         </div>
         <div className={style.secondFourth}>
           <div className={style.headsecondsecond}>
-            <Link onClick={() => setOpenLogout(true)}>
-              {/* <FontAwesomeIcon icon={faArrowRightFromBracket} /> */}
+            <Link href="/">
+              {/* <a> */}
+              <FontAwesomeIcon icon={faHouse} />
+              الرئيسية
+              {/* </a> */}
+            </Link>
+          </div>
+        </div>
+        <div className={style.secondFourth}>
+          <div className={style.headsecondsecond}>
+            <Link href="#" onClick={() => setOpenLogout(true)}>
+              <FontAwesomeIcon icon={faArrowRightFromBracket} />
               تسجيل الخروج
             </Link>
           </div>
