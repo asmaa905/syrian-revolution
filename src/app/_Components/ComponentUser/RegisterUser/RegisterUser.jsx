@@ -5,6 +5,7 @@ import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.c
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ContextUser } from "../../../context/Context";
 import Joi from "joi";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 export default function RegisterUser() {
   const { setOpenAuth } = useContext(ContextUser);
@@ -309,6 +310,8 @@ export default function RegisterUser() {
                 onClick={handleSubmit}
               >
                 {loading ? (
+
+                
                   <div role="status">
                     <svg
                       aria-hidden="true"
@@ -328,6 +331,7 @@ export default function RegisterUser() {
                     </svg>
                     <span className="sr-only">Loading...</span>
                   </div>
+
                 ) : (
                   "انشاء حساب"
                 )}

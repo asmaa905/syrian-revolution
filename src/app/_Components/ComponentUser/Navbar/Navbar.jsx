@@ -19,12 +19,12 @@ export default function Navbar() {
   const router = useRouter();
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto md:py-4 px-4 md:px-0">
+<nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto md:py-4 px-4 md:px-0 ">
         <button
           data-collapse-toggle="navbar-dropdown"
           type="button"
-          className="inline-flex  absolute top-[162px] md:static items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex  absolute top-[165px] md:static items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-dropdown"
           aria-expanded="false"
         >

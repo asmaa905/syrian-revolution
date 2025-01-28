@@ -9,6 +9,7 @@ import { jwtDecode } from "jwt-decode";
 import Joi from "joi";
 import { getAllNotificationDate } from "../MainNav/MainNav";
 import { useQuery } from "react-query";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 export default function LoginUser() {
   const { setOpenAuth, setRole, getNotification, pageNot } =
@@ -158,6 +159,11 @@ export default function LoginUser() {
             <button type="submit" style={{ padding: "10px 0" }}>
               {" "}
               {loading ? (
+
+                  //  <div role="status" className="text-[24px]">
+                                                         
+        
+
                 <div role="status">
                   <svg
                     aria-hidden="true"
@@ -177,6 +183,7 @@ export default function LoginUser() {
                   </svg>
                   <span className="sr-only">Loading...</span>
                 </div>
+
               ) : (
                 "تسجيل الدخول"
               )}

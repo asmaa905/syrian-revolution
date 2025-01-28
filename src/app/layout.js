@@ -45,12 +45,13 @@ export default function RootLayout({ children }) {
       <body className="antialiased">
         <QueryClientProvider client={queryClient}>
           <ContextProvider>
-            <ContextDashboardProvider>
+<ContextDashboardProvider>
               {/* Conditionally render Navbar, MainNav, and Footer */}
               {!isDashboardRoute && <MainNav />}
               {!isDashboardRoute && <Navbar />}
               <main>{children}</main>
               {!isDashboardRoute && <Footer />}
+
             </ContextDashboardProvider>
           </ContextProvider>
         </QueryClientProvider>
