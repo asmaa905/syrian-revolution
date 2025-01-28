@@ -222,7 +222,11 @@ export default function MessageDashboard() {
           <div className={styles.btnbottom} style={{ justifyContent: "start" }}>
             <button
               className={`add`}
-              style={{ color: "white", backgroundColor: "green" }}
+              style={{
+                color: "white",
+                backgroundColor: "green",
+                padding: "3px",
+              }}
               onClick={handleSubmit}
             >
               {loading ? (
@@ -278,7 +282,11 @@ export default function MessageDashboard() {
           <div className={styles.btnbottom} style={{ justifyContent: "start" }}>
             <button
               className={`add`}
-              style={{ color: "white", backgroundColor: "green" }}
+              style={{
+                color: "white",
+                backgroundColor: "green",
+                padding: "3px",
+              }}
               onClick={handleSubmitDesktop}
             >
               {loadingDesktop ? (
@@ -335,7 +343,11 @@ export default function MessageDashboard() {
           <div className={styles.btnbottom} style={{ justifyContent: "start" }}>
             <button
               className={`add`}
-              style={{ color: "white", backgroundColor: "green" }}
+              style={{
+                color: "white",
+                backgroundColor: "green",
+                padding: "3px",
+              }}
               onClick={handleSubmitAndroid}
             >
               {loadingAndroid ? (
