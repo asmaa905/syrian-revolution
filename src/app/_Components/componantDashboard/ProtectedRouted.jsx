@@ -1,18 +1,19 @@
-"use client";
-
+"use client"
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
-export default function ProtectedRouted({ children }) {
-  const navigate = useNavigate();
+const ProtectedRouted = ({ children }) => {
+  const router = useRouter();
   const role = localStorage.getItem("roleUserLogin");
   useEffect(() => {
     if (role !== "admin" && role !== "supervisor" && role !== "owner") {
-      navigate("/");
+      router.push("/");
     }
-  }, [role, navigate]);
+  }, [role, router]);
 
   return role === "admin" || role === "supervisor" || role === "owner"
     ? children
     : null;
-}
+};
+
+export default ProtectedRouted;

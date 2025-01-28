@@ -2,7 +2,7 @@
 
 import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import profile_img from "../../../assets/images/profile_img.png";
 import style from "../../css/styleDashboard/leftSideBar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,29 +17,14 @@ import {
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { ContextUser, useUser } from "@/app/context/Context";
-import AlertImageDash from "./AlertImageDash/AlertImageDash";
 import { faPaypal } from "@fortawesome/free-brands-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-
-// const NavLink = ({ href, children, className }) => {
-//   const router = useRouter();
-//   // const isActive = typeof window !== "undefined" && router.pathname === href;
-
-//   return (
-//     <Link
-//       href={href}
-//       className={`${className} ${isActive ? style.activeLink : ""}`}
-//     >
-//       {children}
-//     </Link>
-//   );
-// };
+import AlertLogout from "./AlertImageDash/AlertLogout";
 
 export default function LeftSideBar() {
   const [isMobile, setIsMobile] = useState(false);
   const { numberMogrem } = useUser();
   const { role, setOpenLogout, openLogout } = useContext(ContextUser);
-
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 950);
@@ -71,14 +56,8 @@ export default function LeftSideBar() {
               }}
             />
           ) : (
-            <>imgAvater</>
-          )
-        ) : (
-          ""
-        )}
-        {/* (
             <img
-              src={imgAvatar}
+              src={profile_img}
               alt="himself"
               style={{
                 width: "40px",
@@ -86,8 +65,10 @@ export default function LeftSideBar() {
                 cursor: "pointer",
               }}
             />
-          ) */}
-
+          )
+        ) : (
+          ""
+        )}
         <p>{role}</p>
       </div>
       <div className={style.second}>
