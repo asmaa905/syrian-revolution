@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import styles from "../../css/styleDashboard/LastNew.module.css";
-import { useNavigate } from "react-router-dom";
+// import styles from "../../css/styleDashboard/LastNew.module.css";
+// import { useNavigate } from "react-router-dom";
 import Joi from "joi";
 import axios from "axios";
 
 export default function Black() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [addData, setAddData] = useState({
     category: "lastNews",
   });
@@ -184,15 +184,15 @@ export default function Black() {
 
   return (
     <div className={styles.LastNewsDash}>
-      <div className="headDashboard">
+      <div className="bg-[#0d3a5a] text-white text-sm h-[45px] px-5 py-[10px] pt-[15px] translate-y-[20px]">
         <p>ادخال البيانات / اخر الاخبار</p>
       </div>
-      <div className={styles.informLastNews}>
+      <div className='m-[50px] mx-auto w-[90%]'>
         {errorListUser &&
           errorListUser.map((error, index) => (
             <p
               key={index}
-              className="alert alert-secondary alerthemself"
+              className="bg-gray-200 text-gray-800 border border-gray-300 rounded p-4 translate-y-0 w-full"
               style={{ transform: "translateY(0)", width: "100%" }}
             >
               {error.message}
@@ -200,7 +200,7 @@ export default function Black() {
           ))}
         {successAdd && (
           <p
-            className="alert alert-success alerthemself"
+            className="bg-green-100 text-green-800 border border-green-300 rounded p-4 translate-y-0 w-full"
             style={{ transform: "translateY(0)", width: "100%" }}
           >
             تمت الاضافة بنجاح
@@ -209,16 +209,16 @@ export default function Black() {
         {errorBackUser &&
           errorBackUser?.error === "Cannot read property '0' of undefined" && (
             <p
-              className="alert alert-secondary alerthemself"
+              className="bg-gray-200 text-gray-800 border border-gray-300 rounded p-4 translate-y-0 w-full"
               style={{ transform: "translateY(0)", width: "100%" }}
             >
               يرجى رفع الصورة
             </p>
           )}
 
-        <div className={styles.input}>
-          <div className={styles.inp1}>
-            <label htmlFor=""> عنوان الخبر </label>
+        <div className='flex justify-between mb-5'>
+          <div className='flex flex-col gap-2 w-[45%]'>
+            <label htmlFor="" className="font-[12px]"> عنوان الخبر </label>
             <input
               type="text"
               className="form-control"
@@ -227,11 +227,11 @@ export default function Black() {
               onChange={handleChange}
             />
           </div>
-          <div className={styles.inp1}>
+          <div className='flex flex-col gap-2 w-[45%]'>
             <p style={{ fontSize: "10px", marginBottom: "5px" }}>
               ارفع اكثر من صورة أو فيديو (إجباري)
             </p>
-            <label htmlFor="f1" className="customfileupload">
+            <label htmlFor="f1" className="bg-white border border-gray-300 rounded cursor-pointer inline-block text-[10px] p-[7px] px-[10px] translate-y-[-5px] w-full">
               {" "}
               ارفع من هنا
             </label>
@@ -255,7 +255,7 @@ export default function Black() {
                     <img
                       src={URL.createObjectURL(image.file)}
                       alt={`Image ${index}`}
-                      className="w-100 rounded-3 fimg"
+                      className="w-full rounded-md fimg"
                     />
                     <input
                       type="text"
@@ -271,8 +271,8 @@ export default function Black() {
           </div>
         )}
 
-        <div className={styles.input}>
-          <div className={styles.inp1}>
+        <div className='flex justify-between mb-5'>
+          <div className='flex flex-col gap-2 w-[45%]'>
             <label htmlFor=""> مكان الخبر</label>
             <input
               type="text"
@@ -282,8 +282,8 @@ export default function Black() {
               onChange={handleChange}
             />
           </div>
-          <div className={styles.inp1}>
-            <label htmlFor=""> روابط خارجية (يوتيوب) - اختياري</label>
+          <div className='flex flex-col gap-2 w-[45%]'>
+            <label htmlFor="" className="text-[12px]"> روابط خارجية (يوتيوب) - اختياري</label>
             <input
               type="text"
               className="form-control"
@@ -293,19 +293,19 @@ export default function Black() {
             />
           </div>
         </div>
-        <div className={styles.inp2}>
+        <div className="flex flex-col gap-[10px] w-full">
           <label htmlFor=""> محتوى الخبر</label>
           <textarea
             name="content"
             placeholder="محتوى الخبر"
-            className="form-control"
+            className="form-control border-0 h-[150px]"
             onChange={handleChange}
           ></textarea>
         </div>
 
-        <div className={styles.btnbottom}>
+        <div className="flex gap-[10px] justify-center my-5">
           <button
-            className="add btn btn-success rounded-pill"
+            className="add bg-green-500 text-white rounded-full py-2 px-4"
             onClick={handleSubmit}
           >
             {loading ? (
@@ -317,7 +317,7 @@ export default function Black() {
             )}
           </button>
           <button
-            className=" btn btn-outline-success rounded-5"
+            className=" border border-green-500 text-green-500 rounded-[5px] py-2 px-4"
             onClick={saveNews}
           >
             {saveLoading ? (

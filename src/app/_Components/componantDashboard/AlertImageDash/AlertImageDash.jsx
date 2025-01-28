@@ -3,7 +3,7 @@
 import React, { useContext } from "react";
 import style from "../../../css/componantDashboard/AlertImageDash/AlertImageDash.module.css";
 import { saveAs } from "file-saver";
-import { ContextUser } from "../../context/Context";
+import { ContextUser } from "@/context/Context";
 export default function AlertImageDash({ src }) {
   const { setOpenAlert } = useContext(ContextUser);
 

@@ -49,9 +49,11 @@ export default function RootLayout({ children }) {
         {/* Ensure QueryClientProvider wraps the entire tree */}
         <QueryClientProvider client={queryClient}>
           <ContextProvider>
-            <MainNav />
+          <div className="relative">
+          <MainNav />
 
-            <Navbar />
+<Navbar />
+          </div>
 
             <main>{children}</main>
             <Footer />
