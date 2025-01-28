@@ -353,43 +353,52 @@ fieldset:disabled .btn {
   opacity: 0.65;
   pointer-events: none;
 }
-select {
-  border: 1px solid #e8e5e5;
-  padding: 2px !important;
-  border-radius: 5px;
-  outline: none;
+.revelotionactive{
+  @apply text-black cursor-pointer inline-block text-[15px] ml-[1px] p-[5px_0] text-center w-[100px]
 }
-
-.revelotionactive {
-  @apply text-black cursor-pointer inline-block text-[15px] ml-[1px] p-[5px_0] text-center w-[100px];
+.textervolution{
+  @apply border-0 h-[150px] placeholder:text-[10px] text-[16px]
 }
-.textervolution {
-  @apply border-0 h-[150px] placeholder:text-[10px] text-[16px];
+.btnsrevloution{
+  @apply flex gap-[10px] justify-center my-5
 }
-.btnsrevloution {
-  @apply flex gap-[10px] justify-center my-5;
+.contentrevloution{
+  @apply flex flex-col gap-[10px] w-full
 }
-.contentrevloution {
-  @apply flex flex-col gap-[10px] w-full;
+.inputrevloution{
+  @apply flex flex-col gap-2 w-[45%]
 }
-.inputrevloution {
-  @apply flex flex-col gap-2 w-[45%];
+.containerinputrevloution{
+  @apply flex justify-between mb-[20px] mt-[20px]
 }
-.containerinputrevloution {
-  @apply flex justify-between mb-[20px] mt-[20px];
+.alretrevlotion{
+ @apply bg-gray-200 text-gray-800 border border-gray-300 rounded  text-[14px] m-auto p-[5px] translate-y-[30px] w-[80%]
 }
-.alretrevlotion {
-  @apply bg-gray-200 text-gray-800 border border-gray-300 rounded  text-[14px] m-auto p-[5px] translate-y-[30px] w-[80%];
+.successrevlotion{
+  @apply bg-green-100 text-green-800 border border-green-300 rounded p-[5px]  text-[14px] m-auto  translate-y-[30px] w-[80%]
 }
-.successrevlotion {
-  @apply bg-green-100 text-green-800 border border-green-300 rounded p-[5px]  text-[14px] m-auto  translate-y-[30px] w-[80%];
+.addrevloution{
+  @apply border-none rounded-[20px] p-[2px_25px]
 }
-.addrevloution {
-  @apply border-none rounded-[20px] p-[2px_25px];
-}
-.plachoderevloution {
-  @apply placeholder:text-[10px] text-[16px];
+.plachoderevloution{
+  @apply placeholder:text-[10px] text-[16px]
 }
 .fileuploadrevlotion {
-  @apply bg-white border border-gray-300 rounded cursor-pointer inline-block text-[10px] p-[7px] px-[10px] translate-y-[-5px] w-full;
+  @apply bg-white border border-gray-300 rounded cursor-pointer inline-block text-[10px] p-[7px] px-[10px] translate-y-[-5px] w-full
+}
+.martyrs table{
+  margin: 30px auto auto;
+  text-align: center;
+  width: 100%;
+}
+.martyrs th,
+.martyrs tr,
+.martyrs th{
+  border: 0 solid;
+  border-color: inherit;
+  padding: 7px 0;
+}
+.martyrs tr{
+  font-size: 13px;
+  background-color: #D7D4D4;
 }
