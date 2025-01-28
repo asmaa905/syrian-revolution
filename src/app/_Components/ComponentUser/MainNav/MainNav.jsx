@@ -22,7 +22,7 @@ import {
 // import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
 import RegisterUser from "../RegisterUser/RegisterUser";
 import LoginUser from "../LoginUser/LoginUser";
-import { ContextUser } from "../../../../context/Context";
+import { ContextUser } from "../../../context/Context";
 import SuccessRegister from "../SuccessRegister/SuccessRegister";
 import ForgetPassword from "../ForgetPassword/ForgetPassword";
 import RestNewPassword from "../RestNewPassword/RestNewPassword";

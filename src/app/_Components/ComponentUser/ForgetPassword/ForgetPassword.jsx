@@ -2,7 +2,7 @@
 
 import { React, useContext, useState } from "react";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
-import { ContextUser } from "../../../../context/Context";
+import { ContextUser } from "../../../context/Context";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Joi from "joi";

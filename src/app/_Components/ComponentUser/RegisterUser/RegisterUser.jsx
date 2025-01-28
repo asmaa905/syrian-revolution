@@ -3,7 +3,7 @@
 import React, { useContext, useState } from "react";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ContextUser } from "../../../../context/Context";
+import { ContextUser } from "../../../context/Context";
 import Joi from "joi";
 
 export default function RegisterUser() {

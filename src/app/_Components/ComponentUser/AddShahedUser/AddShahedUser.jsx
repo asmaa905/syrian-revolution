@@ -1,6 +1,6 @@
 "use client";
 import { React, useContext, useEffect, useState } from "react";
-import { ContextUser } from "../../../../context/Context";
+import { ContextUser } from "../../../context/Context";
 import Joi from "joi";
 
 export default function AddShahedUser() {

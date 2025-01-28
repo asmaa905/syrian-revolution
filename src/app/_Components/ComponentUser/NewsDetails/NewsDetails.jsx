@@ -8,7 +8,7 @@ import Footer from "../Footer/Footer";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ContextUser } from "../../../../context/Context";
+import { ContextUser } from "../../../context/Context";
 import Subscribes from "../subscribe/Subscribes";
 
 export default function NewsDetails() {

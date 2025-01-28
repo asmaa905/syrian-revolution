@@ -1,7 +1,6 @@
-
 import React from "react";
 import Link from "next/link";
-import { useUser } from "@/context/Context"; 
+import { useUser } from "@/app/context/Context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Footer() {
@@ -37,29 +36,53 @@ export default function Footer() {
           <div className="col-span-12 md:col-span-2 flex justify-center items-center">
             <div className="text-center">
               <p className="mb-3 text-sm">تواصل معنا</p>
-           
+
               <div className="flex justify-center items-center ">
-                   {[
-                    { href: "https://api.whatsapp.com/send/?phone=4917676000731", icon: ["far", "comment-dots"] },
-                    { href: "https://whatsapp.com/channel/0029VadYk723LdQRWZRO4t3S", icon: ["fab", "whatsapp"] },
-                    { href: "https://www.instagram.com/syrian_revolut/", icon: ["fab", "instagram"] },
-                    { href: "https://t.me/Syrian_Revolution7", icon: ["fab", "telegram"] },
-                    { href: "https://www.tiktok.com/@syrian.revolution7", icon: ["fab", "tiktok"] },
-                    { href: "https://www.facebook.com/syrian.revolut1", icon: ["fab", "facebook-square"] },
-                    { href: "https://x.com/syrian_revolut", icon: ["fab", "twitter-square"] },
-                    { href: "https://youtube.com/@syrian.revolution7", icon: ["fab", "youtube-square"] },
-                    ].map((link, index) => (
-                      <a
-                      key={index}
-                      href={link.href}
-                      target="_blank"
-                     rel="noopener noreferrer"
+                {[
+                  {
+                    href: "https://api.whatsapp.com/send/?phone=4917676000731",
+                    icon: ["far", "comment-dots"],
+                  },
+                  {
+                    href: "https://whatsapp.com/channel/0029VadYk723LdQRWZRO4t3S",
+                    icon: ["fab", "whatsapp"],
+                  },
+                  {
+                    href: "https://www.instagram.com/syrian_revolut/",
+                    icon: ["fab", "instagram"],
+                  },
+                  {
+                    href: "https://t.me/Syrian_Revolution7",
+                    icon: ["fab", "telegram"],
+                  },
+                  {
+                    href: "https://www.tiktok.com/@syrian.revolution7",
+                    icon: ["fab", "tiktok"],
+                  },
+                  {
+                    href: "https://www.facebook.com/syrian.revolut1",
+                    icon: ["fab", "facebook-square"],
+                  },
+                  {
+                    href: "https://x.com/syrian_revolut",
+                    icon: ["fab", "twitter-square"],
+                  },
+                  {
+                    href: "https://youtube.com/@syrian.revolution7",
+                    icon: ["fab", "youtube-square"],
+                  },
+                ].map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-white hover:text-gray-400 ml-2"
-                          >
-      <FontAwesomeIcon icon={link.icon} />
-                      </a>
-                  ))}
-                      </div>
+                  >
+                    <FontAwesomeIcon icon={link.icon} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -130,7 +153,10 @@ export default function Footer() {
         <hr className="my-4 border-gray-600" />
         <p className="text-center text-sm">
           جميع حقوق النشر محفوظة -{" "}
-          <Link href="/privacypolicy" className="hover:underline font-normal text-[16px] leading-6" >
+          <Link
+            href="/privacypolicy"
+            className="hover:underline font-normal text-[16px] leading-6"
+          >
             سياسة الخصوصية
           </Link>
         </p>

@@ -3,7 +3,7 @@
 import { React, useContext } from "react";
 import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ContextUser } from "../../../../context/Context";
+import { ContextUser } from "../../../context/Context";
 export default function SuccessAddInform() {
   const { setOpenAuth } = useContext(ContextUser);
 
@@ -11,7 +11,10 @@ export default function SuccessAddInform() {
     <div className={style.RegisterUser}>
       <form className={style.formsSuccessRegister}>
         <div className={style.informSuccess}>
-        <FontAwesomeIcon icon="fa-solid fa-circle-check"  style={{ color: "green", fontSize: "40px", marginBottom: "20px" }}/>
+          <FontAwesomeIcon
+            icon="fa-solid fa-circle-check"
+            style={{ color: "green", fontSize: "40px", marginBottom: "20px" }}
+          />
 
           <p>
             {" "}

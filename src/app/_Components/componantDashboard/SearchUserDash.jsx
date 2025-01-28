@@ -10,8 +10,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { useDashboard } from "@/context/DashboardContext";
-import { ContextUser } from "@/context/Context";
+import { useDashboard } from "@/app/context/DashboardContext";
+import { ContextUser } from "@/app/context/Context";
 import DisplayTawsec from "./DisplayTawsec";
 import { useRouter } from "next/navigation";
 export default function SearchUserDash() {

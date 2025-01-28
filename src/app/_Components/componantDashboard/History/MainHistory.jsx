@@ -6,8 +6,9 @@ import AllHistory from "./AllHistory";
 import AdminHistory from "./AdminHistory";
 import UserHistory from "./UserHistory";
 import HistorySupervisor from "./HistorySupervisor";
-import { ContextUser } from "../../context/Context";
+
 import axios from "axios";
+import { ContextUser } from "@/app/context/Context";
 
 ////////////////////////////////////////////////
 export function getAllHistory(page = 1) {

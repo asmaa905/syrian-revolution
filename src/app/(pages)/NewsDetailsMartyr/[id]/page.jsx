@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import axios from "axios";
-import { ContextUser } from "@/context/Context";
+import { ContextUser } from "@/app/context/Context";
 import { useRouter } from "next/navigation";
 import profile_img from "../../../../assets/images/profile_img.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

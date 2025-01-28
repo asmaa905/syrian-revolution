@@ -1,5 +1,5 @@
 "use client";
-import styles from "../../../css/styleDashboard/SuperVisor.module.css";
+import styles from "../../css/styleDashboard/SuperVisor.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
 

@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 import { useContext } from "react";
-import { ContextUser } from "../../../../context/Context";
+import { ContextUser } from "../../../context/Context";
 import EnterInformUser from "../EnterInformUser/EnterInformUser";
 import SuccessAddInform from "../SuccessAddInform/SuccessAddInform";
 import FaildAddInform from "../FaildAddInform/FaildAddForm"; //

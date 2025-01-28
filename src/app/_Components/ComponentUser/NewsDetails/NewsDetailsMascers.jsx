@@ -8,7 +8,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { ContextUser } from "../../../../context/Context";
+import { ContextUser } from "../../../context/Context";
 
 import profile_img from "../../../../assets/images/profile_img.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
