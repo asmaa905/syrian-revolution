@@ -386,3 +386,19 @@ fieldset:disabled .btn {
 .fileuploadrevlotion {
   @apply bg-white border border-gray-300 rounded cursor-pointer inline-block text-[10px] p-[7px] px-[10px] translate-y-[-5px] w-full
 }
+.martyrs table{
+  margin: 30px auto auto;
+  text-align: center;
+  width: 100%;
+}
+.martyrs th,
+.martyrs tr,
+.martyrs th{
+  border: 0 solid;
+  border-color: inherit;
+  padding: 7px 0;
+}
+.martyrs tr{
+  font-size: 13px;
+  background-color: #D7D4D4;
+}
