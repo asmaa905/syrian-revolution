@@ -1,9 +1,11 @@
 .LeftSideBar {
   width: 20%;
-  min-height: 1200px;
+  max-height: 1200px;
   background-color: #1e5e8a;
   font-size: 13px;
   margin-right: 5px;
+  direction: ltr; /* Forces left-to-right direction */
+  text-align: right;
 }
 
 .LeftSideBar a {
@@ -26,6 +28,8 @@
 }
 .second {
   padding: 0 15px;
+  direction: rtl; /* Forces left-to-right direction */
+  text-align: right;
 }
 .second a {
   color: white;
@@ -34,7 +38,7 @@
   align-items: center;
 }
 .secondFirst {
-  padding: 15px 0;
+  padding: 8px 0;
 }
 .secondFirst p {
   margin-top: 15px;
