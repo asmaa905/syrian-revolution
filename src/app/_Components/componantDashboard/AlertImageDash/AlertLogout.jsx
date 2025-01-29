@@ -35,7 +35,7 @@ export default function AlertLogout({ src }) {
               تاكيد
             </button>
             <button
-              className="btn btn-danger"
+              className="btn bg-danger text-white"
               onClick={() => setOpenLogout(false)}
             >
               {" "}

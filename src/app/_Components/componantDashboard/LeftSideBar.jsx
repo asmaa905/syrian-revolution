@@ -39,7 +39,14 @@ export default function LeftSideBar() {
 
   return (
     <div className={style.LeftSideBar}>
-      <div className={style.first}>
+      <div
+        className={`${style.first} flex justify-center items-center fles-wrap flex-col`}
+        style={{
+          cursor: "pointer",
+          borderBottom: "1px solid #0d3a5a",
+          textAlign: "center",
+        }}
+      >
         {!isMobile ? (
           localStorage?.selfImg !== undefined &&
           localStorage?.selfImg !== "undefined" &&
@@ -52,7 +59,6 @@ export default function LeftSideBar() {
                 width: "40px",
                 height: "40px",
                 borderRadius: "50%",
-                cursor: "pointer",
               }}
             />
           ) : (
