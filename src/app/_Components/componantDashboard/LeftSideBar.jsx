@@ -38,13 +38,14 @@ export default function LeftSideBar() {
   }, []);
 
   return (
-    <div className={style.LeftSideBar}>
+    <div className={`${style.LeftSideBar} max-h-[1200px] overflow-y-auto `}>
       <div
         className={`${style.first} flex justify-center items-center fles-wrap flex-col`}
         style={{
           cursor: "pointer",
           borderBottom: "1px solid #0d3a5a",
           textAlign: "center",
+          paddingBottom:"5px"
         }}
       >
         {!isMobile ? (
