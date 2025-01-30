@@ -5,6 +5,8 @@ import Link from "next/link";
 import profile_img from "../../../assets/images/profile_img.png";
 import style from "../../css/styleDashboard/leftSideBar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { usePathname } from "next/navigation";
+
 import {
   faArrowDown,
   faArrowRightFromBracket,
@@ -25,6 +27,8 @@ export default function LeftSideBar() {
   const [isMobile, setIsMobile] = useState(false);
   const { numberMogrem } = useUser();
   const { role, setOpenLogout, openLogout } = useContext(ContextUser);
+  const pathname = usePathname();
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 950);
@@ -45,7 +49,7 @@ export default function LeftSideBar() {
           cursor: "pointer",
           borderBottom: "1px solid #0d3a5a",
           textAlign: "center",
-          paddingBottom:"5px"
+          paddingBottom: "5px",
         }}
       >
         {!isMobile ? (
@@ -81,7 +85,10 @@ export default function LeftSideBar() {
       <div className={style.second}>
         {role === "admin" || role === "owner" ? (
           <div className={style.secondFirst}>
-            <Link href="/dashboard/userdash">
+            <Link
+              href="/dashboard/userdash"
+              className={pathname === "/dashboard/userdash" ? "active" : ""}
+            >
               <FontAwesomeIcon icon={faUserGroup} />
               المستخدمين
             </Link>
@@ -91,7 +98,10 @@ export default function LeftSideBar() {
         )}
         {role === "admin" || role === "owner" || role === "supervisor" ? (
           <div className={style.secondFirst}>
-            <Link href="/dashboard/history">
+            <Link
+              href="/dashboard/history"
+              className={pathname === "/dashboard/history" ? "active" : ""}
+            >
               <FontAwesomeIcon icon={faBell} />
               سجل الانشطة
             </Link>
@@ -101,7 +111,10 @@ export default function LeftSideBar() {
         )}
         {role === "admin" || role === "owner" ? (
           <div className={style.secondFirst}>
-            <Link href="/dashboard/message">
+            <Link
+              href="/dashboard/message"
+              className={pathname === "/dashboard/message" ? "active" : ""}
+            >
               <FontAwesomeIcon icon={faComment} />
               رسالة التوجية
             </Link>
@@ -111,7 +124,10 @@ export default function LeftSideBar() {
         )}
         {role === "admin" || role === "owner" ? (
           <div className={style.secondFirst}>
-            <Link href="/dashboard/paypal">
+            <Link
+              href="/dashboard/paypal"
+              className={pathname === "/dashboard/paypal" ? "active" : ""}
+            >
               <FontAwesomeIcon icon={faPaypal} />
               حساب بيبال
             </Link>
@@ -121,7 +137,10 @@ export default function LeftSideBar() {
         )}
         {role === "admin" || role === "owner" ? (
           <div className={style.secondFirst}>
-            <Link href="/dashboard/background">
+            <Link
+              href="/dashboard/background"
+              className={pathname === "/dashboard/background" ? "active" : ""}
+            >
               <FontAwesomeIcon icon={faImage} />
               الغلاف
             </Link>
@@ -131,7 +150,10 @@ export default function LeftSideBar() {
         )}
         {role === "admin" || role === "owner" ? (
           <div className={style.secondFirst}>
-            <Link href="/dashboard/privateNews">
+            <Link
+              href="/dashboard/privateNews"
+              className={pathname === "/dashboard/privateNews" ? "active" : ""}
+            >
               <FontAwesomeIcon icon={faEye} />
               الاخبار الخاصة بي
             </Link>
@@ -150,18 +172,70 @@ export default function LeftSideBar() {
           </div>
 
           <div className={style.listSecondSecond}>
-            <Link href="/dashboard/martyrs">شهداء</Link>
-            <Link href="/dashboard/detaineesdash">معتقلين</Link>
-            <Link href="/dashboard/missingdash">مفقودين</Link>
+            <Link
+              href="/dashboard/martyrs"
+              className={pathname === "/dashboard/martyrs" ? "active" : ""}
+            >
+              شهداء
+            </Link>
+            <Link
+              href="/dashboard/detaineesdash"
+              className={
+                pathname === "/dashboard/detaineesdash" ? "active" : ""
+              }
+            >
+              معتقلين
+            </Link>
+            <Link
+              href="/dashboard/missingdash"
+              className={pathname === "/dashboard/missingdash" ? "active" : ""}
+            >
+              مفقودين
+            </Link>
             <div>
-              <Link href="/dashboard/warcriminals"> مجرمين حرب</Link>
+              <Link
+                href="/dashboard/warcriminals"
+                className={
+                  pathname === "/dashboard/warcriminals" ? "active" : ""
+                }
+              >
+                {" "}
+                مجرمين حرب
+              </Link>
               <span>{numberMogrem}</span>
             </div>
-            <Link href="/dashboard/traitors">عملاء</Link>
-            <Link href="/dashboard/honorcard"> بطاقات تكريم</Link>
-            <Link href="/dashboard/lastnewsfromuser"> الأخبار </Link>
+            <Link
+              href="/dashboard/traitors"
+              className={pathname === "/dashboard/traitors" ? "active" : ""}
+            >
+              عملاء
+            </Link>
+            <Link
+              href="/dashboard/honorcard"
+              className={pathname === "/dashboard/honorcard" ? "active" : ""}
+            >
+              {" "}
+              بطاقات تكريم
+            </Link>
+            <Link
+              href="/dashboard/lastnewsfromuser"
+              className={
+                pathname === "/dashboard/lastnewsfromuser" ? "active" : ""
+              }
+            >
+              {" "}
+              الأخبار{" "}
+            </Link>
             {role === "owner" || role === "admin" ? (
-              <Link href="/dashboard/wathaaqfromuser"> وثائق </Link>
+              <Link
+                href="/dashboard/wathaaqfromuser"
+                className={
+                  pathname === "/dashboard/wathaaqfromuser" ? "active" : ""
+                }
+              >
+                {" "}
+                وثائق{" "}
+              </Link>
             ) : (
               ""
             )}
@@ -178,18 +252,63 @@ export default function LeftSideBar() {
           </div>
 
           <div className={style.listSecondSecond}>
-            <Link href="/dashboard/lastnewsdash"> اخر الاخبار</Link>
-            <Link href="/dashboard/revolutionarchivedash">ارشيف الثورة</Link>
-            <Link href="/dashboard/symbolsoftherevolution">رموز الثورة</Link>
-            <Link href="/dashboard/blacklist"> القائمة السوداء</Link>
-            <Link href="/dashboard/crimessystem"> الملفات</Link>
-            <Link href="/dashboard/allexcel"> مطلوبين للنظام</Link>
+            <Link
+              href="/dashboard/lastnewsdash"
+              className={pathname === "/dashboard/lastnewsdash" ? "active" : ""}
+            >
+              {" "}
+              اخر الاخبار
+            </Link>
+            <Link
+              href="/dashboard/revolutionarchivedash"
+              className={
+                pathname === "/dashboard/revolutionarchivedash" ? "active" : ""
+              }
+            >
+              ارشيف الثورة
+            </Link>
+            <Link
+              href="/dashboard/symbolsoftherevolution"
+              className={
+                pathname === "/dashboard/symbolsoftherevolution" ? "active" : ""
+              }
+            >
+              رموز الثورة
+            </Link>
+            <Link
+              href="/dashboard/blacklist"
+              className={pathname === "/dashboard/blacklist" ? "active" : ""}
+            >
+              {" "}
+              القائمة السوداء
+            </Link>
+            <Link
+              href="/dashboard/crimessystem"
+              className={
+                pathname === "/dashboard/crimessystem" ? "active" : ""
+              }
+            >
+              {" "}
+              الملفات
+            </Link>
+            <Link
+              href="/dashboard/allexcel"
+              className={pathname === "/dashboard/allexcel" ? "active" : ""}
+            >
+              {" "}
+              مطلوبين للنظام
+            </Link>
           </div>
         </div>
         <div className={style.secondFourth}></div>
         <div className={style.secondFourth}>
           <div className={style.headsecondsecond}>
-            <Link href="/dashboard/dataDisplaySite">
+            <Link
+              href="/dashboard/dataDisplaySite"
+              className={
+                pathname.startsWith("/dashboard/dataDisplaySite") ? "active" : ""
+              }
+            >
               <FontAwesomeIcon icon={faReceipt} />
               البيانات المعروضة بالموقع
             </Link>
