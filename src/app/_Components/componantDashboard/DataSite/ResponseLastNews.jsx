@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useContext, useEffect, useState } from "react";
-import styles from "../../css/styleDashboard/DataDisplaySite.module.css";
+import styles from "../../../css/styleDashboard/DataDisplaySite.module.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { ContextUser, useUser } from "@/app/context/Context";
-import { profile_img } from "../../../assets/images/profile_img.png";
+import { profile_img } from "../../../../assets/images/profile_img.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFile, faFileZipper } from "@fortawesome/free-solid-svg-icons";
 export default function ResponseLastNews({ params }) {

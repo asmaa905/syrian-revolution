@@ -40,6 +40,12 @@
     @apply text-green-600 border border-green-600 hover:text-white hover:bg-green-600 focus:ring focus:ring-green-300 disabled:text-green-600 
     disabled:bg-transparent disabled:border-green-600 transition duration-150;
   }
+  .btn-warning {
+    @apply text-[#000] bg-[#ffc107] border border-[#ffc107] hover:text-[#000] 
+    hover:bg-[#ffca2c] focus:ring focus:ring-yellow-300 disabled:text-yellow-600
+    disabled:bg-transparent disabled:border-yellow-600 transition duration-150;
+  }
+
   .mb-4 {
     @apply mb-[1.5rem_!important];
   }

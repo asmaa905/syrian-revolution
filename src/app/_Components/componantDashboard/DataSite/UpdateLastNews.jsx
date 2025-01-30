@@ -2,14 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import styles from "../../../css/componantDashboard/DataSite/StyleUpdateUser.module.css";
-import { useParams } from "react-router-dom";
-import { useUser } from "../../context/Context";
+import { useUser } from "@/app/context/Context";
 import axios from "axios";
-export default function UpdateLastNews() {
+export default function UpdateLastNews({params}) {
   const [userUpdate, setUserUpdate] = useState({});
   const [loading, setLoading] = useState(false);
   const { getListUser } = useUser();
-  const { id } = useParams();
+  const { id } = React.use(params);
   function handlechange(e) {
     setUserUpdate((prevState) => ({
       ...prevState,
