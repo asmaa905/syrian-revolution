@@ -293,7 +293,7 @@ export default function DataSiteResponseMassacre({ params }) {
             "حذف"
           )}
         </button>
-        <button onClick={() => router.push(-1)} className="btn btn-primary">
+        <button onClick={() => router.back()} className="btn btn-primary">
           رجوع
         </button>
       </div>

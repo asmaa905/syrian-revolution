@@ -143,7 +143,7 @@ export default function DataSiteQasaad() {
                       }}
                       onClick={() => {
                         router.push(
-                          `/dashboard/dataChildDisplaySite/${user._id}`
+                          `/dashboard/dataDisplaySite/dataChildDisplaySite/${user._id}`
                         );
                       }}
                     >
@@ -166,7 +166,7 @@ export default function DataSiteQasaad() {
                       }}
                       onClick={() => {
                         router.push(
-                          `/dashboard/dataChildDisplaySite/${user._id}`
+                          `/dashboard/dataDisplaySite/dataChildDisplaySite/${user._id}`
                         );
                       }}
                     >
@@ -189,7 +189,7 @@ export default function DataSiteQasaad() {
                       }}
                       onClick={() => {
                         router.push(
-                          `/dashboard/dataChildDisplaySite/${user._id}`
+                          `/dashboard/dataDisplaySite/dataChildDisplaySite/${user._id}`
                         );
                       }}
                     >
@@ -212,7 +212,7 @@ export default function DataSiteQasaad() {
                       }}
                       onClick={() => {
                         router.push(
-                          `/dashboard/dataChildDisplaySitemascr/${user._id}`
+                          `/dashboard/dataDisplaySite/dataChildDisplaySitemascr/${user._id}`
                         );
                       }}
                     >

@@ -271,9 +271,7 @@ export default function AllHistory() {
                     <button
                       className={styles.display}
                       onClick={() =>
-                        router.push(
-                          `/dashboard/userdash/singleUser/${e?.data?._id}`
-                        )
+                        router.push(`/dashboard/singleUser/${e?.data?._id}`)
                       }
                     >
                       عرض المستخدم
@@ -326,7 +324,7 @@ export default function AllHistory() {
                       className={styles.display}
                       onClick={() =>
                         router.push(
-                          `/dashboard/dataChildDisplaySitemascr/${e?.data?._id}`
+                          `/dashboard/dataDisplaySite/dataChildDisplaySitemascr/${e?.data?._id}`
                         )
                       }
                     >
@@ -353,7 +351,7 @@ export default function AllHistory() {
                       className={styles.display}
                       onClick={() =>
                         router.push(
-                          `/dashboard/dataChildDisplaySite/${e?.data?._id}`
+                          `/dashboard/dataDisplaySite/dataChildDisplaySite/${e?.data?._id}`
                         )
                       }
                     >

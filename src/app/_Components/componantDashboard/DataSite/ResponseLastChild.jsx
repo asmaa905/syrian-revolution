@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFile, faFileZipper } from "@fortawesome/free-solid-svg-icons";
 import { ContextUser, useUser } from "@/app/context/Context";
 import { useRouter } from "next/navigation";
-import profile_img from "../../../../assets/images/profile_img.png";
+import { profile_img } from "../../../../assets/images/profile_img.png";
 export default function ResponseLastChild({ params }) {
   const [martyrDisplay, setMartyrDataDisplay] = useState([]);
   const { setOpenAlert, setOpenAlertStore } = useContext(ContextUser);

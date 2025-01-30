@@ -314,7 +314,7 @@ export default function AdminHistory() {
                     className={styles.display}
                     onClick={() =>
                       router.push(
-                        `/dashboard/dataChildDisplaySitemascr/${e?.data?._id}`
+                        `/dashboard/dataDisplaySite/dataChildDisplaySitemascr/${e?.data?._id}`
                       )
                     }
                   >
@@ -341,7 +341,7 @@ export default function AdminHistory() {
                     className={styles.display}
                     onClick={() =>
                       router.push(
-                        `/dashboard/dataChildDisplaySite/${e?.data?._id}`
+                        `/dashboard/dataDisplaySite/dataChildDisplaySite/${e?.data?._id}`
                       )
                     }
                   >

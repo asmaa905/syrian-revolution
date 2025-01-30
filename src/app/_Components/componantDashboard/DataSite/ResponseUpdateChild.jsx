@@ -269,9 +269,9 @@ export default function ResponseUpdateChild({ params }) {
             <div className={styles.inp1}>
               <label htmlFor=""> الجهة المسؤولة</label>
               <select
+                className={`${styles.selectDropdown} form-control`}
                 name="responsibleAuthority"
                 onChange={handlechange}
-                className="form-control"
                 value={userUpdate.responsibleAuthority}
               >
                 <option value="system">النظام</option>

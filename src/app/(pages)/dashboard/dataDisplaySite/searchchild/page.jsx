@@ -117,7 +117,7 @@ export default function SearchChildDashboard() {
                     }}
                     onClick={() => {
                       router.push(
-                        `/dashboard/dataChildDisplaySite/${user._id}`
+                        `/dashboard/dataDisplaySite/dataChildDisplaySite/${user._id}`
                       );
                     }}
                   >

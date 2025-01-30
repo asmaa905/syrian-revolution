@@ -117,7 +117,7 @@ export default function SearchMascersDashboard() {
                     }}
                     onClick={() => {
                       router.push(
-                        `/dashboard/dataChildDisplaySitemascr/${user._id}`
+                        `/dashboard/dataDisplaySite/dataChildDisplaySitemascr/${user._id}`
                       );
                     }}
                   >
