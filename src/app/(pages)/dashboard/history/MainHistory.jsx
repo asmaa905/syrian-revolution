@@ -1,12 +1,13 @@
 "use client";
+
 import { useContext, useState } from "react";
 import styles from "../../../css/componantDashboard/History/History.module.css";
+import AllHistory from "./AllHistory";
+import AdminHistory from "./AdminHistory";
+import UserHistory from "./UserHistory";
+import HistorySupervisor from "./HistorySupervisor";
 
 import axios from "axios";
-import AllHistory from "./AllHistory";
-import AdminHistory from "@/app/_Components/componantDashboard/History/AdminHistory";
-import UserHistory from "@/app/_Components/componantDashboard/History/UserHistory";
-import HistorySupervisor from "@/app/_Components/componantDashboard/History/HistorySupervisor";
 import { ContextUser } from "@/app/context/Context";
 
 ////////////////////////////////////////////////
