@@ -374,7 +374,7 @@ export default function UsersDash() {
                             if (user?.role === "owner") {
                               if (role === "owner") {
                                 router.push(
-                                  `/dashboard/userdash/singleUser/${user._id}`
+                                  `/dashboard/singleUser/${user._id}`
                                 );
                               } else {
                                 return alert("لا يمكنك  رؤية هذا الحساب");
@@ -383,7 +383,7 @@ export default function UsersDash() {
                             if (user?.role === "admin") {
                               if (role === "owner") {
                                 router.push(
-                                  `/dashboard/userdash/singleUser/${user._id}`
+                                  `/dashboard/singleUser/${user._id}`
                                 );
                               } else if (
                                 role === "admin" &&
@@ -391,7 +391,7 @@ export default function UsersDash() {
                                   localStorage.getItem("idUserLogin")
                               ) {
                                 router.push(
-                                  `/dashboard/userdash/singleUser/${user._id}`
+                                  `/dashboard/singleUser/${user._id}`
                                 );
                               } else {
                                 return alert("لا يمكنك  رؤية هذا الحساب");
@@ -401,9 +401,7 @@ export default function UsersDash() {
                               user?.role === "user" ||
                               user?.role === "supervisor"
                             ) {
-                              router.push(
-                                `/dashboard/userdash/singleUser/${user._id}`
-                              );
+                              router.push(`/dashboard/singleUser/${user._id}`);
                             }
                           }}
                         />
