@@ -263,9 +263,7 @@ export default function HistorySupervisor() {
                   <button
                     className={styles.display}
                     onClick={() =>
-                      router.push(
-                        `/dashboard/userdash/singleUser/${e?.data?._id}`
-                      )
+                      router.push(`/dashboard/singleUser/${e?.data?._id}`)
                     }
                   >
                     عرض المستخدم
