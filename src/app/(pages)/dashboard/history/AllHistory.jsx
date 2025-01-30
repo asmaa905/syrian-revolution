@@ -324,7 +324,7 @@ export default function AllHistory() {
                       className={styles.display}
                       onClick={() =>
                         router.push(
-                          `/dashboard/dataChildDisplaySitemascr/${e?.data?._id}`
+                          `/dashboard/dataDisplaytSite/dataChildDisplaySitemascr/${e?.data?._id}`
                         )
                       }
                     >
@@ -351,7 +351,7 @@ export default function AllHistory() {
                       className={styles.display}
                       onClick={() =>
                         router.push(
-                          `/dashboard/dataChildDisplaySite/${e?.data?._id}`
+                          `/dashboard/dataDisplaytSite/dataChildDisplaySite/${e?.data?._id}`
                         )
                       }
                     >

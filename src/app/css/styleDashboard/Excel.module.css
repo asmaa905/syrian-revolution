@@ -83,6 +83,6 @@
 .table{
  min-width:1500px ;
 }
-.table th ,td{
+.table th ,.table td{
   width: fit-content;
 }
