@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext, useState, useEffect } from "react";
-import styles from "../../../../../css/styleDashboard/UpdateSuperVisor.module.css";
+import styles from "../../../../css/styleDashboard/UpdateSuperVisor.module.css";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { ContextUser } from "@/app/context/Context";
