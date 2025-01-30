@@ -1,13 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import styles from "../../css/styleDashboard/AddSuperVisor.module.css";
-import { useNavigate } from "react-router-dom";
+import styles from "../../../../css/styleDashboard/AddSuperVisor.module.css";
 import Joi from "joi";
-export default function AddUse() {
-  const navigate = useNavigate();
+import { useRouter } from "next/navigation";
+export default function AddUser() {
+  const router = useRouter();
   const [user, setUser] = useState({ role: "user" });
   const [errorListUser, setErrorListUser] = useState(null);
+
+  const [loading, setLoading] = useState(false);
+  const [errorBackUser, setErrorBackUser] = useState(null);
+  const [imageProfile, setImageProfile] = useState("");
+  const [imageDoc, setImageDoc] = useState("");
 
   function handlechange(e) {
     setUser((prevState) => ({
@@ -15,18 +20,43 @@ export default function AddUse() {
       [e.target.name]: e.target.value,
     }));
   }
-
-  const [imageProfile, setImageProfile] = useState("");
-
-  const [loading, setLoading] = useState(false);
-  const [errorBackUser, setErrorBackUser] = useState(null);
   function handleChangeImageProfile(e) {
-    setImageProfile(e.target.files[0]);
+    const file = e.target.files[0];
+    if (file) {
+      const allowedImageTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/jpg",
+        "image/webp",
+      ];
+      if (allowedImageTypes.includes(file.type)) {
+        setImageProfile(file);
+      } else {
+        alert("يُسمح فقط بملفات الصور (JPEG, PNG, JPG, WEBP) للصورة الشخصية.");
+        e.target.value = "";
+      }
+    }
   }
 
-  const [imageDoc, setImageDoc] = useState("");
   function handleChangeImageDoc(e) {
-    setImageDoc(e.target.files[0]);
+    const file = e.target.files[0];
+    if (file) {
+      const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/jpg",
+        "image/webp",
+        "application/pdf",
+      ];
+      if (allowedTypes.includes(file.type)) {
+        setImageDoc(file);
+      } else {
+        alert(
+          "يُسمح فقط بملفات الصور (JPEG, PNG, JPG, WEBP) أو PDF للوثيقة الشخصية."
+        );
+        e.target.value = "";
+      }
+    }
   }
 
   function validationAddUser() {
@@ -107,7 +137,7 @@ export default function AddUse() {
         setLoading(false);
 
         if (result.createdAt) {
-          navigate("/dashboard/userdash");
+          router.push("/dashboard/userdash");
         } else {
           setErrorBackUser(result);
         }
@@ -267,7 +297,7 @@ export default function AddUse() {
           style={{ color: "white", backgroundColor: "green" }}
           onClick={handleSubmit}
         >
-                   {loading ? (
+          {loading ? (
             <div role="status">
               <svg
                 aria-hidden="true"
@@ -294,7 +324,7 @@ export default function AddUse() {
         <button
           className={`add`}
           style={{ border: "1px solid red", color: "red" }}
-          onClick={() => navigate(-1)}
+          onClick={() => router.back()}
         >
           الغاء
         </button>
