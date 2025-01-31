@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Subscribes from "@/app/_Components/ComponentUser/subscribe/Subscribes";
 import AlertImageDash from "@/app/_Components/componantDashboard/AlertImageDash/AlertImageDash";
+import Head from "next/head";
 
 export default function NewsDetailsMascers({ params }) {
   const [single, setSingle] = useState([]);
@@ -41,6 +42,19 @@ export default function NewsDetailsMascers({ params }) {
 
   return (
     <>
+        <Head>
+  <title>العنوان | مكان الخبر</title>
+
+  <meta 
+    name="description" 
+    content="التفاصيل"
+  />
+  <meta 
+    name="keywords" 
+    content="العنوان, التفاصيل, مكان الخبر, أخبار, تقارير, تحليل"
+  />
+</Head>
+    <h1 className="hidden"></h1>
       {openAlert && <AlertImageDash src={openAlertStore} />}
 
       <div className="demonstrations py-3">

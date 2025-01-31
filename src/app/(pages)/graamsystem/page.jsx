@@ -31,6 +31,7 @@ export default function GraamSystem() {
 
   </div>
 </div>
+<h1 className="hidden"></h1>
 <RegimeMassacresUser/>
 <MartyrsUser/>
 <MissingUser/>

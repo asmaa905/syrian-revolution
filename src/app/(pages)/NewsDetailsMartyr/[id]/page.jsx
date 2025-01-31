@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Subscribes from "@/app/_Components/ComponentUser/subscribe/Subscribes";
 import AlertImageDash from "@/app/_Components/componantDashboard/AlertImageDash/AlertImageDash";
+import Head from "next/head";
 
 export default function NewsDetailsMartyr({ params }) {
   const [single, setSingle] = useState([]);
@@ -40,6 +41,19 @@ export default function NewsDetailsMartyr({ params }) {
 
   return (
     <>
+       <Head>
+  <title>العنوان | مكان الخبر</title>
+
+  <meta 
+    name="description" 
+    content="التفاصيل"
+  />
+  <meta 
+    name="keywords" 
+    content="العنوان, التفاصيل, مكان الخبر, أخبار, تقارير, تحليل"
+  />
+</Head>
+    <h1 className="hidden"></h1>
       {openAlert && <AlertImageDash src={openAlertStore} />}
 
       <div className="demonstrations py-3" style={{ marginBottom: "30px" }}>

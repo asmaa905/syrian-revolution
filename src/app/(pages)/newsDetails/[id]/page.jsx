@@ -9,6 +9,7 @@ import { ContextUser } from "@/app/context/Context";
 import { useRouter } from "next/navigation";
 import Subscribes from "@/app/_Components/ComponentUser/subscribe/Subscribes";
 import AlertImageDash from "@/app/_Components/componantDashboard/AlertImageDash/AlertImageDash";
+import Head from "next/head";
 
 export default function NewsDetails({ params }) {
   const [single, setSingle] = useState([]);
@@ -35,6 +36,19 @@ export default function NewsDetails({ params }) {
   ///////////////////////////////
   return (
     <>
+    <Head>
+  <title>العنوان | مكان الخبر</title>
+
+  <meta 
+    name="description" 
+    content="التفاصيل"
+  />
+  <meta 
+    name="keywords" 
+    content="العنوان, التفاصيل, مكان الخبر, أخبار, تقارير, تحليل"
+  />
+</Head>
+    <h1 className="hidden"></h1>
       <div className="demonstrations py-3">
         <div
           className="container max-w-screen-xl mx-auto "

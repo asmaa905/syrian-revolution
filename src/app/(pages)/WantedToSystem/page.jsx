@@ -83,6 +83,7 @@ export default function WantedToSystem() {
 />
 
   </Head>
+  <h1 className="hidden"></h1>
       <div >
         <div style={{ width: "100%", marginTop: "10px" }}>
           {errorListUser &&
