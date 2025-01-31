@@ -205,14 +205,13 @@ export default function DisplayWathaaqFromUser({ params }) {
                           href={`https://syrianrevolution1.com/postImages/${doc}`}
                           style={{ margin: "0 15px" }}
                         >
-                          fafile
-                          {/* <FontAwesomeIcon
+                          <FontAwesomeIcon
                             icon={faFile}
                             style={{
                               fontSize: "50px",
                               transform: "translateY(15px)",
                             }}
-                          /> */}
+                          />
                         </a>
                       ) : (
                         ""
@@ -234,8 +233,7 @@ export default function DisplayWathaaqFromUser({ params }) {
                         <a
                           href={`https://syrianrevolution1.com/postImages/${doc}`}
                         >
-                          faFileZipper
-                          {/* <FontAwesomeIcon icon={faFileZipper} /> */}
+                          <FontAwesomeIcon icon={faFileZipper} />
                         </a>
                       ) : (
                         ""
