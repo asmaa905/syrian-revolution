@@ -6,6 +6,8 @@ import ProtectedRouted from "@/app/_Components/componantDashboard/ProtectedRoute
 import AlertImageDash from "@/app/_Components/componantDashboard/AlertImageDash/AlertImageDash";
 import LeftSideBar from "@/app/_Components/componantDashboard/LeftSideBar";
 import { ContextUser } from "@/app/context/Context";
+import Head from "next/head";
+
 
 const DashboardLayout = ({ children }) => {
   const context = useContext(ContextUser);
@@ -17,6 +19,11 @@ const DashboardLayout = ({ children }) => {
   const { openAlert, openAlertStore } = context;
 
   return (
+    <>
+    <Head>
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Dashboard - Private Area</title>
+  </Head>
     <ProtectedRouted>
       <div className={style.HomeDashboard}>
         <LeftSideBar />
@@ -24,6 +31,7 @@ const DashboardLayout = ({ children }) => {
       </div>
       {openAlert && <AlertImageDash src={openAlertStore} />}
     </ProtectedRouted>
+    </>
   );
 };
 
