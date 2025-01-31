@@ -1,16 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-// import style from "../styleDashboard/MartyrsDash.module.css";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { useQuery } from "react-query";
 import axios from "axios";
-export default function DetaineesDash() {
+export default function TraitorsDash() {
   const [page, setPage] = useState(1);
-  const navigate = useNavigate();
-  function getMartyr(page = 1) {
+  const router = useRouter();
+  function getList(page = 1) {
     return axios.get(
-      `https://syrianrevolution1.com/childData/searchFalse?category=adetaine&page=${page}`,
+      `https://syrianrevolution1.com/lists/searchFalse?category=Traitors&page=${page}`,
       {
         headers: {
           Authorization: localStorage.getItem("token"),
@@ -18,15 +17,15 @@ export default function DetaineesDash() {
       }
     );
   }
-
   ///////////////////////
   const { data, isLoading } = useQuery(
-    ["addetaineDashboardUser", page],
-    () => getMartyr(page),
+    ["TriotorsDashboardUser", page],
+    () => getList(page),
     {
       keepPreviousData: true,
     }
   );
+
   ////////////////////////////
   const handleNextPage = () => setPage((prevPage) => prevPage + 1);
   const handlePreviousPage = () =>
@@ -58,44 +57,41 @@ export default function DetaineesDash() {
         <span className="sr-only">Loading...</span>
       </div>
     );
+
   return (
     <div>
       <div className={`headDashboard`}>
-        <p>البيانات المستلمة / معتقلين</p>
+        <p>البيانات المستلمة / الخائنون</p>
       </div>
       <div className={`containerTable`}>
         <table>
           <thead>
             <tr>
-              <th>اسم المعتقل</th>
+              <th>اسم الخائن</th>
               <th>اسم الناشر</th>
 
-              <th>البيانات المرفوعة</th>
+              <th> البيانات المرفوعة</th>
             </tr>
           </thead>
           <tbody>
-            {data?.data.map((user, index) =>
-              user.category === "adetaine" && user.isAccepted === false ? (
-                <tr key={index}>
-                  <td>{user.name} </td>
-                  <td>{user?.user?.username} </td>
+            {data?.data.map((user, index) => (
+              <tr key={index}>
+                <td>{user.name} </td>
+                <td>{user?.user?.username}</td>
 
-                  <td>
-                    <button
-                      className={`add `}
-                      style={{ backgroundColor: "#3B9058", color: "white" }}
-                      onClick={() => {
-                        navigate(`/dashboard/detaineesdash/${user._id}`);
-                      }}
-                    >
-                      عرض
-                    </button>
-                  </td>
-                </tr>
-              ) : (
-                ""
-              )
-            )}
+                <td>
+                  <button
+                    className={`add `}
+                    style={{ backgroundColor: "#3B9058", color: "white" }}
+                    onClick={() => {
+                      router.push(`/dashboard/traitors/${user._id}`);
+                    }}
+                  >
+                    عرض
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
         <div>

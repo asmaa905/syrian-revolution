@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState, useContext, useEffect } from "react";
-// import "../../../css/componantUser/MainNav/MainNav.css";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faWhatsapp,
@@ -14,12 +12,7 @@ import {
   faSquareYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
-import {
-  faCircleXmark,
-  faEye,
-  faCommentDots,
-} from "@fortawesome/free-solid-svg-icons";
-// import style from "../../../css/componantUser/RegisterUser/RegisterUser.module.css";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import RegisterUser from "../RegisterUser/RegisterUser";
 import LoginUser from "../LoginUser/LoginUser";
 import { ContextUser } from "../../../context/Context";

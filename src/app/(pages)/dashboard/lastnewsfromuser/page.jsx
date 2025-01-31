@@ -1,16 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-// import style from "../styleDashboard/MartyrsDash.module.css";
-import { useNavigate } from "react-router-dom";
-import { useQuery } from "react-query";
+import { useRouter } from "next/navigation";
+
 import axios from "axios";
-export default function DetaineesDash() {
+import { useQuery } from "react-query";
+
+export default function LastNewsDashFromUser() {
   const [page, setPage] = useState(1);
-  const navigate = useNavigate();
-  function getMartyr(page = 1) {
+  const router = useRouter();
+  function getList(page = 1) {
     return axios.get(
-      `https://syrianrevolution1.com/childData/searchFalse?category=adetaine&page=${page}`,
+      `https://syrianrevolution1.com/lists/searchFalse?category=lastNews&page=${page}`,
       {
         headers: {
           Authorization: localStorage.getItem("token"),
@@ -21,8 +22,8 @@ export default function DetaineesDash() {
 
   ///////////////////////
   const { data, isLoading } = useQuery(
-    ["addetaineDashboardUser", page],
-    () => getMartyr(page),
+    ["lastNewsDashboardUser", page],
+    () => getList(page),
     {
       keepPreviousData: true,
     }
@@ -35,7 +36,7 @@ export default function DetaineesDash() {
   if (isLoading)
     return (
       <div
-        className="spinner-border"
+        className=""
         role="status"
         style={{ position: "absolute", left: "50%", top: "50%" }}
       >
@@ -58,44 +59,43 @@ export default function DetaineesDash() {
         <span className="sr-only">Loading...</span>
       </div>
     );
+  /////////////////
   return (
     <div>
       <div className={`headDashboard`}>
-        <p>البيانات المستلمة / معتقلين</p>
+        <p>البيانات المستلمة / الاخبار</p>
       </div>
       <div className={`containerTable`}>
         <table>
           <thead>
             <tr>
-              <th>اسم المعتقل</th>
+              <th>اسم الخبر</th>
               <th>اسم الناشر</th>
 
-              <th>البيانات المرفوعة</th>
+              <th> البيانات المرفوعة</th>
             </tr>
           </thead>
           <tbody>
-            {data?.data.map((user, index) =>
-              user.category === "adetaine" && user.isAccepted === false ? (
-                <tr key={index}>
-                  <td>{user.name} </td>
-                  <td>{user?.user?.username} </td>
+            {data?.data?.map((user, index) => (
+              <tr key={index}>
+                <td>{user.name} </td>
+                <td>{user?.user?.username} </td>
 
-                  <td>
-                    <button
-                      className={`add `}
-                      style={{ backgroundColor: "#3B9058", color: "white" }}
-                      onClick={() => {
-                        navigate(`/dashboard/detaineesdash/${user._id}`);
-                      }}
-                    >
-                      عرض
-                    </button>
-                  </td>
-                </tr>
-              ) : (
-                ""
-              )
-            )}
+                <td>
+                  <button
+                    className={`add `}
+                    style={{ backgroundColor: "#3B9058", color: "white" }}
+                    onClick={() => {
+                      router.push(
+                        `/dashboard/lastnewsfromuser/${user._id}`
+                      );
+                    }}
+                  >
+                    عرض
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
         <div>
