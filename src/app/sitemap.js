@@ -50,5 +50,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.5,
     },
+    {
+      url: 'https://acme.com/lastNews',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://acme.com/archiefthoura',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://acme.com/symbolthourauser',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://acme.com/blacklistuser',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.5,
+    },
   ]
 }
